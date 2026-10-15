@@ -1,0 +1,21 @@
+{
+  "commit_sha": "f52f3930c8e7c33d934ccf614955a38e26984bd5",
+  "sandbox_path": "C:\\Users\\kunal\\AppData\\Local\\Temp\\exitguard_sb_validation\\exitguard_sb_49d1aea8",
+  "started_at": "2026-10-15T08:07:56.532109+00:00",
+  "interpreter_version": "Python 3.12.10",
+  "install_duration_ms": 6726,
+  "install_exit_code": 0,
+  "test_duration_ms": 9268,
+  "test_exit_code": 1,
+  "test_cmd": [
+    "C:\\Users\\kunal\\AppData\\Local\\Temp\\exitguard_sb_validation\\exitguard_sb_49d1aea8\\.venv_sb\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "tests",
+    "-v"
+  ],
+  "log_artifact_path": "C:\\Users\\kunal\\OneDrive\\Desktop\\V  5\\H26_ImpactForge_Resilify\\artifacts\\baseline_logs\\py312_sandbox_baseline.log",
+  "passed_count": 9,
+  "failed_count": 1,
+  "total_count": 10
+}
