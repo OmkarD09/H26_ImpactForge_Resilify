@@ -45,7 +45,7 @@ This **Dependency Exit Capsule** certifies the empirical verification of migrati
 
 - **Proposed Action:** `REPLACE`
 - **Replacement Package:** `platformdirs>=3.0.0` (Installed candidate version: `platformdirs 4.3.6`)
-- **AI Recommendation Provenance:** `AI_RECOMMENDATION` (Model: `gemma-4-26b-a4b-it`; Record ID: `gemma_rec_d92244c0c017`; Verified by live Google GenAI SDK call)
+- **AI Recommendation Provenance:** `AI_RECOMMENDATION` (Model: `gemma-4-26b-a4b-it`; Record ID: `gemma_rec_cf266b978411`; Verified by live Google GenAI SDK call)
 
 ### Exact Git Patch Applied in Disposable Sandbox:
 ```diff
@@ -136,10 +136,8 @@ Tests were executed using ExitGuard's `ExecutionRunner` (`shell=False`, timeout 
 
 1. **Test Suite Execution:** `test_cache_round_trip` passed cleanly.
 2. **Real Path Resolution:** Direct runtime inspection of `cache.cache_dir()` without `LINKWATCH_CACHE_DIR` environment variable confirms:
-   - `appdirs.user_cache_dir("linkwatch")` $
-ightarrow$ `C:\Users\kunal\AppData\Local\linkwatch\linkwatch\Cache`
-   - `platformdirs.user_cache_dir("linkwatch")` $
-ightarrow$ `C:\Users\kunal\AppData\Local\linkwatch\Cache`
+   - `appdirs.user_cache_dir("linkwatch")` $\rightarrow$ `C:\Users\kunal\AppData\Local\linkwatch\linkwatch\Cache`
+   - `platformdirs.user_cache_dir("linkwatch")` $\rightarrow$ `C:\Users\kunal\AppData\Local\linkwatch\Cache`
    - Both paths resolve within the operating system's verified local application cache hierarchy (`%LOCALAPPDATA%`), and `cache.py` creates and writes to the directory without permission or path errors.
 
 ---
