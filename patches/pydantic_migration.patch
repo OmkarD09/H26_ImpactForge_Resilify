@@ -17,7 +17,7 @@
  import toml
 -from pydantic import BaseModel, validator
 +try:
-+    from pydantic import BaseModel, validator, field_validator, ConfigDict
++    from pydantic import BaseModel, field_validator, ConfigDict
 +    V2 = True
 +except ImportError:
 +    from pydantic import BaseModel, validator
