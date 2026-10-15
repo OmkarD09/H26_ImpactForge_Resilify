@@ -1,0 +1,10 @@
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -4,1 +4,1 @@
+-Jinja2==2.11.3
++Jinja2>=3.1.5
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -16,1 +16,1 @@
+-    "Jinja2==2.11.3",
++    "Jinja2>=3.1.5",

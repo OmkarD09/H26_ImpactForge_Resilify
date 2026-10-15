@@ -1,0 +1,35 @@
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -5,1 +5,1 @@
+-pydantic==1.10.13
++pydantic>=2.0.0
+--- a/linkwatch/config.py
++++ b/linkwatch/config.py
+@@ -4,3 +4,11 @@
+-from pydantic import BaseModel, validator
++try:
++    from pydantic import BaseModel, field_validator, ConfigDict
++    V2 = True
++except ImportError:
++    from pydantic import BaseModel, validator
++    V2 = False
+ 
+ class Site(BaseModel):
+     name: str
+     url: str
++    if V2:
++        model_config = ConfigDict(str_strip_whitespace=True)
++    else:
++        class Config:
++            anystr_strip_whitespace = True
+@@ -14,2 +22,10 @@
++    if V2:
++        @field_validator("name")
++        @classmethod
++        def name_not_empty(cls, value):
++            if not value:
++                raise ValueError("site name can not be empty")
++            return value
++    else:
+         @validator("name")
+         def name_not_empty(cls, value):

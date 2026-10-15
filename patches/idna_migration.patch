@@ -1,0 +1,8 @@
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -10,1 +9,0 @@
+-idna==2.7
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -22,1 +21,0 @@
+-    "idna==2.7",

@@ -1,0 +1,8 @@
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -7,1 +6,0 @@
+-six
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -19,1 +19,0 @@
+-    "six",

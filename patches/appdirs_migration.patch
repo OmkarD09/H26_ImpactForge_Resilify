@@ -1,0 +1,8 @@
+--- a/linkwatch/cache.py
++++ b/linkwatch/cache.py
+@@ -2,3 +2,3 @@
+ import os
+ 
+-from appdirs import user_cache_dir
++from platformdirs import user_cache_dir
+ 

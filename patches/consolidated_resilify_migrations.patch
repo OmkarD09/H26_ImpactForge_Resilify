@@ -1,0 +1,139 @@
+# === Migration Patch for appdirs (REPLACE_PACKAGE) ===
+--- a/linkwatch/cache.py
++++ b/linkwatch/cache.py
+@@ -2,3 +2,3 @@
+ import os
+ 
+-from appdirs import user_cache_dir
++from platformdirs import user_cache_dir
+ 
+
+
+# === Migration Patch for idna (REMOVE_TRANSITIVE_PIN) ===
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -10,1 +9,0 @@
+-idna==2.7
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -22,1 +21,0 @@
+-    "idna==2.7",
+
+
+# === Migration Patch for jinja2 (BUMP_VERSION) ===
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -4,1 +4,1 @@
+-Jinja2==2.11.3
++Jinja2>=3.1.5
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -16,1 +16,1 @@
+-    "Jinja2==2.11.3",
++    "Jinja2>=3.1.5",
+
+
+# === Migration Patch for nose (REMOVE_BROKEN_DEV_TOOL) ===
+--- a/requirements-dev.txt
++++ b/requirements-dev.txt
+@@ -2,1 +1,0 @@
+-nose==1.3.7
+--- a/Makefile
++++ b/Makefile
+@@ -4,1 +4,1 @@
+-.PHONY: setup test test-nose docker-build docker-test
++.PHONY: setup test docker-build docker-test
+@@ -13,3 +13,0 @@
+-test-nose:
+-	nosetests tests/
+-
+
+
+# === Migration Patch for pydantic (RESOLVE_MANIFEST_CONFLICT) ===
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -5,1 +5,1 @@
+-pydantic==1.10.13
++pydantic>=2.0.0
+--- a/linkwatch/config.py
++++ b/linkwatch/config.py
+@@ -4,3 +4,11 @@
+-from pydantic import BaseModel, validator
++try:
++    from pydantic import BaseModel, field_validator, ConfigDict
++    V2 = True
++except ImportError:
++    from pydantic import BaseModel, validator
++    V2 = False
+ 
+ class Site(BaseModel):
+     name: str
+     url: str
++    if V2:
++        model_config = ConfigDict(str_strip_whitespace=True)
++    else:
++        class Config:
++            anystr_strip_whitespace = True
+@@ -14,2 +22,10 @@
++    if V2:
++        @field_validator("name")
++        @classmethod
++        def name_not_empty(cls, value):
++            if not value:
++                raise ValueError("site name can not be empty")
++            return value
++    else:
+         @validator("name")
+         def name_not_empty(cls, value):
+
+
+# === Migration Patch for setuptools (MIGRATE_TO_STDLIB) ===
+--- a/linkwatch/resources.py
++++ b/linkwatch/resources.py
+@@ -1,3 +1,3 @@
+-import pkg_resources
++from importlib.resources import files
+ 
+ TEMPLATE_NAME = "status.html.j2"
+@@ -6,3 +6,3 @@
+ def template_dir():
+-    return pkg_resources.resource_filename("linkwatch", "templates")
++    return str(files("linkwatch").joinpath("templates"))
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -9,1 +9,0 @@
+-setuptools==75.8.0
+
+
+# === Migration Patch for six (REMOVE_GHOST) ===
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -7,1 +6,0 @@
+-six
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -19,1 +19,0 @@
+-    "six",
+
+
+# === Migration Patch for toml (MIGRATE_TO_STDLIB) ===
+--- a/linkwatch/config.py
++++ b/linkwatch/config.py
+@@ -1,5 +1,9 @@
++import sys
+ from typing import List
+ 
+-import toml
++if sys.version_info >= (3, 11):
++    import tomllib
++else:
++    import tomli as tomllib
+ from pydantic import BaseModel, validator
+ 
+@@ -36,3 +40,3 @@
+ def load_settings(path="sites.toml"):
+-    data = toml.load(path)
++    with open(path, "rb") as f:
++        data = tomllib.load(f)
+     return Settings(**data)
+
