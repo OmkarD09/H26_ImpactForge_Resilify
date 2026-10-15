@@ -966,8 +966,8 @@
         card.className = 'surface-card';
         card.style.marginBottom = '20px';
 
-        const jsonExportUrl = `/api/capsules/production/export?project=${encodeURIComponent(state.currentProject)}&format=json&capsule_id=${encodeURIComponent(cap.capsule_id)}`;
-        const mdExportUrl = `/api/capsules/production/export?project=${encodeURIComponent(state.currentProject)}&format=markdown&capsule_id=${encodeURIComponent(cap.capsule_id)}`;
+        const jsonExportUrl = `/api/capsules/export/${encodeURIComponent(cap.capsule_id)}.json?project=${encodeURIComponent(state.currentProject)}`;
+        const mdExportUrl = `/api/capsules/export/${encodeURIComponent(cap.capsule_id)}.md?project=${encodeURIComponent(state.currentProject)}`;
 
         const fullJsonStr = JSON.stringify(cap.full_json || {}, null, 2);
 
@@ -1259,7 +1259,38 @@
     }
   }
 
-  DOM.btnThemeToggle?.addEventListener('click', toggleTheme);
+  // Intercept and enforce reliable client-side file downloads with exact filenames and extensions
+  document.addEventListener('click', async (e) => {
+    const a = e.target.closest('a[download]');
+    if (!a) return;
+    const href = a.getAttribute('href');
+    const filename = a.getAttribute('download');
+    if (!href || !filename) return;
+
+    e.preventDefault();
+    showToast(`Downloading ${filename}...`, 'info');
+
+    try {
+      const res = await fetch(href);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const blob = await res.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      const tempLink = document.createElement('a');
+      tempLink.href = blobUrl;
+      tempLink.download = filename;
+      tempLink.style.display = 'none';
+      document.body.appendChild(tempLink);
+      tempLink.click();
+      setTimeout(() => {
+        tempLink.remove();
+        window.URL.revokeObjectURL(blobUrl);
+      }, 1000);
+      showToast(`Saved ${filename}`, 'success');
+    } catch (err) {
+      console.warn('Blob download fallback:', err);
+      window.location.href = href;
+    }
+  });
 
   // Initialize Application
   async function init() {
