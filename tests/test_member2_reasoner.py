@@ -86,7 +86,7 @@ def test_gemma_client_schema_compliance_all_actionable(live_inventory):
     evaluated = gate.evaluate()
     actionable = gate.get_actionable_dependencies()
 
-    client = GemmaMigrationClient(api_key=None)  # deterministic expert mode
+    client = GemmaMigrationClient(api_key="")  # deterministic expert mode
     deps_data = live_inventory.get("dependencies", {})
 
     for dep in actionable:

@@ -48,7 +48,7 @@ class GemmaMigrationOrchestrator:
         self.api_key = api_key
 
     def run(self) -> Dict[str, Any]:
-        print(f"[*] Starting Resilify Gemma 4 Migration Orchestrator (Member 2)")
+        print(f"[*] Starting Resilify Gemma 4 Migration Orchestrator (Member 2)", flush=True)
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.patches_dir.mkdir(parents=True, exist_ok=True)
 
@@ -56,12 +56,12 @@ class GemmaMigrationOrchestrator:
             raise FileNotFoundError(f"Missing required inventory file from Member 1: {self.inventory_file}")
 
         # Step 1: Ingest inventory
-        print(f"[1/5] Ingesting baseline dependency inventory from: {self.inventory_file}")
+        print(f"[1/5] Ingesting baseline dependency inventory from: {self.inventory_file}", flush=True)
         with open(self.inventory_file, "r", encoding="utf-8") as f:
             inventory = json.load(f)
 
         # Step 2: Risk Evaluation Gate
-        print("[2/5] Running Risk Evaluation Gate (Enforcing 'Do not invent risk')...")
+        print("[2/5] Running Risk Evaluation Gate (Enforcing 'Do not invent risk')...", flush=True)
         gate = RiskEvaluationGate(inventory)
         evaluated = gate.evaluate()
 
@@ -69,23 +69,23 @@ class GemmaMigrationOrchestrator:
         benign = gate.get_benign_dependencies()
         unknown = gate.get_unknown_dependencies()
 
-        print(f"      Evaluated {len(evaluated)} packages:")
-        print(f"      - Actionable Risks: {len(actionable)} ({', '.join(d.package_name for d in actionable)})")
-        print(f"      - Benign Active: {len(benign)} ({', '.join(d.package_name for d in benign)})")
-        print(f"      - Unknown / Unverified: {len(unknown)}")
+        print(f"      Evaluated {len(evaluated)} packages:", flush=True)
+        print(f"      - Actionable Risks: {len(actionable)} ({', '.join(d.package_name for d in actionable)})", flush=True)
+        print(f"      - Benign Active: {len(benign)} ({', '.join(d.package_name for d in benign)})", flush=True)
+        print(f"      - Unknown / Unverified: {len(unknown)}", flush=True)
 
         # Step 3: Gemma 4 AI Reasoning & Migration Feasibility Assessment
-        print("[3/5] Synthesizing migration proposals with Gemma 4...")
+        print("[3/5] Synthesizing migration proposals with Gemma 4...", flush=True)
         client = GemmaMigrationClient(api_key=self.api_key)
-        mode_str = "Live Google GenAI API" if client.is_live_api_ready else "Deterministic Expert Synthesis"
-        print(f"      Operating mode: {mode_str}")
+        mode_str = f"Live Google GenAI API ({client.model_name})" if client.is_live_api_ready else "Deterministic Expert Synthesis"
+        print(f"      Operating mode: {mode_str}", flush=True)
 
         proposals: List[GemmaMigrationProposal] = []
         deps_data = inventory.get("dependencies", {})
         baseline_test = inventory.get("baseline_test_results", {})
 
         for dep in actionable:
-            print(f"      -> Processing proposal for '{dep.package_name}'...")
+            print(f"      -> Processing proposal for '{dep.package_name}'...", flush=True)
             pkg_info = deps_data.get(dep.package_name, {})
             ast_summary = pkg_info.get("ast_usage", {})
             pypi_summary = pkg_info.get("pypi_metadata", {})
@@ -121,11 +121,11 @@ class GemmaMigrationOrchestrator:
         verification_test_file = synthesizer.generate_verification_test_file(proposals)
         fallback_doc = synthesizer.format_fallback_documentation(proposals)
 
-        print(f"      Generated {len(written_patches)} patch files in: {self.patches_dir}")
-        print(f"      Generated verification test suite in: {verification_test_file}")
+        print(f"      Generated {len(written_patches)} patch files in: {self.patches_dir}", flush=True)
+        print(f"      Generated verification test suite in: {verification_test_file}", flush=True)
 
         # Step 5: Export Data Contracts & Markdown Report
-        print("[5/5] Exporting Member 2 deliverables for Member 3...")
+        print("[5/5] Exporting Member 2 deliverables for Member 3...", flush=True)
         proposals_contract = {
             "metadata": {
                 "generated_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -154,11 +154,11 @@ class GemmaMigrationOrchestrator:
         report_md = self._build_markdown_report(proposals, actionable, benign, unknown, written_patches, verification_test_file)
         report_file.write_text(report_md, encoding="utf-8")
 
-        print(f"\n[+] Member 2 Execution Completed Successfully!")
-        print(f"    - Proposals Data Contract: {proposals_file}")
-        print(f"    - Engineering Report:      {report_file}")
-        print(f"    - Consolidated Patch:      {written_patches.get('_consolidated', 'N/A')}")
-        print(f"    - Verification Test File:  {verification_test_file}")
+        print(f"\n[+] Member 2 Execution Completed Successfully!", flush=True)
+        print(f"    - Proposals Data Contract: {proposals_file}", flush=True)
+        print(f"    - Engineering Report:      {report_file}", flush=True)
+        print(f"    - Consolidated Patch:      {written_patches.get('_consolidated', 'N/A')}", flush=True)
+        print(f"    - Verification Test File:  {verification_test_file}", flush=True)
 
         return proposals_contract
 
