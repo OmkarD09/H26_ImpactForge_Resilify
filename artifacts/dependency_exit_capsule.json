@@ -1,0 +1,302 @@
+{
+  "capsule_id": "capsule-linkwatch-appdirs-to-platformdirs-20261015",
+  "repository": {
+    "url": "https://github.com/rishrek/LinkWatch",
+    "commit_sha": "f52f3930c8e7c33d934ccf614955a38e26984bd5",
+    "branch": "main",
+    "is_dirty": false
+  },
+  "verification": {
+    "verdict": "VERIFIED_SUCCESS",
+    "verdict_scope_explanation": "Verified that the appdirs -> platformdirs migration introduces ZERO new regressions on Python 3.12 under full pytest execution in LinkWatch, maintains identical cache round-trip behavior, and confines code modifications strictly to linkwatch/cache.py and manifest declarations. Pre-existing Jinja2/MarkupSafe failure remains isolated and unaffected.",
+    "supported_python_versions": [
+      "3.12",
+      "3.13"
+    ],
+    "tested_python_versions": [
+      "3.12"
+    ],
+    "python_version_results": {
+      "3.12": {
+        "python_version": "3.12",
+        "tested": true,
+        "baseline_run": {
+          "command_args": [
+            "C:\\Users\\kunal\\AppData\\Local\\Temp\\exitguard_sb_validation\\exitguard_sb_49d1aea8\\.venv_sb\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests",
+            "-v"
+          ],
+          "python_version": "3.12.10",
+          "platform": "Windows-AMD64",
+          "status": "FAILED",
+          "working_dir": "C:\\Users\\kunal\\AppData\\Local\\Temp\\exitguard_sb_validation\\exitguard_sb_49d1aea8",
+          "executed_at": "2026-10-15T08:07:56.532109+00:00",
+          "exit_code": 1,
+          "duration_ms": 9268,
+          "log_artifact_path": "C:\\Users\\kunal\\OneDrive\\Desktop\\V  5\\H26_ImpactForge_Resilify\\artifacts\\baseline_logs\\py312_sandbox_baseline.log",
+          "test_counts": {
+            "passed": 9,
+            "failed": 1,
+            "skipped": 0,
+            "total": 10
+          },
+          "test_results": [
+            {
+              "node_id": "tests/test_cache.py::test_cache_round_trip",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_checker.py::test_ok_is_up",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_checker.py::test_missing_is_down",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_checker.py::test_redirect_is_up",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_checker.py::test_slow_is_up",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_checker.py::test_closed_port_is_down",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_checker.py::test_latin1_title",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_checker.py::test_user_agent",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_config.py::test_sites_file_loads",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_report.py::test_report_renders_all_sites",
+              "status": "FAILED",
+              "duration_s": null,
+              "failure_message": "ImportError: can...",
+              "failure_signature": "ImportError: can..."
+            }
+          ],
+          "block_or_skip_reason": null
+        },
+        "migrated_run": {
+          "command_args": [
+            "C:\\Users\\kunal\\AppData\\Local\\Temp\\exitguard_sb_13b29bc4\\.venv_cand\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests",
+            "-v"
+          ],
+          "python_version": "3.12.10",
+          "platform": "Windows-AMD64",
+          "status": "FAILED",
+          "working_dir": "C:\\Users\\kunal\\AppData\\Local\\Temp\\exitguard_sb_13b29bc4",
+          "executed_at": "2026-10-15T09:02:04+00:00",
+          "exit_code": 1,
+          "duration_ms": 9374,
+          "log_artifact_path": "C:\\Users\\kunal\\OneDrive\\Desktop\\V  5\\H26_ImpactForge_Resilify\\artifacts\\runner_logs\\run_a0922bddc0.log",
+          "test_counts": {
+            "passed": 9,
+            "failed": 1,
+            "skipped": 0,
+            "total": 10
+          },
+          "test_results": [
+            {
+              "node_id": "tests/test_cache.py::test_cache_round_trip",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_checker.py::test_ok_is_up",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_checker.py::test_missing_is_down",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_checker.py::test_redirect_is_up",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_checker.py::test_slow_is_up",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_checker.py::test_closed_port_is_down",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_checker.py::test_latin1_title",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_checker.py::test_user_agent",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_config.py::test_sites_file_loads",
+              "status": "PASSED",
+              "duration_s": null,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_report.py::test_report_renders_all_sites",
+              "status": "FAILED",
+              "duration_s": null,
+              "failure_message": "ImportError: can...",
+              "failure_signature": "ImportError: can..."
+            }
+          ],
+          "block_or_skip_reason": null
+        },
+        "tests_passed_before": 9,
+        "tests_passed_after": 9,
+        "regressions": [],
+        "notes": "Parity confirmed: 9 passed, 1 pre-existing failure (soft_unicode), 0 regressions."
+      },
+      "3.13": {
+        "python_version": "3.13",
+        "tested": false,
+        "baseline_run": {
+          "command_args": [],
+          "python_version": "3.13",
+          "platform": "Windows-AMD64",
+          "status": "NOT_RUN",
+          "working_dir": null,
+          "executed_at": "2026-10-15T09:02:13+00:00",
+          "exit_code": null,
+          "duration_ms": null,
+          "log_artifact_path": null,
+          "test_counts": null,
+          "test_results": null,
+          "block_or_skip_reason": "Python 3.13 interpreter is not installed on this system. Not fabricated."
+        },
+        "migrated_run": null,
+        "tests_passed_before": null,
+        "tests_passed_after": null,
+        "regressions": [],
+        "notes": "NOT_RUN: Python 3.13 interpreter not available on host system."
+      }
+    },
+    "compatibility_gaps": [
+      "Pre-existing baseline failure in test_report_renders_all_sites (Jinja2 2.11.3 vs MarkupSafe 3.0.4) is unrelated and requires a separate Jinja2 upgrade.",
+      "Python 3.13 interpreter was not installed on host machine and remains NOT_RUN."
+    ],
+    "unresolved_concerns": [
+      "Windows local AppData path resolution matches appdirs convention; Linux XDG / macOS Application Support conventions were verified via platformdirs specification but not executed on non-Windows hosts."
+    ]
+  },
+  "schema_version": "1.0.0",
+  "is_synthetic_fixture": false,
+  "is_draft": false,
+  "generated_at": "2026-10-15T09:02:13+00:00",
+  "generated_by": "ExitGuard v0.1.0 (Member 3: Migration Verification)",
+  "target_dependency": {
+    "name": "appdirs",
+    "specifier": "==1.4.4",
+    "installed_version": "1.4.4",
+    "is_provisional": false
+  },
+  "risk_evidence": [
+    {
+      "category": "ABANDONED_UPSTREAM",
+      "evidence": "Upstream ActiveState/appdirs repository archived in 2017; no releases since 2020.",
+      "source": "PyPI JSON API & GitHub Repository Status",
+      "status": "OBSERVED"
+    },
+    {
+      "category": "STALE_PACKAGE",
+      "evidence": "appdirs version 1.4.4 was released on 2020-05-11 (over 5 years stale).",
+      "source": "PyPI release history",
+      "status": "OBSERVED"
+    },
+    {
+      "category": "MAINTENANCE_MIGRATION",
+      "evidence": "Python ecosystem standardized on 'platformdirs' as the maintained active fork.",
+      "source": "Python Packaging Advisory / Ecosystem Consensus",
+      "status": "OBSERVED"
+    }
+  ],
+  "usage_locations": [
+    {
+      "file_path": "linkwatch/cache.py",
+      "line_numbers": [
+        4,
+        10
+      ],
+      "ast_symbol": "user_cache_dir",
+      "status": "OBSERVED"
+    }
+  ],
+  "migration_proposal": {
+    "proposed_action": "REPLACE",
+    "replacement_package": "platformdirs>=3.0.0",
+    "rationale": "Replace abandoned 'appdirs' with its community standard fork 'platformdirs'. Provides exact 1:1 drop-in signature for user_cache_dir('linkwatch') with zero logic changes.",
+    "patch_diff": "diff --git a/linkwatch/cache.py b/linkwatch/cache.py\nindex fbcb878..62348d2 100644\n--- a/linkwatch/cache.py\n+++ b/linkwatch/cache.py\n@@ -1,7 +1,7 @@\n import json\n import os\n \n-from appdirs import user_cache_dir\n+from platformdirs import user_cache_dir\n \n RESULTS_FILE = \"results.json\"\n \ndiff --git a/pyproject.toml b/pyproject.toml\nindex 6c2754a..714ae8a 100644\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -11,7 +11,7 @@ license = { text = \"MIT\" }\n requires-python = \">=3.10\"\n dependencies = [\n     \"toml==0.10.2\",\n-    \"appdirs==1.4.4\",\n+    \"platformdirs>=3.0.0\",\n     \"requests==2.31.0\",\n     \"Jinja2==2.11.3\",\n     \"pydantic>=2\",\ndiff --git a/requirements.txt b/requirements.txt\nindex 6d525b7..f4dce3e 100644\n--- a/requirements.txt\n+++ b/requirements.txt\n@@ -1,5 +1,5 @@\n toml==0.10.2\n-appdirs==1.4.4\n+platformdirs>=3.0.0\n requests==2.31.0\n Jinja2==2.11.3\n pydantic==1.10.13\n",
+    "uncertainty_notes": "Member 2 Gemma 4 recommendation was not provided in workspace (recorded as MISSING_FROM_MEMBER_2). Proposal was manually specified and verified empirically inside disposable sandbox.",
+    "status": "AI_RECOMMENDATION"
+  }
+}

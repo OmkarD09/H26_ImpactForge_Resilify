@@ -1,0 +1,20 @@
+{
+  "record_id": "gemma_rec_276fa919aacd",
+  "model_id": "gemma-4-26b-a4b-it",
+  "timestamp_utc": "2026-10-15T09:09:01+00:00",
+  "prompt_hash": "8b87269fe9eb29d2a118bb42a30ad070cfaabc987dbb5eb9eadc6f955bd089d1",
+  "prompt_version": "1.0.0",
+  "raw_response": null,
+  "recommendation": null,
+  "validation_status": "CREDENTIALS_MISSING",
+  "validation_errors": [
+    "GEMINI_API_KEY environment variable is not set. Network request skipped."
+  ],
+  "request_metadata": {
+    "target_repository": "LinkWatch",
+    "model_id": "gemma-4-26b-a4b-it",
+    "prompt_length_chars": 7491,
+    "temperature": 0.2,
+    "timestamp_utc": "2026-10-15T09:09:01+00:00"
+  }
+}
