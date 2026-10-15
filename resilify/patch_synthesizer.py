@@ -153,7 +153,7 @@ class PatchSynthesizer:
         req_pydantic_new = req_orig.replace("pydantic==1.10.13\n", "pydantic>=2.0.0\n")
         config_pydantic_new = config_orig.replace(
             "from pydantic import BaseModel, validator",
-            "try:\n    from pydantic import BaseModel, field_validator, ConfigDict\n    V2 = True\nexcept ImportError:\n    from pydantic import BaseModel, validator\n    V2 = False"
+            "try:\n    from pydantic import BaseModel, validator, field_validator, ConfigDict\n    V2 = True\nexcept ImportError:\n    from pydantic import BaseModel, validator\n    V2 = False"
         )
         pydantic_patch = (
             self._make_diff(f"{self.repo_dir.name}/requirements.txt", req_orig, req_pydantic_new) +
@@ -165,7 +165,7 @@ class PatchSynthesizer:
         # 9. consolidated_resilify_migrations.patch
         final_config = config_orig.replace(
             "import toml\nfrom pydantic import BaseModel, validator",
-            "import sys\nif sys.version_info >= (3, 11):\n    import tomllib\nelse:\n    import tomli as tomllib\ntry:\n    from pydantic import BaseModel, field_validator, ConfigDict\n    V2 = True\nexcept ImportError:\n    from pydantic import BaseModel, validator\n    V2 = False"
+            "import sys\nif sys.version_info >= (3, 11):\n    import tomllib\nelse:\n    import tomli as tomllib\ntry:\n    from pydantic import BaseModel, validator, field_validator, ConfigDict\n    V2 = True\nexcept ImportError:\n    from pydantic import BaseModel, validator\n    V2 = False"
         ).replace(
             "def load_settings(path=\"sites.toml\"):\n    data = toml.load(path)\n    return Settings(**data)",
             "def load_settings(path=\"sites.toml\"):\n    with open(path, \"rb\") as f:\n        data = tomllib.load(f)\n    return Settings(**data)"
