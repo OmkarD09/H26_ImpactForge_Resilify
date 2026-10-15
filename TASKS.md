@@ -33,11 +33,11 @@
 * **Objective:** Execute sandboxed validation, handle execution failures gracefully, and compile the final Dependency Exit Capsule.
 
 ### **Assigned Tasks:**
-- [ ] **Isolated Sandbox Setup:** Create an isolated temporary copy of `LinkWatch` from a clean baseline.
-- [ ] **Patch Application & Installation:** Apply Gemma's candidate patch and install compatible replacement packages.
-- [ ] **Post-Migration Verification:** Run targeted and full project `pytest` suites inside the sandbox.
-- [ ] **Outcome Comparison & Error Handling:** Compare baseline vs. migrated test runs:
+- [x] **Isolated Sandbox Setup:** Create an isolated temporary copy of `LinkWatch` from a clean baseline.
+- [x] **Patch Application & Installation:** Apply Gemma's candidate patch and install compatible replacement packages.
+- [x] **Post-Migration Verification:** Run targeted and full project `pytest` suites inside the sandbox.
+- [x] **Outcome Comparison & Error Handling:** Compare baseline vs. migrated test runs:
   - *Pass within tested scope* $\rightarrow$ Mark tests passed; retain limitations.
   - *Failures or behavioral differences* $\rightarrow$ Record compatibility gaps and rollback risks.
   - *Could not execute* $\rightarrow$ Mark as **NOT VERIFIED** with a clear engineering explanation.
-- [ ] **Capsule Compilation:** Output the complete **Dependency Exit Capsule** (`dependency_exit_capsule.json` and `DEPENDENCY_EXIT_CAPSULE.md`) containing all required fields (dependency details, risk indicators, usage locations, proposed replacements, migration steps, executed test results, and compatibility gaps) separated clearly into **Observed Evidence** vs. **Gemma 4 Recommendations**.
+- [x] **Capsule Compilation:** Output the complete **Dependency Exit Capsule** (`dependency_exit_capsule.json` and `DEPENDENCY_EXIT_CAPSULE.md`) containing all required fields (dependency details, risk indicators, usage locations, proposed replacements, migration steps, executed test results, and compatibility gaps) separated clearly into **Observed Evidence** vs. **Gemma 4 Recommendations**.
