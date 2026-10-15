@@ -1,0 +1,146 @@
+{
+  "$comment": "THIS IS A SYNTHETIC TEST FIXTURE FOR SCHEMA VALIDATION ONLY. NOT A REAL MIGRATION RESULT.",
+  "schema_version": "1.0.0",
+  "capsule_id": "SYNTHETIC_FIXTURE-mock-pkg-20261015",
+  "is_synthetic_fixture": true,
+  "is_draft": false,
+  "generated_at": "2026-10-15T12:00:00Z",
+  "generated_by": "ExitGuard Schema Test Suite",
+  "repository": {
+    "url": "https://github.com/rishrek/linkwatch",
+    "commit_sha": "f52f3930c8e7c33d934ccf614955a38e26984bd5",
+    "branch": "main",
+    "is_dirty": false
+  },
+  "target_dependency": {
+    "name": "example-legacy-lib",
+    "specifier": "==1.0.0",
+    "installed_version": "1.0.0",
+    "is_provisional": true
+  },
+  "risk_evidence": [
+    {
+      "category": "maintenance",
+      "evidence": "Repository archived upstream; no release in 5 years",
+      "source": "https://pypi.org/project/example-legacy-lib/",
+      "status": "OBSERVED"
+    },
+    {
+      "category": "compatibility",
+      "evidence": "Uses deprecated standard library module removed in Python 3.13",
+      "source": "AST static scan",
+      "status": "OBSERVED"
+    }
+  ],
+  "usage_locations": [
+    {
+      "file_path": "linkwatch/example.py",
+      "line_numbers": [12, 13],
+      "ast_symbol": "example_legacy_lib.helper",
+      "status": "OBSERVED"
+    }
+  ],
+  "migration_proposal": {
+    "proposed_action": "REPLACE",
+    "replacement_package": "example-modern-lib",
+    "rationale": "Direct drop-in API replacement actively maintained for Python 3.12 and 3.13.",
+    "patch_diff": "--- a/linkwatch/example.py\n+++ b/linkwatch/example.py\n@@ -1,2 +1,2 @@\n-import example_legacy_lib as helper\n+import example_modern_lib as helper\n",
+    "uncertainty_notes": "AI-suggested replacement; requires test verification in isolated sandbox.",
+    "status": "AI_RECOMMENDATION"
+  },
+  "verification": {
+    "verdict": "VERIFIED_SUCCESS",
+    "verdict_scope_explanation": "VERIFIED_SUCCESS certifies solely that the 4 test cases in tests/ passed cleanly under Python 3.12 without regressions. It does not certify universal behavioral equivalence beyond the executed tests.",
+    "supported_python_versions": [
+      "3.12",
+      "3.13"
+    ],
+    "tested_python_versions": [
+      "3.12"
+    ],
+    "python_version_results": {
+      "3.12": {
+        "python_version": "3.12",
+        "tested": true,
+        "baseline_run": {
+          "command_args": [
+            "py",
+            "-3.12",
+            "-m",
+            "pytest",
+            "tests"
+          ],
+          "python_version": "3.12.10",
+          "platform": "Windows-11-AMD64",
+          "status": "PASSED",
+          "working_dir": "C:\\temp\\sandbox_baseline",
+          "executed_at": "2026-10-15T12:01:00Z",
+          "exit_code": 0,
+          "duration_ms": 1420,
+          "log_artifact_path": "artifacts/logs/py312_baseline.log",
+          "test_counts": {
+            "passed": 4,
+            "failed": 0,
+            "skipped": 0,
+            "total": 4
+          },
+          "block_or_skip_reason": null
+        },
+        "migrated_run": {
+          "command_args": [
+            "py",
+            "-3.12",
+            "-m",
+            "pytest",
+            "tests"
+          ],
+          "python_version": "3.12.10",
+          "platform": "Windows-11-AMD64",
+          "status": "PASSED",
+          "working_dir": "C:\\temp\\sandbox_migrated",
+          "executed_at": "2026-10-15T12:02:00Z",
+          "exit_code": 0,
+          "duration_ms": 1390,
+          "log_artifact_path": "artifacts/logs/py312_migrated.log",
+          "test_counts": {
+            "passed": 4,
+            "failed": 0,
+            "skipped": 0,
+            "total": 4
+          },
+          "block_or_skip_reason": null
+        },
+        "tests_passed_before": 4,
+        "tests_passed_after": 4,
+        "regressions": [],
+        "notes": "Parity confirmed across all 4 unit tests under Python 3.12."
+      },
+      "3.13": {
+        "python_version": "3.13",
+        "tested": false,
+        "baseline_run": {
+          "command_args": [],
+          "python_version": "3.13",
+          "platform": "Windows-11-AMD64",
+          "status": "NOT_RUN",
+          "working_dir": null,
+          "executed_at": null,
+          "exit_code": null,
+          "duration_ms": null,
+          "log_artifact_path": null,
+          "test_counts": null,
+          "block_or_skip_reason": "Python 3.13 binary was not installed in the local execution environment."
+        },
+        "migrated_run": null,
+        "tests_passed_before": null,
+        "tests_passed_after": null,
+        "regressions": [],
+        "notes": "Untested on Python 3.13 due to missing local interpreter."
+      }
+    },
+    "compatibility_gaps": [],
+    "unresolved_concerns": [
+      "Manual smoke testing recommended for edge case encodings."
+    ]
+  }
+}
