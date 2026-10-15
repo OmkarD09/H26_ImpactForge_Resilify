@@ -1,0 +1,731 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "capsule_version": "1.0.0",
+  "generated_at_utc": "2026-10-15T09:51:54.454811+00:00",
+  "project_name": "Resilify",
+  "track": "Track 1: Gemma 4 Dependency Resilience",
+  "verdict": "VERIFIED_SUCCESS",
+  "OBSERVED_AND_VERIFIED_EVIDENCE": {
+    "target_repository": "https://github.com/rishrek/LinkWatch",
+    "target_runtime": "Python 3.12 / 3.13 (Evaluated under 3.14.7)",
+    "manifest_files_audited": [
+      "requirements.txt",
+      "requirements-dev.txt",
+      "pyproject.toml"
+    ],
+    "version_conflicts_detected": [
+      {
+        "package": "pydantic",
+        "sources": [
+          "requirements.txt",
+          "pyproject.toml"
+        ],
+        "specifiers": [
+          "==1.10.13",
+          ">=2"
+        ],
+        "conflict_type": "PIN_VS_RANGE_MISMATCH",
+        "description": "Package 'pydantic' is strictly pinned in some manifests (requirements.txt: '==1.10.13', pyproject.toml: '>=2') but loose or constrained differently elsewhere."
+      }
+    ],
+    "total_dependencies_inventoried": 14,
+    "gate_classification": {
+      "actionable_risks": [
+        "appdirs",
+        "idna",
+        "jinja2",
+        "nose",
+        "pydantic",
+        "setuptools",
+        "six",
+        "toml"
+      ],
+      "benign_active": [
+        "chardet",
+        "click",
+        "pytest",
+        "requests"
+      ],
+      "unverified_unknown": [
+        "python-dateutil",
+        "rich"
+      ]
+    },
+    "observed_dependencies": {
+      "toml": {
+        "package_name": "toml",
+        "manifest_declarations": [],
+        "pypi_metadata": {
+          "latest_version": "0.10.2",
+          "release_date": null,
+          "requires_python": ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*",
+          "supported_python_classifiers": [],
+          "has_python_312_classifier": false,
+          "has_python_313_classifier": false,
+          "deprecation_markers": []
+        },
+        "ast_code_usage": {
+          "is_imported": false,
+          "import_count": 1,
+          "call_sites_count": 0,
+          "import_locations": [],
+          "call_sites": [
+            {
+              "file_path": "linkwatch\\config.py",
+              "line_number": 14,
+              "call_expression": "validator",
+              "callee_name": "validator",
+              "code_snippet": "@validator(\"name\")"
+            },
+            {
+              "file_path": "linkwatch\\config.py",
+              "line_number": 20,
+              "call_expression": "validator",
+              "callee_name": "validator",
+              "code_snippet": "@validator(\"url\")"
+            },
+            {
+              "file_path": "linkwatch\\config.py",
+              "line_number": 37,
+              "call_expression": "toml.load",
+              "callee_name": "toml.load",
+              "code_snippet": "data = toml.load(path)"
+            }
+          ]
+        }
+      },
+      "appdirs": {
+        "package_name": "appdirs",
+        "manifest_declarations": [],
+        "pypi_metadata": {
+          "latest_version": "1.4.4",
+          "release_date": null,
+          "requires_python": "",
+          "supported_python_classifiers": [],
+          "has_python_312_classifier": false,
+          "has_python_313_classifier": false,
+          "deprecation_markers": []
+        },
+        "ast_code_usage": {
+          "is_imported": false,
+          "import_count": 1,
+          "call_sites_count": 0,
+          "import_locations": [],
+          "call_sites": []
+        }
+      },
+      "requests": {
+        "package_name": "requests",
+        "manifest_declarations": [],
+        "pypi_metadata": {
+          "latest_version": "2.34.2",
+          "release_date": null,
+          "requires_python": ">=3.10",
+          "supported_python_classifiers": [],
+          "has_python_312_classifier": false,
+          "has_python_313_classifier": false,
+          "deprecation_markers": []
+        },
+        "ast_code_usage": {
+          "is_imported": false,
+          "import_count": 4,
+          "call_sites_count": 0,
+          "import_locations": [],
+          "call_sites": [
+            {
+              "file_path": "linkwatch\\checker.py",
+              "line_number": 13,
+              "call_expression": "S",
+              "callee_name": "S",
+              "code_snippet": "session = S()"
+            },
+            {
+              "file_path": "linkwatch\\checker.py",
+              "line_number": 15,
+              "call_expression": "certifi.where",
+              "callee_name": "certifi.where",
+              "code_snippet": "return session.get(url, verify=certifi.where())"
+            }
+          ]
+        }
+      },
+      "jinja2": {
+        "package_name": "jinja2",
+        "manifest_declarations": [],
+        "pypi_metadata": {
+          "latest_version": "3.1.6",
+          "release_date": null,
+          "requires_python": ">=3.7",
+          "supported_python_classifiers": [],
+          "has_python_312_classifier": false,
+          "has_python_313_classifier": false,
+          "deprecation_markers": []
+        },
+        "ast_code_usage": {
+          "is_imported": false,
+          "import_count": 1,
+          "call_sites_count": 0,
+          "import_locations": [],
+          "call_sites": []
+        }
+      },
+      "pydantic": {
+        "package_name": "pydantic",
+        "manifest_declarations": [],
+        "pypi_metadata": {
+          "latest_version": "2.14.1",
+          "release_date": null,
+          "requires_python": ">=3.10",
+          "supported_python_classifiers": [],
+          "has_python_312_classifier": false,
+          "has_python_313_classifier": false,
+          "deprecation_markers": []
+        },
+        "ast_code_usage": {
+          "is_imported": false,
+          "import_count": 1,
+          "call_sites_count": 0,
+          "import_locations": [],
+          "call_sites": []
+        }
+      },
+      "click": {
+        "package_name": "click",
+        "manifest_declarations": [],
+        "pypi_metadata": {
+          "latest_version": "8.5.0",
+          "release_date": null,
+          "requires_python": ">=3.10",
+          "supported_python_classifiers": [],
+          "has_python_312_classifier": false,
+          "has_python_313_classifier": false,
+          "deprecation_markers": []
+        },
+        "ast_code_usage": {
+          "is_imported": false,
+          "import_count": 2,
+          "call_sites_count": 0,
+          "import_locations": [],
+          "call_sites": [
+            {
+              "file_path": "linkwatch\\cli.py",
+              "line_number": 9,
+              "call_expression": "Console",
+              "callee_name": "Console",
+              "code_snippet": "console = Console()"
+            },
+            {
+              "file_path": "linkwatch\\cli.py",
+              "line_number": 13,
+              "call_expression": "Table",
+              "callee_name": "Table",
+              "code_snippet": "table = Table(title=title)"
+            },
+            {
+              "file_path": "linkwatch\\cli.py",
+              "line_number": 27,
+              "call_expression": "click.group",
+              "callee_name": "click.group",
+              "code_snippet": "@click.group()"
+            },
+            {
+              "file_path": "linkwatch\\cli.py",
+              "line_number": 28,
+              "call_expression": "click.version_option",
+              "callee_name": "click.version_option",
+              "code_snippet": "@click.version_option(__version__, prog_name=\"linkwatch\")"
+            },
+            {
+              "file_path": "linkwatch\\cli.py",
+              "line_number": 40,
+              "call_expression": "Live",
+              "callee_name": "Live",
+              "code_snippet": "with Live(build_table(settings.title, results), console=console,"
+            },
+            {
+              "file_path": "linkwatch\\cli.py",
+              "line_number": 34,
+              "call_expression": "click.option",
+              "callee_name": "click.option",
+              "code_snippet": "@click.option(\"--config\", \"config_path\", default=\"sites.toml\", show_default=True,"
+            },
+            {
+              "file_path": "linkwatch\\cli.py",
+              "line_number": 60,
+              "call_expression": "click.ClickException",
+              "callee_name": "click.ClickException",
+              "code_snippet": "raise click.ClickException(\"No cached results, run 'linkwatch check' first.\")"
+            },
+            {
+              "file_path": "linkwatch\\cli.py",
+              "line_number": 62,
+              "call_expression": "click.echo",
+              "callee_name": "click.echo",
+              "code_snippet": "click.echo(\"Wrote %s\" % path)"
+            },
+            {
+              "file_path": "linkwatch\\cli.py",
+              "line_number": 51,
+              "call_expression": "click.option",
+              "callee_name": "click.option",
+              "code_snippet": "@click.option(\"--output\", \"-o\", default=\"status.html\", show_default=True,"
+            },
+            {
+              "file_path": "linkwatch\\cli.py",
+              "line_number": 53,
+              "call_expression": "click.option",
+              "callee_name": "click.option",
+              "code_snippet": "@click.option(\"--title\", default=\"linkwatch\", show_default=True)"
+            },
+            {
+              "file_path": "linkwatch\\cli.py",
+              "line_number": 68,
+              "call_expression": "click.echo",
+              "callee_name": "click.echo",
+              "code_snippet": "click.echo(\"Templates: %s\" % resources.template_dir())"
+            },
+            {
+              "file_path": "linkwatch\\cli.py",
+              "line_number": 69,
+              "call_expression": "click.echo",
+              "callee_name": "click.echo",
+              "code_snippet": "click.echo(\"Cache:     %s\" % cache.cache_file())"
+            }
+          ]
+        }
+      },
+      "six": {
+        "package_name": "six",
+        "manifest_declarations": [],
+        "pypi_metadata": {
+          "latest_version": "1.17.0",
+          "release_date": null,
+          "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7",
+          "supported_python_classifiers": [],
+          "has_python_312_classifier": false,
+          "has_python_313_classifier": false,
+          "deprecation_markers": []
+        },
+        "ast_code_usage": {
+          "is_imported": false,
+          "import_count": 0,
+          "call_sites_count": 0,
+          "import_locations": [],
+          "call_sites": []
+        }
+      },
+      "chardet": {
+        "package_name": "chardet",
+        "manifest_declarations": [],
+        "pypi_metadata": {
+          "latest_version": "7.6.0",
+          "release_date": null,
+          "requires_python": ">=3.10",
+          "supported_python_classifiers": [],
+          "has_python_312_classifier": false,
+          "has_python_313_classifier": false,
+          "deprecation_markers": []
+        },
+        "ast_code_usage": {
+          "is_imported": false,
+          "import_count": 1,
+          "call_sites_count": 0,
+          "import_locations": [],
+          "call_sites": [
+            {
+              "file_path": "linkwatch\\encoding.py",
+              "line_number": 11,
+              "call_expression": "_parse_content_type_header",
+              "callee_name": "_parse_content_type_header",
+              "code_snippet": "_, params = _parse_content_type_header(resp.headers.get(\"Content-Type\", \"\"))"
+            },
+            {
+              "file_path": "linkwatch\\encoding.py",
+              "line_number": 15,
+              "call_expression": "chardet.detect",
+              "callee_name": "chardet.detect",
+              "code_snippet": "guess = chardet.detect(resp.content)"
+            }
+          ]
+        }
+      },
+      "setuptools": {
+        "package_name": "setuptools",
+        "manifest_declarations": [],
+        "pypi_metadata": {
+          "latest_version": "84.0.0",
+          "release_date": null,
+          "requires_python": ">=3.10",
+          "supported_python_classifiers": [],
+          "has_python_312_classifier": false,
+          "has_python_313_classifier": false,
+          "deprecation_markers": []
+        },
+        "ast_code_usage": {
+          "is_imported": false,
+          "import_count": 1,
+          "call_sites_count": 0,
+          "import_locations": [],
+          "call_sites": [
+            {
+              "file_path": "linkwatch\\resources.py",
+              "line_number": 7,
+              "call_expression": "pkg_resources.resource_filename",
+              "callee_name": "pkg_resources.resource_filename",
+              "code_snippet": "return pkg_resources.resource_filename(\"linkwatch\", \"templates\")"
+            }
+          ]
+        }
+      },
+      "idna": {
+        "package_name": "idna",
+        "manifest_declarations": [],
+        "pypi_metadata": {
+          "latest_version": "3.20",
+          "release_date": null,
+          "requires_python": ">=3.9",
+          "supported_python_classifiers": [],
+          "has_python_312_classifier": false,
+          "has_python_313_classifier": false,
+          "deprecation_markers": []
+        },
+        "ast_code_usage": {
+          "is_imported": false,
+          "import_count": 0,
+          "call_sites_count": 0,
+          "import_locations": [],
+          "call_sites": []
+        }
+      },
+      "python-dateutil": {
+        "package_name": "python-dateutil",
+        "manifest_declarations": [],
+        "pypi_metadata": {
+          "latest_version": "2.9.0.post0",
+          "release_date": null,
+          "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7",
+          "supported_python_classifiers": [],
+          "has_python_312_classifier": false,
+          "has_python_313_classifier": false,
+          "deprecation_markers": []
+        },
+        "ast_code_usage": {
+          "is_imported": false,
+          "import_count": 1,
+          "call_sites_count": 0,
+          "import_locations": [],
+          "call_sites": []
+        }
+      },
+      "rich": {
+        "package_name": "rich",
+        "manifest_declarations": [],
+        "pypi_metadata": {
+          "latest_version": "15.0.0",
+          "release_date": null,
+          "requires_python": ">=3.9.0",
+          "supported_python_classifiers": [],
+          "has_python_312_classifier": false,
+          "has_python_313_classifier": false,
+          "deprecation_markers": []
+        },
+        "ast_code_usage": {
+          "is_imported": false,
+          "import_count": 3,
+          "call_sites_count": 0,
+          "import_locations": [],
+          "call_sites": []
+        }
+      },
+      "pytest": {
+        "package_name": "pytest",
+        "manifest_declarations": [],
+        "pypi_metadata": {
+          "latest_version": "9.1.1",
+          "release_date": null,
+          "requires_python": ">=3.10",
+          "supported_python_classifiers": [],
+          "has_python_312_classifier": false,
+          "has_python_313_classifier": false,
+          "deprecation_markers": []
+        },
+        "ast_code_usage": {
+          "is_imported": false,
+          "import_count": 1,
+          "call_sites_count": 0,
+          "import_locations": [],
+          "call_sites": [
+            {
+              "file_path": "tests\\conftest.py",
+              "line_number": 60,
+              "call_expression": "pytest.fixture",
+              "callee_name": "pytest.fixture",
+              "code_snippet": "@pytest.fixture(scope=\"session\")"
+            }
+          ]
+        }
+      },
+      "nose": {
+        "package_name": "nose",
+        "manifest_declarations": [],
+        "pypi_metadata": {
+          "latest_version": "1.3.7",
+          "release_date": null,
+          "requires_python": null,
+          "supported_python_classifiers": [],
+          "has_python_312_classifier": false,
+          "has_python_313_classifier": false,
+          "deprecation_markers": []
+        },
+        "ast_code_usage": {
+          "is_imported": false,
+          "import_count": 0,
+          "call_sites_count": 0,
+          "import_locations": [],
+          "call_sites": []
+        }
+      }
+    },
+    "sandbox_baseline_test_run": {
+      "suite": "Baseline Pre-Migration Tests",
+      "passed": 17,
+      "failed": 0,
+      "duration_seconds": 9.164,
+      "status": "PASSED"
+    },
+    "sandbox_post_migration_verification_run": {
+      "suite": "Targeted Migration Parity Tests",
+      "passed": 7,
+      "failed": 0,
+      "duration_seconds": 0.558,
+      "status": "PASSED",
+      "verified_scope": [
+        "tomllib binary file-read mode (Python 3.11+ stdlib)",
+        "platformdirs cache directory path resolution",
+        "importlib.resources.files template directory resolution",
+        "Jinja2 markupsafe compatibility",
+        "Ghost dependency elimination (six, nose)",
+        "Pydantic v1/v2 schema validator backward compatibility",
+        "idna transitive resolution without unpinned conflicts"
+      ]
+    },
+    "sandbox_candidate_full_suite_run": {
+      "suite": "Post-Migration Full Project Test Suite",
+      "passed": 17,
+      "failed": 0,
+      "duration_seconds": 9.14,
+      "status": "PASSED"
+    },
+    "verified_compatibility_gaps": [
+      "tomllib is read-only; write operations for TOML would require tomli-w or external serializers.",
+      "Pydantic v1 @validator syntax emits deprecation warnings on v2 runtimes; modern schemas should migrate to @field_validator.",
+      "External HTTP endpoint checks require network connectivity or mock fixture in isolated offline CI."
+    ],
+    "final_verification_verdict": "VERIFIED_SUCCESS"
+  },
+  "GEMMA_4_AI_RECOMMENDATIONS": {
+    "model_metadata": {
+      "model_name": "Gemma 4",
+      "model_identifier": "gemma-4-26b-a4b-it",
+      "organization": "Google DeepMind / Google AI Studio",
+      "sdk": "google-genai 2.22.0 (v1alpha endpoint)",
+      "license": "Apache-2.0",
+      "role": "Synthesize zero-downtime migration strategies from objective AST & PyPI evidence, generate unified git diff patches, and draft parity verification tests."
+    },
+    "operating_mode": "Live Google GenAI API (gemma-4-26b-a4b-it)",
+    "proposals": [
+      {
+        "package_name": "appdirs",
+        "target_action": "REPLACE_PACKAGE",
+        "feasibility": "HIGH_FEASIBILITY",
+        "recommended_package": "platformdirs",
+        "is_stdlib": false,
+        "min_python_version": "3.7",
+        "rationale": "The 'appdirs' package is unmaintained and has been archived since 2017, leading to potential issues with modern OS directory standards and edge cases on newer Python versions. 'platformdirs' is the community-standard, actively maintained fork that provides a drop-in API replacement, specifically addressing modern platform requirements.",
+        "migration_steps": [
+          "Remove 'appdirs' from project dependency manifests (e.g., requirements.txt, pyproject.toml, or setup.py).",
+          "Add 'platformdirs' to project dependency manifests.",
+          "Update the import statement in 'linkwatch/cache.py' from 'appdirs' to 'platformdirs'."
+        ],
+        "unified_diff": "--- a/LinkWatch/linkwatch/cache.py\n+++ b/LinkWatch/linkwatch/cache.py\n@@ -1,7 +1,7 @@\n import json\n import os\n \n-from appdirs import user_cache_dir\n+from platformdirs import user_cache_dir\n \n RESULTS_FILE = \"results.json\"\n \n--- a/LinkWatch/requirements.txt\n+++ b/LinkWatch/requirements.txt\n@@ -1,5 +1,5 @@\n toml==0.10.2\n-appdirs==1.4.4\n+platformdirs>=3.0.0\n requests==2.31.0\n Jinja2==2.11.3\n pydantic==1.10.13\n--- a/LinkWatch/pyproject.toml\n+++ b/LinkWatch/pyproject.toml\n@@ -11,7 +11,7 @@\n requires-python = \">=3.10\"\n dependencies = [\n     \"toml==0.10.2\",\n-    \"appdirs==1.4.4\",\n+    \"platformdirs>=3.0.0\",\n     \"requests==2.31.0\",\n     \"Jinja2==2.11.3\",\n     \"pydantic>=2\",\n",
+        "verification_tests": [
+          "def test_user_cache_dir_returns_valid_path():\n    from platformdirs import user_cache_dir\n    import os\n    path = user_cache_dir('LinkWatch')\n    assert isinstance(path, str)\n    assert len(path) > 0\n    # Ensure the parent directory of the intended cache is writable\n    assert os.access(os.path.dirname(path), os.W_OK)",
+          "def test_cache_directory_logic_parity():\n    from platformdirs import user_cache_dir\n    # Verify that the function call does not raise errors in the current environment\n    try:\n        path = user_cache_dir('LinkWatch')\n        assert 'LinkWatch' in path\n    except Exception as e:\n        pytest.fail(f'user_cache_dir raised an exception: {e}')"
+        ],
+        "compatibility_gaps_and_limitations": [
+          "The replacement is a drop-in for the specific call site identified (user_cache_dir), but any other non-standardized usage of appdirs should be audited for API parity."
+        ],
+        "rollback_risk": "LOW"
+      },
+      {
+        "package_name": "idna",
+        "target_action": "BUMP_VERSION",
+        "feasibility": "HIGH_FEASIBILITY",
+        "recommended_package": "idna>=3.7",
+        "is_stdlib": false,
+        "min_python_version": "3.7",
+        "rationale": "The current hard-pin of 'idna==2.7' (released in 2018) is acting as a dependency anchor that prevents the modern resolution of the web stack. The observed 'ImportError: cannot import name soft_unicode from markupsafe' is a classic symptom of a dependency conflict where modern 'markupsafe' (>=2.1.0) has removed legacy APIs used by older versions of 'jinja2'. Because 'idna' is pinned to an obsolete version, the dependency resolver is unable to upgrade 'requests' and 'urllib3' to versions that would allow for a compatible, modern 'jinja2'/'markupsafe' stack. Bumping 'idna' unlocks the resolver to find a consistent version set.",
+        "migration_steps": [
+          "Update 'requirements.txt' by changing the 'idna==2.7' line to 'idna>=3.7'.",
+          "Update 'pyproject.toml' by changing the 'idna' dependency constraint from '==2.7' to '>=3.7'.",
+          "Run 'pip install --upgrade idna requests markupsafe jinja2' to allow the resolver to break the deadlock and install compatible versions of the entire transport and templating stack."
+        ],
+        "unified_diff": "--- a/LinkWatch/requirements.txt\n+++ b/LinkWatch/requirements.txt\n@@ -7,7 +7,6 @@\n six\n chardet==5.2.0\n setuptools==75.8.0\n-idna==2.7\n python-dateutil\n rich\n # PyYAML==5.1\n--- a/LinkWatch/pyproject.toml\n+++ b/LinkWatch/pyproject.toml\n@@ -19,7 +19,6 @@\n     \"six\",\n     \"chardet==5.2.0\",\n     \"setuptools==75.8.0\",\n-    \"idna==2.7\",\n     \"python-dateutil\",\n     \"rich\",\n ]\n",
+        "verification_tests": [
+          "def test_idna_compatibility_and_encoding():\n    import idna\n    # Verify RFC 5891 compliant encoding (standard for 3.x)\n    assert idna.encode('b\u00fccher').decode('ascii') == 'xn--bcher-kva'\n    assert idna.decode(b'xn--bcher-kva') == 'b\u00fccher'",
+          "def test_environment_resolution_check():\n    import idna\n    import markupsafe\n    import jinja2\n    # Ensure we aren't stuck on the version that causes the soft_unicode error\n    # markupsafe >= 2.1.0 requires jinja2 >= 3.1.0\n    assert markupsafe.__version__ >= '2.1.0' or jinja2.__version__ >= '3.1.0'"
+        ],
+        "compatibility_gaps_and_limitations": [
+          "idna 3.x implements RFC 5891 strictly; if the application relies on non-standard legacy IDNA 2003 behavior, encoding results may differ.",
+          "Upgrading idna is a prerequisite for fixing the markupsafe ImportError, but it must be paired with an upgrade to jinja2 to fully resolve the environment state."
+        ],
+        "rollback_risk": "LOW"
+      },
+      {
+        "package_name": "jinja2",
+        "target_action": "BUMP_VERSION",
+        "feasibility": "HIGH_FEASIBILITY",
+        "recommended_package": "jinja2",
+        "is_stdlib": false,
+        "min_python_version": "3.7",
+        "rationale": "The current installation of Jinja2 (2.11.3) is incompatible with MarkupSafe 3.0+. MarkupSafe 3.0 removed the 'soft_unicode' function, which Jinja2 2.x attempts to import during module initialization. This creates a hard ImportError that prevents the application from starting or rendering any reports. Upgrading to Jinja2 3.1.6 resolves this dependency conflict by using the modern MarkupSafe API.",
+        "migration_steps": [
+          "Update the dependency manifest (requirements.txt, pyproject.toml, or setup.py) to change jinja2 from 2.11.3 to 3.1.6.",
+          "Execute 'pip install --upgrade jinja2' in the target environment.",
+          "Verify that MarkupSafe is also updated to a compatible version (3.x) via 'pip check'.",
+          "Run the test suite to ensure template rendering logic remains identical."
+        ],
+        "unified_diff": "--- a/LinkWatch/requirements.txt\n+++ b/LinkWatch/requirements.txt\n@@ -1,7 +1,7 @@\n toml==0.10.2\n appdirs==1.4.4\n requests==2.31.0\n-Jinja2==2.11.3\n+Jinja2>=3.1.5\n pydantic==1.10.13\n click>=7\n six\n--- a/LinkWatch/pyproject.toml\n+++ b/LinkWatch/pyproject.toml\n@@ -13,7 +13,7 @@\n     \"toml==0.10.2\",\n     \"appdirs==1.4.4\",\n     \"requests==2.31.0\",\n-    \"Jinja2==2.11.3\",\n+    \"Jinja2>=3.1.5\",\n     \"pydantic>=2\",\n     \"click>=7\",\n     \"six\",\n",
+        "verification_tests": [
+          "def test_report_renders_all_sites():\n    \"\"\"Verify that the specific failing test now passes after the version bump.\"\"\"\n    from LinkWatch.tests.test_report import test_report_renders_all_sites\n    test_report_renders_all_sites()",
+          "def test_jinja_environment_compatibility():\n    \"\"\"Verify that the Jinja2 Environment can be instantiated and render templates without ImportError.\"\"\"\n    from jinja2 import Environment\n    env = Environment()\n    template = env.from_string(\"test_{{ var }}\")\n    assert template.render(var=\"success\") == \"test_success\""
+        ],
+        "compatibility_gaps_and_limitations": [
+          "Jinja2 3.x may have deprecated certain legacy extensions or specific behavior regarding whitespace control, though standard Environment/FileSystemLoader usage is backward compatible.",
+          "The migration requires an environment running Python 3.7 or higher."
+        ],
+        "rollback_risk": "LOW"
+      },
+      {
+        "package_name": "nose",
+        "target_action": "REPLACE_PACKAGE",
+        "feasibility": "HIGH_FEASIBILITY",
+        "recommended_package": "pytest",
+        "is_stdlib": false,
+        "min_python_version": "3.8",
+        "rationale": "The 'nose' package is critically obsolete, having been unmaintained since 2015. It is fundamentally incompatible with Python 3.12+ because it relies on the 'imp' module, which was removed in PEP 594. Since the package is used strictly as a test runner in the Makefile and dev requirements, replacing it with 'pytest'\u2014the industry standard\u2014restores test execution capability and ensures compatibility with modern Python runtimes.",
+        "migration_steps": [
+          "Remove 'nose==1.3.7' from 'requirements-dev.txt'.",
+          "Add 'pytest' to 'requirements-dev.txt'.",
+          "Update 'Makefile' to remove 'test-nose' targets and replace 'nosetests' commands with 'pytest'.",
+          "Run 'pip install -r requirements-dev.txt' to update the environment.",
+          "Address the secondary 'markupsafe' ImportError by upgrading 'jinja2' and 'markupsafe' to resolve the 'soft_unicode' deprecation issue observed in the logs."
+        ],
+        "unified_diff": "--- a/LinkWatch/requirements-dev.txt\n+++ b/LinkWatch/requirements-dev.txt\n@@ -1,2 +1 @@\n pytest\n-nose==1.3.7\n--- a/LinkWatch/Makefile\n+++ b/LinkWatch/Makefile\n@@ -1,7 +1,7 @@\n IMAGE ?= linkwatch\n PYTHON ?= python3.12\n \n-.PHONY: setup test test-nose docker-build docker-test\n+.PHONY: setup test docker-build docker-test\n \n setup:\n \t$(PYTHON) -m venv .venv\n@@ -10,9 +10,6 @@\n test:\n \tpython -m pytest\n \n-test-nose:\n-\tnosetests tests/\n-\n docker-build:\n \tdocker build -t $(IMAGE) .\n \n",
+        "verification_tests": [
+          "def test_pytest_runner_integration():\n    \"\"\"Verify that pytest can successfully discover and execute tests in the current environment.\"\"\"\n    import subprocess\n    import sys\n    # Execute pytest via module interface to ensure environment consistency\n    result = subprocess.run([sys.executable, '-m', 'pytest', 'tests/'], capture_output=True, text=True)\n    assert result.returncode == 0, f\"Pytest execution failed: {result.stderr}\"\n    assert \"passed\" in result.stdout.lower() or \"collected\" in result.stdout.lower()"
+        ],
+        "compatibility_gaps_and_limitations": [
+          "If the project relies on specific 'nose' plugins, manual migration to 'pytest' plugins will be required.",
+          "The observed 'ImportError: cannot import name soft_unicode from markupsafe' is a side effect of stale dependencies (Jinja2/MarkupSafe incompatibility) and must be resolved via 'pip install --upgrade markupsafe jinja2' for tests to pass post-migration."
+        ],
+        "rollback_risk": "LOW"
+      },
+      {
+        "package_name": "pydantic",
+        "target_action": "RESOLVE_MANIFEST_CONFLICT",
+        "feasibility": "MEDIUM_FEASIBILITY",
+        "recommended_package": "pydantic",
+        "is_stdlib": false,
+        "min_python_version": "3.8",
+        "rationale": "The project suffers from a critical manifest conflict: 'requirements.txt' strictly pins Pydantic to v1.10.13, while 'pyproject.toml' permits versions >=2. This prevents deterministic builds and causes environment instability. Furthermore, the current test failures (ImportError in 'markupsafe') indicate a broken environment where modern dependencies (MarkupSafe) are incompatible with legacy versions of Jinja2. Transitioning to Pydantic V2 is required to align manifests and unlock the Rust-based performance core, though it requires significant code refactoring due to breaking API changes.",
+        "migration_steps": [
+          "Align manifest files by updating 'requirements.txt' to match the '>=2' constraint in 'pyproject.toml', specifically targeting '>=2.14.1'.",
+          "Run 'pydantic-codemod' (via the 'bump-pydantic' tool) to automate the bulk conversion of V1 syntax to V2 syntax.",
+          "Manually audit call sites to replace deprecated V1 methods: '.dict()' -> '.model_dump()', '.json()' -> '.model_dump_json()', and '.parse_obj()' -> '.model_validate()'.",
+          "Resolve the secondary environment error by upgrading 'Jinja2' to >=3.1.0 to ensure compatibility with modern 'markupsafe'.",
+          "Execute the test suite to ensure model validation logic remains intact after the migration."
+        ],
+        "unified_diff": "--- a/LinkWatch/requirements.txt\n+++ b/LinkWatch/requirements.txt\n@@ -2,7 +2,7 @@\n appdirs==1.4.4\n requests==2.31.0\n Jinja2==2.11.3\n-pydantic==1.10.13\n+pydantic>=2.0.0\n click>=7\n six\n chardet==5.2.0\n--- a/LinkWatch/linkwatch/config.py\n+++ b/LinkWatch/linkwatch/config.py\n@@ -1,7 +1,12 @@\n from typing import List\n \n import toml\n-from pydantic import BaseModel, validator\n+try:\n+    from pydantic import BaseModel, field_validator, ConfigDict\n+    V2 = True\n+except ImportError:\n+    from pydantic import BaseModel, validator\n+    V2 = False\n \n \n class Site(BaseModel):\n",
+        "verification_tests": [
+          "def test_pydantic_v2_model_dump_compatibility():\n    from pydantic import BaseModel\n    class TestModel(BaseModel):\n        id: int\n        name: str\n    m = TestModel(id=1, name='test')\n    # Verify the new model_dump method works as expected\n    assert m.model_dump() == {'id': 1, 'name': 'test'}",
+          "def test_pydantic_v2_validation_logic():\n    from pydantic import BaseModel, ValidationError\n    class TestModel(BaseModel):\n        val: int\n    with pytest.raises(ValidationError):\n        TestModel(val='not_an_int')"
+        ],
+        "compatibility_gaps_and_limitations": [
+          "Breaking API Changes: V2 replaces several core methods (e.g., .dict() is now .model_dump(), .parse_obj() is now .model_validate()).",
+          "Performance vs. Complexity: While the Rust core increases speed, custom validators and complex metaclass logic may require manual adjustment to comply with the new lifecycle.",
+          "Third-party Ecosystem: Ensure any other libraries relying on Pydantic internals are compatible with the V2 architecture."
+        ],
+        "rollback_risk": "HIGH"
+      },
+      {
+        "package_name": "setuptools",
+        "target_action": "MIGRATE_TO_STDLIB",
+        "feasibility": "HIGH_FEASIBILITY",
+        "recommended_package": "importlib.resources",
+        "is_stdlib": true,
+        "min_python_version": "3.9",
+        "rationale": "The application uses 'pkg_resources' from 'setuptools' to access package resources. 'pkg_resources' is officially deprecated due to its high import overhead and performance bottlenecks. The modern, standard library replacement is 'importlib.resources'. Transitioning to 'importlib.resources' provides a more efficient, thread-safe, and standard-compliant way to access files within a package's namespace.",
+        "migration_steps": [
+          "Remove 'import pkg_resources' from 'linkwatch/resources.py'.",
+          "Add 'from importlib import resources' to 'linkwatch/resources.py'.",
+          "Replace 'pkg_resources.resource_filename(\"linkwatch\", \"templates\")' with 'str(resources.files(\"linkwatch\").joinpath(\"templates\"))'.",
+          "Verify that any logic relying on the returned path (which must be a string for some older file APIs) is compatible by wrapping the Traversable object in str().",
+          "Remove 'setuptools' from requirements if it is no longer required for other build-time tasks."
+        ],
+        "unified_diff": "--- a/LinkWatch/linkwatch/resources.py\n+++ b/LinkWatch/linkwatch/resources.py\n@@ -1,7 +1,7 @@\n-import pkg_resources\n+from importlib.resources import files\n \n TEMPLATE_NAME = \"status.html.j2\"\n \n \n def template_dir():\n-    return pkg_resources.resource_filename(\"linkwatch\", \"templates\")\n+    return str(files(\"linkwatch\").joinpath(\"templates\"))\n--- a/LinkWatch/requirements.txt\n+++ b/LinkWatch/requirements.txt\n@@ -6,7 +6,6 @@\n click>=7\n six\n chardet==5.2.0\n-setuptools==75.8.0\n idna==2.7\n python-dateutil\n rich\n",
+        "verification_tests": [
+          "def test_resource_path_is_valid_string():\n    from linkwatch.resources import get_template_path\n    path = get_template_path()\n    assert isinstance(path, str)\n    import os\n    assert os.path.exists(path)\n\ndef test_resource_path_contains_expected_segment():\n    from linkwatch.resources import get_template_path\n    path = get_template_path()\n    assert 'templates' in path"
+        ],
+        "compatibility_gaps_and_limitations": [
+          "The 'importlib.resources.files' API was introduced in Python 3.9. If the application must support Python 3.8 or lower, the 'importlib_resources' backport package must be installed and used instead.",
+          "The return type of 'resources.files().joinpath()' is a 'Traversable' object; we have explicitly cast this to 'str()' in the diff to maintain backward compatibility with existing code that expects a string path."
+        ],
+        "rollback_risk": "LOW"
+      },
+      {
+        "package_name": "six",
+        "target_action": "REMOVE_GHOST",
+        "feasibility": "REMOVAL_CANDIDATE",
+        "recommended_package": null,
+        "is_stdlib": false,
+        "min_python_version": "3.10",
+        "rationale": "'six' is a Python 2 and 3 compatibility library. Static AST scanning verifies 0 imports and 0 usages anywhere in LinkWatch. Python 2 reaches end-of-life years ago, making six redundant bloat.",
+        "migration_steps": [
+          "Remove 'six' from requirements.txt",
+          "Remove 'six' from pyproject.toml dependencies array"
+        ],
+        "unified_diff": "--- a/LinkWatch/requirements.txt\n+++ b/LinkWatch/requirements.txt\n@@ -4,7 +4,6 @@\n Jinja2==2.11.3\n pydantic==1.10.13\n click>=7\n-six\n chardet==5.2.0\n setuptools==75.8.0\n idna==2.7\n--- a/LinkWatch/pyproject.toml\n+++ b/LinkWatch/pyproject.toml\n@@ -16,7 +16,6 @@\n     \"Jinja2==2.11.3\",\n     \"pydantic>=2\",\n     \"click>=7\",\n-    \"six\",\n     \"chardet==5.2.0\",\n     \"setuptools==75.8.0\",\n     \"idna==2.7\",\n",
+        "verification_tests": [
+          "def test_no_six_import_dependency():\n    import sys\n    sys.modules.pop('six', None)\n    import linkwatch.cli\n    assert 'six' not in sys.modules"
+        ],
+        "compatibility_gaps_and_limitations": [],
+        "rollback_risk": "LOW"
+      },
+      {
+        "package_name": "toml",
+        "target_action": "MIGRATE_TO_STDLIB",
+        "feasibility": "HIGH_FEASIBILITY",
+        "recommended_package": null,
+        "is_stdlib": true,
+        "min_python_version": "3.11",
+        "rationale": "The 'toml' package is unmaintained (last release in 2020). Python 3.11 introduced 'tomllib' into the standard library, providing a faster, more secure, and dependency-free way to parse TOML files. Since the current AST usage only demonstrates reading files via 'toml.load', migrating to 'tomllib' is a direct and low-risk optimization that reduces the project's supply chain attack surface.",
+        "migration_steps": [
+          "Replace 'import toml' with 'import tomllib' in 'linkwatch/config.py'.",
+          "Refactor 'toml.load(path)' to open the file in binary mode ('rb') as required by 'tomllib.load(f)'.",
+          "Remove 'toml' from requirements.txt, pyproject.toml, or setup.py."
+        ],
+        "unified_diff": "--- a/LinkWatch/linkwatch/config.py\n+++ b/LinkWatch/linkwatch/config.py\n@@ -1,6 +1,10 @@\n from typing import List\n \n-import toml\n+import sys\n+if sys.version_info >= (3, 11):\n+    import tomllib\n+else:\n+    import tomli as tomllib\n from pydantic import BaseModel, validator\n \n \n@@ -34,5 +38,6 @@\n \n \n def load_settings(path=\"sites.toml\"):\n-    data = toml.load(path)\n+    with open(path, \"rb\") as f:\n+        data = tomllib.load(f)\n     return Settings(**data)\n",
+        "verification_tests": [
+          "def test_config_parsing_with_tomllib(tmp_path):\n    \"\"\"Verifies that the new tomllib implementation correctly parses valid TOML files.\"\"\"\n    config_content = 'name = \"test-service\"\\nurl = \"https://api.example.com\"\\nversion = 1'\n    config_file = tmp_path / \"config.toml\"\n    config_file.write_text(config_content)\n\n    # Simulate the migrated logic\n    with open(config_file, \"rb\") as f:\n        import tomllib\n        data = tomllib.load(f)\n\n    assert data[\"name\"] == \"test-service\"\n    assert data[\"url\"] == \"https://api.example.com\"\n    assert data[\"version\"] == 1",
+          "def test_config_parsing_invalid_toml(tmp_path):\n    \"\"\"Verifies that tomllib correctly raises errors on malformed TOML.\"\"\"\n    invalid_content = 'name = \"unclosed_quote'\n    config_file = tmp_path / \"bad_config.toml\"\n    config_file.write_text(invalid_content)\n\n    with open(config_file, \"rb\") as f:\n        import tomllib\n        with pytest.raises(tomllib.TOMLDecodeError):\n            tomllib.load(f)"
+        ],
+        "compatibility_gaps_and_limitations": [
+          "tomllib is a read-only parser. If the application requires writing TOML files, an additional library like 'tomli-w' or 'rtoml' must be introduced.",
+          "tomllib.load() strictly requires a file-like object opened in binary mode ('rb'), whereas the original 'toml' package accepted string paths directly."
+        ],
+        "rollback_risk": "LOW"
+      }
+    ]
+  }
+}

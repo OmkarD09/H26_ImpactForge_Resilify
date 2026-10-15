@@ -24,6 +24,9 @@ class EvidenceStatus(str, Enum):
     OBSERVED = "OBSERVED"
     EXECUTED = "EXECUTED"
     AI_RECOMMENDATION = "AI_RECOMMENDATION"
+    HEURISTIC = "HEURISTIC"
+    MANUAL_STAND_IN = "MANUAL_STAND_IN"
+    MISSING_FROM_MEMBER_2 = "MISSING_FROM_MEMBER_2"
     NOT_VERIFIED = "NOT_VERIFIED"
     BLOCKED = "BLOCKED"
 
@@ -82,6 +85,24 @@ class TestCounts:
 
 
 @dataclass
+class TestCaseResult:
+    """Individual test outcome and failure signature within a test suite."""
+    __test__ = False
+
+    node_id: str
+    status: str
+    duration_s: Optional[float] = None
+    failure_message: Optional[str] = None
+    failure_signature: Optional[str] = None
+
+    def validate(self) -> None:
+        if not self.node_id:
+            raise SchemaValidationError("TestCaseResult requires node_id.")
+        if not self.status:
+            raise SchemaValidationError("TestCaseResult requires status.")
+
+
+@dataclass
 class RunRecord:
     """
     Auditable record of a single command or test execution attempt.
@@ -97,6 +118,7 @@ class RunRecord:
     duration_ms: Optional[int] = None
     log_artifact_path: Optional[str] = None
     test_counts: Optional[TestCounts] = None
+    test_results: Optional[List[TestCaseResult]] = None
     block_or_skip_reason: Optional[str] = None
 
     def validate(self) -> None:
@@ -115,6 +137,10 @@ class RunRecord:
 
         if self.test_counts:
             self.test_counts.validate()
+
+        if self.test_results:
+            for tr in self.test_results:
+                tr.validate()
 
 
 @dataclass
@@ -226,9 +252,15 @@ class MigrationProposal:
     status: EvidenceStatus = EvidenceStatus.AI_RECOMMENDATION
 
     def validate(self) -> None:
-        if self.status != EvidenceStatus.AI_RECOMMENDATION:
+        allowed_proposal_statuses = (
+            EvidenceStatus.AI_RECOMMENDATION,
+            EvidenceStatus.HEURISTIC,
+            EvidenceStatus.MANUAL_STAND_IN,
+            EvidenceStatus.MISSING_FROM_MEMBER_2,
+        )
+        if self.status not in allowed_proposal_statuses:
             raise SchemaValidationError(
-                f"MigrationProposal status must be AI_RECOMMENDATION, got {self.status.value}"
+                f"MigrationProposal status must be AI_RECOMMENDATION, HEURISTIC, MANUAL_STAND_IN, or MISSING_FROM_MEMBER_2, got {self.status.value}"
             )
 
 
@@ -420,6 +452,8 @@ class DependencyExitCapsule:
             if base_run_data:
                 tc_data = base_run_data.get("test_counts")
                 tc = TestCounts(**tc_data) if tc_data else None
+                tr_data = base_run_data.get("test_results")
+                tr_list = [TestCaseResult(**item) for item in tr_data] if tr_data else None
                 base_run = RunRecord(
                     command_args=base_run_data.get("command_args", []),
                     python_version=base_run_data["python_version"],
@@ -431,6 +465,7 @@ class DependencyExitCapsule:
                     duration_ms=base_run_data.get("duration_ms"),
                     log_artifact_path=base_run_data.get("log_artifact_path"),
                     test_counts=tc,
+                    test_results=tr_list,
                     block_or_skip_reason=base_run_data.get("block_or_skip_reason"),
                 )
 
@@ -438,6 +473,8 @@ class DependencyExitCapsule:
             if mig_run_data:
                 tc_data = mig_run_data.get("test_counts")
                 tc = TestCounts(**tc_data) if tc_data else None
+                tr_data = mig_run_data.get("test_results")
+                tr_list = [TestCaseResult(**item) for item in tr_data] if tr_data else None
                 mig_run = RunRecord(
                     command_args=mig_run_data.get("command_args", []),
                     python_version=mig_run_data["python_version"],
@@ -449,6 +486,7 @@ class DependencyExitCapsule:
                     duration_ms=mig_run_data.get("duration_ms"),
                     log_artifact_path=mig_run_data.get("log_artifact_path"),
                     test_counts=tc,
+                    test_results=tr_list,
                     block_or_skip_reason=mig_run_data.get("block_or_skip_reason"),
                 )
 

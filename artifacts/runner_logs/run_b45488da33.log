@@ -1,0 +1,87 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\kunal\OneDrive\Desktop\V  5\H26_ImpactForge_Resilify\.venv_baseline_py312\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\kunal\AppData\Local\Temp\exitguard_sb_7d24fe9f
+configfile: pyproject.toml
+collecting ... collected 10 items
+
+tests/test_cache.py::test_cache_round_trip PASSED                        [ 10%]
+tests/test_checker.py::test_ok_is_up PASSED                              [ 20%]
+tests/test_checker.py::test_missing_is_down PASSED                       [ 30%]
+tests/test_checker.py::test_redirect_is_up PASSED                        [ 40%]
+tests/test_checker.py::test_slow_is_up PASSED                            [ 50%]
+tests/test_checker.py::test_closed_port_is_down PASSED                   [ 60%]
+tests/test_checker.py::test_latin1_title PASSED                          [ 70%]
+tests/test_checker.py::test_user_agent PASSED                            [ 80%]
+tests/test_config.py::test_sites_file_loads PASSED                       [ 90%]
+tests/test_report.py::test_report_renders_all_sites FAILED               [100%]
+
+================================== FAILURES ===================================
+________________________ test_report_renders_all_sites ________________________
+
+tmp_path = WindowsPath('C:/Users/kunal/AppData/Local/Temp/pytest-of-kunal/pytest-257/test_report_renders_all_sites0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000191EF9FA2D0>
+
+    def test_report_renders_all_sites(tmp_path, monkeypatch):
+        monkeypatch.setenv("LINKWATCH_CACHE_DIR", str(tmp_path))
+        cache.save_results(RESULTS)
+        output = tmp_path / "status.html"
+>       result = CliRunner().invoke(cli, ["report", "-o", str(output)], catch_exceptions=False)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_report.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\OneDrive\Desktop\V  5\H26_ImpactForge_Resilify\.venv_baseline_py312\Lib\site-packages\click\testing.py:687: in invoke
+    return_value = cli.main(args=args or (), prog_name=prog_name, **extra)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\OneDrive\Desktop\V  5\H26_ImpactForge_Resilify\.venv_baseline_py312\Lib\site-packages\click\core.py:1552: in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+..\..\..\..\OneDrive\Desktop\V  5\H26_ImpactForge_Resilify\.venv_baseline_py312\Lib\site-packages\click\core.py:2032: in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\OneDrive\Desktop\V  5\H26_ImpactForge_Resilify\.venv_baseline_py312\Lib\site-packages\click\core.py:1415: in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\OneDrive\Desktop\V  5\H26_ImpactForge_Resilify\.venv_baseline_py312\Lib\site-packages\click\core.py:910: in invoke
+    return callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+linkwatch\cli.py:56: in report
+    from .report import render_report
+linkwatch\report.py:3: in <module>
+    from jinja2 import Environment, FileSystemLoader, select_autoescape
+..\..\..\..\OneDrive\Desktop\V  5\H26_ImpactForge_Resilify\.venv_baseline_py312\Lib\site-packages\jinja2\__init__.py:12: in <module>
+    from .environment import Environment
+..\..\..\..\OneDrive\Desktop\V  5\H26_ImpactForge_Resilify\.venv_baseline_py312\Lib\site-packages\jinja2\environment.py:25: in <module>
+    from .defaults import BLOCK_END_STRING
+..\..\..\..\OneDrive\Desktop\V  5\H26_ImpactForge_Resilify\.venv_baseline_py312\Lib\site-packages\jinja2\defaults.py:3: in <module>
+    from .filters import FILTERS as DEFAULT_FILTERS  # noqa: F401
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    # -*- coding: utf-8 -*-
+    """Built-in template filters used with the ``|`` operator."""
+    import math
+    import random
+    import re
+    import warnings
+    from collections import namedtuple
+    from itertools import chain
+    from itertools import groupby
+    
+    from markupsafe import escape
+    from markupsafe import Markup
+>   from markupsafe import soft_unicode
+E   ImportError: cannot import name 'soft_unicode' from 'markupsafe' (C:\Users\kunal\OneDrive\Desktop\V  5\H26_ImpactForge_Resilify\.venv_baseline_py312\Lib\site-packages\markupsafe\__init__.py)
+
+..\..\..\..\OneDrive\Desktop\V  5\H26_ImpactForge_Resilify\.venv_baseline_py312\Lib\site-packages\jinja2\filters.py:13: ImportError
+============================== warnings summary ===============================
+linkwatch\resources.py:1
+  C:\Users\kunal\AppData\Local\Temp\exitguard_sb_7d24fe9f\linkwatch\resources.py:1: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+    import pkg_resources
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_report.py::test_report_renders_all_sites - ImportError: can...
+=================== 1 failed, 9 passed, 1 warning in 13.57s ===================
+

@@ -1,8 +1,9 @@
 """
-Unit tests for Member 2: Gemma 4 AI Reasoning & Migration Patch Builder.
+Unit & Integration Verification Tests for Member 2: Gemma 4 AI Reasoning & Migration Patch Builder.
 """
 
 import json
+import subprocess
 from pathlib import Path
 import pytest
 
@@ -12,112 +13,145 @@ from resilify.patch_synthesizer import PatchSynthesizer
 
 
 @pytest.fixture
-def sample_inventory():
-    return {
-        "metadata": {"target_repository": "LinkWatch"},
-        "manifest_summary": {
-            "dependencies": {
-                "toml": [{"specifier": "==0.10.2"}],
-                "click": [{"specifier": ">=7"}],
-                "unknown_pkg": [{"specifier": "==1.0.0"}],
-            }
-        },
-        "dependencies": {
-            "toml": {
-                "package_name": "toml",
-                "declarations": [{"specifier": "==0.10.2"}],
-                "has_objective_risk": True,
-                "objective_risks": [
-                    "PYPI_DEPRECATION: Ecosystem Advisory: Python 3.11+ includes standard library 'tomllib'",
-                    "DEPRECATED_RUNTIME_API: Direct import and usage of external 'toml' library",
-                ],
-                "ast_usage": {"is_imported": True, "call_sites": ["toml.load(f)"]},
-                "pypi_metadata": {"latest_version": "0.10.2"},
-            },
-            "click": {
-                "package_name": "click",
-                "declarations": [{"specifier": ">=7"}],
-                "has_objective_risk": False,
-                "objective_risks": [],
-                "ast_usage": {"is_imported": True, "call_sites": ["@click.group()"]},
-                "pypi_metadata": {"latest_version": "8.1.7"},
-            },
-            "unknown_pkg": {
-                "package_name": "unknown_pkg",
-                "declarations": [{"specifier": "==1.0.0"}],
-                "has_objective_risk": False,
-                "objective_risks": [],
-                "ast_usage": {"is_imported": False, "call_sites": []},
-                "pypi_metadata": {"latest_version": "1.0.0"},
-            },
-        },
-        "baseline_test_results": {"failures": []},
-    }
+def live_inventory():
+    inv_path = Path("evidence/dependency_inventory.json")
+    assert inv_path.exists(), "evidence/dependency_inventory.json must exist"
+    with open(inv_path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
-def test_risk_gate_does_not_invent_risk(sample_inventory):
-    gate = RiskEvaluationGate(sample_inventory)
+def test_risk_gate_benign_packages_do_not_invent_risk(live_inventory):
+    """
+    Tier 1 Requirement:
+    Verify principle of 'Do not invent risk':
+    4 benign packages (chardet, click, pytest, requests) remain untouched (BENIGN_ACTIVE).
+    """
+    gate = RiskEvaluationGate(live_inventory)
     evaluated = gate.evaluate()
 
-    # toml should be ACTIONABLE_RISK due to objective deprecation evidence
-    assert evaluated["toml"].risk_category == RiskCategory.ACTIONABLE_RISK
-    assert evaluated["toml"].can_ai_reason is True
-
-    # click should be BENIGN_ACTIVE without invented risk
-    assert evaluated["click"].risk_category == RiskCategory.BENIGN_ACTIVE
-    assert evaluated["click"].can_ai_reason is False
-
-    # unknown_pkg should be UNVERIFIED_UNKNOWN
-    assert evaluated["unknown_pkg"].risk_category == RiskCategory.UNVERIFIED_UNKNOWN
-    assert evaluated["unknown_pkg"].can_ai_reason is False
+    benign_expected = {"chardet", "click", "pytest", "requests"}
+    for pkg in benign_expected:
+        assert pkg in evaluated, f"Expected {pkg} in evaluated dependencies"
+        dep = evaluated[pkg]
+        assert dep.risk_category == RiskCategory.BENIGN_ACTIVE, (
+            f"Package '{pkg}' should be BENIGN_ACTIVE without invented risk, got {dep.risk_category}"
+        )
+        assert dep.can_ai_reason is False, f"Package '{pkg}' must not trigger AI speculation"
 
 
-def test_gemma_client_synthesis():
-    client = GemmaMigrationClient(api_key=None)  # Tests deterministic expert fallback
-    proposal = client.synthesize_proposal(
-        package_name="toml",
-        pinned_versions=["==0.10.2"],
-        ast_usage_summary={"call_sites": ["toml.load(path)"]},
-        pypi_meta={"latest_version": "0.10.2"},
-        evidence_descriptions=["Deprecated in Python 3.11+ in favor of tomllib"],
-        test_failures=[],
-        code_snippets={},
-    )
+def test_risk_gate_unverified_packages_marked_unknown(live_inventory):
+    """
+    Tier 1 Requirement:
+    Verify that 2 unverified packages (python-dateutil, rich) are marked as UNKNOWN.
+    """
+    gate = RiskEvaluationGate(live_inventory)
+    evaluated = gate.evaluate()
 
-    assert isinstance(proposal, GemmaMigrationProposal)
-    assert proposal.package_name == "toml"
-    assert proposal.target_action == "MIGRATE_TO_STDLIB"
-    assert proposal.recommended_package == "tomllib"
-    assert proposal.is_stdlib is True
-    assert "--- a/linkwatch/config.py" in proposal.unified_diff
-    assert len(proposal.verification_tests) > 0
+    unknown_expected = {"python-dateutil", "rich"}
+    for pkg in unknown_expected:
+        assert pkg in evaluated, f"Expected {pkg} in evaluated dependencies"
+        dep = evaluated[pkg]
+        assert dep.risk_category == RiskCategory.UNVERIFIED_UNKNOWN, (
+            f"Package '{pkg}' should be UNVERIFIED_UNKNOWN, got {dep.risk_category}"
+        )
+        assert dep.can_ai_reason is False
 
 
-def test_patch_synthesizer(tmp_path):
-    proposal = GemmaMigrationProposal(
-        package_name="test_dep",
-        target_action="REPLACE_PACKAGE",
-        feasibility="HIGH_FEASIBILITY",
-        recommended_package="new_dep",
-        is_stdlib=False,
-        min_python_version="3.10",
-        rationale="Upgrade to active fork",
-        migration_steps=["pip install new_dep"],
-        unified_diff="--- a/test.py\n+++ b/test.py\n-import old\n+import new\n",
-        verification_tests=["def test_new(): assert True"],
-        compatibility_gaps_and_limitations=[],
-        rollback_risk="LOW",
-    )
+def test_risk_gate_actionable_packages_trigger_migrations(live_inventory):
+    """
+    Tier 1 Requirement:
+    Verify that 8 actionable packages (toml, appdirs, jinja2, nose, pydantic, setuptools, six, idna)
+    are flagged as ACTIONABLE_RISK with verified objective evidence.
+    """
+    gate = RiskEvaluationGate(live_inventory)
+    evaluated = gate.evaluate()
 
-    patches_dir = tmp_path / "patches"
-    tests_dir = tmp_path / "tests"
-    synthesizer = PatchSynthesizer(patches_dir=patches_dir, tests_dir=tests_dir)
+    actionable_expected = {"toml", "appdirs", "jinja2", "nose", "pydantic", "setuptools", "six", "idna"}
+    for pkg in actionable_expected:
+        assert pkg in evaluated, f"Expected {pkg} in evaluated dependencies"
+        dep = evaluated[pkg]
+        assert dep.risk_category == RiskCategory.ACTIONABLE_RISK, (
+            f"Package '{pkg}' should be ACTIONABLE_RISK, got {dep.risk_category}"
+        )
+        assert dep.can_ai_reason is True
+        assert len(dep.evidence_items) > 0, f"Package '{pkg}' must have verified evidence items"
 
-    written = synthesizer.write_patches([proposal])
-    assert "test_dep" in written
-    assert (patches_dir / "test_dep_migration.patch").exists()
-    assert (patches_dir / "consolidated_resilify_migrations.patch").exists()
 
-    test_file = synthesizer.generate_verification_test_file([proposal])
-    assert Path(test_file).exists()
-    assert "def test_new(): assert True" in Path(test_file).read_text()
+def test_gemma_client_schema_compliance_all_actionable(live_inventory):
+    """
+    Tier 1 Requirement:
+    Verify schema compliance of all synthesized JSON outputs from the Gemma client.
+    """
+    gate = RiskEvaluationGate(live_inventory)
+    evaluated = gate.evaluate()
+    actionable = gate.get_actionable_dependencies()
+
+    client = GemmaMigrationClient(api_key="")  # deterministic expert mode
+    deps_data = live_inventory.get("dependencies", {})
+
+    for dep in actionable:
+        pkg_info = deps_data.get(dep.package_name, {})
+        proposal = client.synthesize_proposal(
+            package_name=dep.package_name,
+            pinned_versions=dep.pinned_specifiers,
+            ast_usage_summary=pkg_info.get("ast_usage", {}),
+            pypi_meta=pkg_info.get("pypi_metadata", {}),
+            evidence_descriptions=[e.description for e in dep.evidence_items],
+            test_failures=[],
+            code_snippets={},
+        )
+
+        assert isinstance(proposal, GemmaMigrationProposal)
+        assert proposal.package_name == dep.package_name
+        assert proposal.target_action in {
+            "MIGRATE_TO_STDLIB",
+            "REPLACE_PACKAGE",
+            "REMOVE_GHOST",
+            "REMOVE_BROKEN_DEV_TOOL",
+            "BUMP_VERSION",
+            "RESOLVE_MANIFEST_CONFLICT",
+            "REMOVE_TRANSITIVE_PIN",
+        }
+        assert proposal.feasibility in {
+            "HIGH_FEASIBILITY",
+            "MEDIUM_FEASIBILITY",
+            "LOW_FEASIBILITY",
+            "REMOVAL_CANDIDATE",
+        }
+        assert proposal.rollback_risk in {"LOW", "MEDIUM", "HIGH"}
+        assert len(proposal.rationale.strip()) > 10
+        assert len(proposal.migration_steps) > 0
+        assert len(proposal.verification_tests) > 0
+
+
+def test_patch_synthesizer_git_apply_clean_check():
+    """
+    Tier 2 Requirement:
+    Execute git apply --check on every generated patch file to confirm no hunk rejections.
+    """
+    patches_dir = Path("patches")
+    assert patches_dir.exists()
+
+    expected_patches = [
+        "toml_migration.patch",
+        "appdirs_migration.patch",
+        "jinja2_migration.patch",
+        "nose_migration.patch",
+        "setuptools_migration.patch",
+        "six_migration.patch",
+        "idna_migration.patch",
+        "pydantic_migration.patch",
+        "consolidated_resilify_migrations.patch",
+    ]
+
+    for patch_name in expected_patches:
+        patch_file = patches_dir / patch_name
+        assert patch_file.exists(), f"Patch file {patch_name} must exist"
+        res = subprocess.run(
+            ["git", "apply", "--check", str(patch_file)],
+            capture_output=True,
+            text=True,
+        )
+        assert res.returncode == 0, (
+            f"git apply --check failed on {patch_name}:\nSTDOUT: {res.stdout}\nSTDERR: {res.stderr}"
+        )

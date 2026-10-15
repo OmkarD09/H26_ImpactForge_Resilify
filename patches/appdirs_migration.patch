@@ -1,8 +1,31 @@
---- a/linkwatch/cache.py
-+++ b/linkwatch/cache.py
-@@ -2,3 +2,3 @@
+--- a/LinkWatch/linkwatch/cache.py
++++ b/LinkWatch/linkwatch/cache.py
+@@ -1,7 +1,7 @@
+ import json
  import os
  
 -from appdirs import user_cache_dir
 +from platformdirs import user_cache_dir
  
+ RESULTS_FILE = "results.json"
+ 
+--- a/LinkWatch/requirements.txt
++++ b/LinkWatch/requirements.txt
+@@ -1,5 +1,5 @@
+ toml==0.10.2
+-appdirs==1.4.4
++platformdirs>=3.0.0
+ requests==2.31.0
+ Jinja2==2.11.3
+ pydantic==1.10.13
+--- a/LinkWatch/pyproject.toml
++++ b/LinkWatch/pyproject.toml
+@@ -11,7 +11,7 @@
+ requires-python = ">=3.10"
+ dependencies = [
+     "toml==0.10.2",
+-    "appdirs==1.4.4",
++    "platformdirs>=3.0.0",
+     "requests==2.31.0",
+     "Jinja2==2.11.3",
+     "pydantic>=2",

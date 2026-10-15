@@ -168,7 +168,14 @@ class SandboxManager:
             )
 
         target_dir = sandbox_root / relative_subpath
-        if not target_dir.exists():
+        # If relative_subpath matched a package subdirectory (e.g. linkwatch on Windows case-insensitivity)
+        # but the project root with pyproject.toml / tests is at sandbox_root, resolve to sandbox_root.
+        if (
+            not (target_dir / "pyproject.toml").exists()
+            and (sandbox_root / "pyproject.toml").exists()
+        ):
+            target_dir = sandbox_root
+        elif not target_dir.exists():
             has_files_at_root = any(
                 p.is_file() for p in sandbox_root.iterdir() if p.name != METADATA_FILENAME
             )

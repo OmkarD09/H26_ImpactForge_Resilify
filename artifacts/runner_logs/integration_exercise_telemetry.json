@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-10-15T08:34:06+00:00",
+  "commit_sha": "f52f3930c8e7c33d934ccf614955a38e26984bd5",
+  "py312_run": {
+    "status": "FAILED",
+    "exit_code": 1,
+    "duration_ms": 14417,
+    "log_path": "C:\\Users\\kunal\\OneDrive\\Desktop\\V  5\\H26_ImpactForge_Resilify\\artifacts\\runner_logs\\run_b45488da33.log",
+    "counts": {
+      "passed": 9,
+      "failed": 1,
+      "skipped": 0,
+      "total": 10
+    }
+  },
+  "comparison": {
+    "verdict": "PARITY",
+    "is_conclusive": true,
+    "summary": "Parity confirmed: 9 passing tests maintained with zero new regressions.",
+    "tests_still_passing": [
+      "tests/test_cache.py::test_cache_round_trip",
+      "tests/test_checker.py::test_closed_port_is_down",
+      "tests/test_checker.py::test_latin1_title",
+      "tests/test_checker.py::test_missing_is_down",
+      "tests/test_checker.py::test_ok_is_up",
+      "tests/test_checker.py::test_redirect_is_up",
+      "tests/test_checker.py::test_slow_is_up",
+      "tests/test_checker.py::test_user_agent",
+      "tests/test_config.py::test_sites_file_loads"
+    ],
+    "pre_existing_failures": [
+      "tests/test_report.py::test_report_renders_all_sites"
+    ],
+    "new_regressions": [],
+    "resolved_failures": []
+  },
+  "py313_status": "NOT_RUN"
+}

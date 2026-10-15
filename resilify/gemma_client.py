@@ -13,7 +13,20 @@ from __future__ import annotations
 import json
 import os
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Dict, List, Optional, Any
+
+_env_path = Path(__file__).resolve().parent.parent / ".env"
+if _env_path.exists():
+    try:
+        from dotenv import load_dotenv
+        load_dotenv(_env_path)
+    except ImportError:
+        for _line in _env_path.read_text(encoding="utf-8").splitlines():
+            _line = _line.strip()
+            if _line and not _line.startswith("#") and "=" in _line:
+                _k, _v = _line.split("=", 1)
+                os.environ.setdefault(_k.strip(), _v.strip().strip("'\""))
 
 GEMMA_SYSTEM_PROMPT = """You are Gemma 4, an expert AI Software Engineer specialized in Python Dependency Resilience and Zero-Downtime Migration Synthesis.
 
@@ -49,15 +62,21 @@ class GemmaMigrationProposal:
 class GemmaMigrationClient:
     """Client for prompting Gemma 4 / Gemini with structured dependency evidence."""
 
-    def __init__(self, api_key: Optional[str] = None, model_name: str = "gemini-2.5-flash") -> None:
-        self.api_key = api_key or os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
-        self.model_name = model_name
+    def __init__(self, api_key: Optional[str] = None, model_name: Optional[str] = None) -> None:
+        if api_key == "":
+            self.api_key = None
+        else:
+            self.api_key = api_key if api_key is not None else (os.environ.get("GOOGLE_API_KEY") or os.environ.get("GEMINI_API_KEY"))
+        self.model_name = model_name or os.environ.get("GEMMA_MODEL") or "gemma-4-26b-a4b-it"
         self._genai_client = None
 
         if self.api_key:
             try:
                 from google import genai
-                self._genai_client = genai.Client(api_key=self.api_key)
+                self._genai_client = genai.Client(
+                    api_key=self.api_key,
+                    http_options={"api_version": "v1alpha"}
+                )
             except Exception as e:
                 print(f"[!] Warning: Failed to initialize Google GenAI SDK: {e}")
                 self._genai_client = None
@@ -77,7 +96,9 @@ class GemmaMigrationClient:
         code_snippets: Dict[str, str],
     ) -> str:
         """Constructs an evidence-backed prompt for Gemma 4."""
-        return f"""### DEPENDENCY MIGRATION ANALYSIS REQUEST
+        return f"""{GEMMA_SYSTEM_PROMPT}
+
+### DEPENDENCY MIGRATION ANALYSIS REQUEST
 **Target Package:** `{package_name}`
 **Current Declared Pin(s):** {pinned_versions}
 **PyPI Latest Version:** {pypi_meta.get('latest_version', 'Unknown')}
@@ -133,21 +154,25 @@ Please synthesize the migration proposal according to the required JSON schema:
         )
 
         if self.is_live_api_ready:
-            try:
-                response = self._genai_client.models.generate_content(
-                    model=self.model_name,
-                    contents=prompt,
-                    config={
-                        "system_instruction": GEMMA_SYSTEM_PROMPT,
-                        "response_mime_type": "application/json",
-                        "temperature": 0.1,
-                    },
-                )
-                raw_text = response.text.strip()
-                data = json.loads(raw_text)
-                return GemmaMigrationProposal(**data)
-            except Exception as exc:
-                print(f"[!] Live Gemma API call failed for '{package_name}': {exc}. Engaging deterministic expert synthesizer.")
+            models_to_try = [self.model_name]
+            if "gemma-4" in self.model_name and self.model_name != "gemma-4-26b-a4b-it":
+                models_to_try.append("gemma-4-26b-a4b-it")
+
+            for m in models_to_try:
+                try:
+                    response = self._genai_client.models.generate_content(
+                        model=m,
+                        contents=prompt,
+                    )
+                    raw_text = response.text.strip()
+                    if "{" in raw_text and "}" in raw_text:
+                        start_idx = raw_text.find("{")
+                        end_idx = raw_text.rfind("}") + 1
+                        raw_text = raw_text[start_idx:end_idx]
+                    data = json.loads(raw_text)
+                    return GemmaMigrationProposal(**data)
+                except Exception as exc:
+                    print(f"[!] Live Gemma API call with '{m}' failed for '{package_name}': {exc}. Trying fallback.")
 
         return self._deterministic_expert_fallback(
             package_name=package_name,

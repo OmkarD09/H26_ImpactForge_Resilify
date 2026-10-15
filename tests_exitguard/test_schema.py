@@ -253,3 +253,22 @@ def test_verified_success_cannot_be_claimed_with_regressions():
     )
     with pytest.raises(SchemaValidationError, match="Cannot issue VERIFIED_SUCCESS when regressions exist"):
         verif.validate()
+
+
+def test_real_generated_capsule_loads_and_validates():
+    """Verify that the real generated capsule in artifacts/ validates against schema contract."""
+    capsule_path = Path(__file__).parent.parent / "artifacts" / "dependency_exit_capsule.json"
+    if not capsule_path.exists():
+        pytest.skip("dependency_exit_capsule.json not yet generated.")
+
+    data = json.loads(capsule_path.read_text(encoding="utf-8"))
+    capsule = DependencyExitCapsule.from_dict(data)
+    capsule.validate()
+
+    assert capsule.target_dependency is not None
+    assert capsule.target_dependency.name == "appdirs"
+    assert capsule.migration_proposal is not None
+    assert capsule.migration_proposal.replacement_package == "platformdirs>=3.0.0"
+    assert capsule.verification.verdict == VerificationVerdict.VERIFIED_SUCCESS
+    assert "3.12" in capsule.verification.tested_python_versions
+    assert capsule.verification.python_version_results["3.13"].tested is False
