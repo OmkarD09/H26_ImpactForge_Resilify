@@ -28,12 +28,13 @@ MANIFEST
 
 # Virtual environments
 .env
-.venv
+.venv*
 env/
 venv/
 ENV/
 env.bak/
 venv.bak/
+.pypi_cache.json
 
 # Testing and coverage
 .pytest_cache/

@@ -1,0 +1,1704 @@
+{
+  "metadata": {
+    "generated_at_utc": "2026-10-15T07:35:17.266967+00:00",
+    "collector_role": "Member 1: Static Analysis, Manifests & Baseline Evidence Collector",
+    "target_repository": "LinkWatch",
+    "python_runtime": "Python 3.13.7",
+    "python_executable": ".\\.venv_baseline\\Scripts\\python.exe"
+  },
+  "manifest_summary": {
+    "manifest_files_found": [
+      "requirements.txt",
+      "requirements-dev.txt",
+      "pyproject.toml"
+    ],
+    "total_unique_dependencies": 14,
+    "conflicts": [
+      {
+        "package": "pydantic",
+        "sources": [
+          "requirements.txt",
+          "pyproject.toml"
+        ],
+        "specifiers": [
+          "==1.10.13",
+          ">=2"
+        ],
+        "conflict_type": "PIN_VS_RANGE_MISMATCH",
+        "description": "Package 'pydantic' is strictly pinned in some manifests (requirements.txt: '==1.10.13', pyproject.toml: '>=2') but loose or constrained differently elsewhere."
+      }
+    ],
+    "dependencies": {
+      "toml": [
+        {
+          "name": "toml",
+          "normalized_name": "toml",
+          "specifier": "==0.10.2",
+          "is_pinned": true,
+          "pinned_version": "0.10.2",
+          "source_file": "requirements.txt",
+          "line_number": 1,
+          "raw_line": "toml==0.10.2",
+          "is_dev": false
+        },
+        {
+          "name": "toml",
+          "normalized_name": "toml",
+          "specifier": "==0.10.2",
+          "is_pinned": true,
+          "pinned_version": "0.10.2",
+          "source_file": "pyproject.toml",
+          "line_number": 1,
+          "raw_line": "toml==0.10.2",
+          "is_dev": false
+        }
+      ],
+      "appdirs": [
+        {
+          "name": "appdirs",
+          "normalized_name": "appdirs",
+          "specifier": "==1.4.4",
+          "is_pinned": true,
+          "pinned_version": "1.4.4",
+          "source_file": "requirements.txt",
+          "line_number": 2,
+          "raw_line": "appdirs==1.4.4",
+          "is_dev": false
+        },
+        {
+          "name": "appdirs",
+          "normalized_name": "appdirs",
+          "specifier": "==1.4.4",
+          "is_pinned": true,
+          "pinned_version": "1.4.4",
+          "source_file": "pyproject.toml",
+          "line_number": 2,
+          "raw_line": "appdirs==1.4.4",
+          "is_dev": false
+        }
+      ],
+      "requests": [
+        {
+          "name": "requests",
+          "normalized_name": "requests",
+          "specifier": "==2.31.0",
+          "is_pinned": true,
+          "pinned_version": "2.31.0",
+          "source_file": "requirements.txt",
+          "line_number": 3,
+          "raw_line": "requests==2.31.0",
+          "is_dev": false
+        },
+        {
+          "name": "requests",
+          "normalized_name": "requests",
+          "specifier": "==2.31.0",
+          "is_pinned": true,
+          "pinned_version": "2.31.0",
+          "source_file": "pyproject.toml",
+          "line_number": 3,
+          "raw_line": "requests==2.31.0",
+          "is_dev": false
+        }
+      ],
+      "jinja2": [
+        {
+          "name": "Jinja2",
+          "normalized_name": "jinja2",
+          "specifier": "==2.11.3",
+          "is_pinned": true,
+          "pinned_version": "2.11.3",
+          "source_file": "requirements.txt",
+          "line_number": 4,
+          "raw_line": "Jinja2==2.11.3",
+          "is_dev": false
+        },
+        {
+          "name": "Jinja2",
+          "normalized_name": "jinja2",
+          "specifier": "==2.11.3",
+          "is_pinned": true,
+          "pinned_version": "2.11.3",
+          "source_file": "pyproject.toml",
+          "line_number": 4,
+          "raw_line": "Jinja2==2.11.3",
+          "is_dev": false
+        }
+      ],
+      "pydantic": [
+        {
+          "name": "pydantic",
+          "normalized_name": "pydantic",
+          "specifier": "==1.10.13",
+          "is_pinned": true,
+          "pinned_version": "1.10.13",
+          "source_file": "requirements.txt",
+          "line_number": 5,
+          "raw_line": "pydantic==1.10.13",
+          "is_dev": false
+        },
+        {
+          "name": "pydantic",
+          "normalized_name": "pydantic",
+          "specifier": ">=2",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "pyproject.toml",
+          "line_number": 5,
+          "raw_line": "pydantic>=2",
+          "is_dev": false
+        }
+      ],
+      "click": [
+        {
+          "name": "click",
+          "normalized_name": "click",
+          "specifier": ">=7",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 6,
+          "raw_line": "click>=7",
+          "is_dev": false
+        },
+        {
+          "name": "click",
+          "normalized_name": "click",
+          "specifier": ">=7",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "pyproject.toml",
+          "line_number": 6,
+          "raw_line": "click>=7",
+          "is_dev": false
+        }
+      ],
+      "six": [
+        {
+          "name": "six",
+          "normalized_name": "six",
+          "specifier": "",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 7,
+          "raw_line": "six",
+          "is_dev": false
+        },
+        {
+          "name": "six",
+          "normalized_name": "six",
+          "specifier": "",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "pyproject.toml",
+          "line_number": 7,
+          "raw_line": "six",
+          "is_dev": false
+        }
+      ],
+      "chardet": [
+        {
+          "name": "chardet",
+          "normalized_name": "chardet",
+          "specifier": "==5.2.0",
+          "is_pinned": true,
+          "pinned_version": "5.2.0",
+          "source_file": "requirements.txt",
+          "line_number": 8,
+          "raw_line": "chardet==5.2.0",
+          "is_dev": false
+        },
+        {
+          "name": "chardet",
+          "normalized_name": "chardet",
+          "specifier": "==5.2.0",
+          "is_pinned": true,
+          "pinned_version": "5.2.0",
+          "source_file": "pyproject.toml",
+          "line_number": 8,
+          "raw_line": "chardet==5.2.0",
+          "is_dev": false
+        }
+      ],
+      "setuptools": [
+        {
+          "name": "setuptools",
+          "normalized_name": "setuptools",
+          "specifier": "==75.8.0",
+          "is_pinned": true,
+          "pinned_version": "75.8.0",
+          "source_file": "requirements.txt",
+          "line_number": 9,
+          "raw_line": "setuptools==75.8.0",
+          "is_dev": false
+        },
+        {
+          "name": "setuptools",
+          "normalized_name": "setuptools",
+          "specifier": "==75.8.0",
+          "is_pinned": true,
+          "pinned_version": "75.8.0",
+          "source_file": "pyproject.toml",
+          "line_number": 9,
+          "raw_line": "setuptools==75.8.0",
+          "is_dev": false
+        }
+      ],
+      "idna": [
+        {
+          "name": "idna",
+          "normalized_name": "idna",
+          "specifier": "==2.7",
+          "is_pinned": true,
+          "pinned_version": "2.7",
+          "source_file": "requirements.txt",
+          "line_number": 10,
+          "raw_line": "idna==2.7",
+          "is_dev": false
+        },
+        {
+          "name": "idna",
+          "normalized_name": "idna",
+          "specifier": "==2.7",
+          "is_pinned": true,
+          "pinned_version": "2.7",
+          "source_file": "pyproject.toml",
+          "line_number": 10,
+          "raw_line": "idna==2.7",
+          "is_dev": false
+        }
+      ],
+      "python-dateutil": [
+        {
+          "name": "python-dateutil",
+          "normalized_name": "python-dateutil",
+          "specifier": "",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 11,
+          "raw_line": "python-dateutil",
+          "is_dev": false
+        },
+        {
+          "name": "python-dateutil",
+          "normalized_name": "python-dateutil",
+          "specifier": "",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "pyproject.toml",
+          "line_number": 11,
+          "raw_line": "python-dateutil",
+          "is_dev": false
+        }
+      ],
+      "rich": [
+        {
+          "name": "rich",
+          "normalized_name": "rich",
+          "specifier": "",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 12,
+          "raw_line": "rich",
+          "is_dev": false
+        },
+        {
+          "name": "rich",
+          "normalized_name": "rich",
+          "specifier": "",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "pyproject.toml",
+          "line_number": 12,
+          "raw_line": "rich",
+          "is_dev": false
+        }
+      ],
+      "pytest": [
+        {
+          "name": "pytest",
+          "normalized_name": "pytest",
+          "specifier": "",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements-dev.txt",
+          "line_number": 1,
+          "raw_line": "pytest",
+          "is_dev": true
+        }
+      ],
+      "nose": [
+        {
+          "name": "nose",
+          "normalized_name": "nose",
+          "specifier": "==1.3.7",
+          "is_pinned": true,
+          "pinned_version": "1.3.7",
+          "source_file": "requirements-dev.txt",
+          "line_number": 2,
+          "raw_line": "nose==1.3.7",
+          "is_dev": true
+        }
+      ]
+    }
+  },
+  "baseline_test_results": {
+    "python_version": "Python 3.13.7",
+    "python_executable": ".\\.venv_baseline\\Scripts\\python.exe",
+    "total_collected": 10,
+    "passed_count": 9,
+    "failed_count": 1,
+    "skipped_count": 0,
+    "execution_time_seconds": 11.19,
+    "exit_code": 1,
+    "failures": [
+      {
+        "test_id": "LinkWatch/tests/test_report.py::test_report_renders_all_sites",
+        "failure_type": "ImportError",
+        "error_message": "E   ImportError: cannot import name 'soft_unicode' from 'markupsafe' (C:\\Users\\ACER\\Downloads\\H26_ImpactForge_Resilify\\.venv_baseline\\Lib\\site-packages\\markupsafe\\__init__.py)",
+        "traceback": "================================\n________________________ test_report_renders_all_sites ________________________\nLinkWatch\\tests\\test_report.py:20: in test_report_renders_all_sites\n    result = CliRunner().invoke(cli, [\"report\", \"-o\", str(output)], catch_exceptions=False)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n.venv_baseline\\Lib\\site-packages\\click\\testing.py:687: in invoke\n    return_value = cli.main(args=args or (), prog_name=prog_name, **extra)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n.venv_baseline\\Lib\\site-packages\\click\\core.py:1552: in main\n    rv = self.invoke(ctx)\n         ^^^^^^^^^^^^^^^^\n.venv_baseline\\Lib\\site-packages\\click\\core.py:2032: in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n.venv_baseline\\Lib\\site-packages\\click\\core.py:1415: in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n.venv_baseline\\Lib\\site-packages\\click\\core.py:910: in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nLinkWatch\\linkwatch\\cli.py:56: in report\n    from .report import render_report\nLinkWatch\\linkwatch\\report.py:3: in <module>\n    from jinja2 import Environment, FileSystemLoader, select_autoescape\n.venv_baseline\\Lib\\site-packages\\jinja2\\__init__.py:12: in <module>\n    from .environment import Environment\n.venv_baseline\\Lib\\site-packages\\jinja2\\environment.py:25: in <module>\n    from .defaults import BLOCK_END_STRING\n.venv_baseline\\Lib\\site-packages\\jinja2\\defaults.py:3: in <module>\n    from .filters import FILTERS as DEFAULT_FILTERS  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n.venv_baseline\\Lib\\site-packages\\jinja2\\filters.py:13: in <module>\n    from markupsafe import soft_unicode\nE   ImportError: cannot import name 'soft_unicode' from 'markupsafe' (C:\\Users\\ACER\\Downloads\\H26_ImpactForge_Resilify\\.venv_baseline\\Lib\\site-packages\\markupsafe\\__init__.py)\n==========================="
+      }
+    ],
+    "warnings": [
+      {
+        "category": "DeprecationWarning",
+        "message": "C:\\Users\\ACER\\Downloads\\H26_ImpactForge_Resilify\\.venv_baseline\\Lib\\site-packages\\pydantic\\typing.py:400: DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+        "location": ".venv_baseline\\Lib\\site-packages\\pydantic\\typing.py:400"
+      }
+    ],
+    "passed_tests": [
+      "LinkWatch\\tests\\test_cache.py::test_cache_round_trip",
+      "LinkWatch\\tests\\test_checker.py::test_ok_is_up",
+      "LinkWatch\\tests\\test_checker.py::test_missing_is_down",
+      "LinkWatch\\tests\\test_checker.py::test_redirect_is_up",
+      "LinkWatch\\tests\\test_checker.py::test_slow_is_up",
+      "LinkWatch\\tests\\test_checker.py::test_closed_port_is_down",
+      "LinkWatch\\tests\\test_checker.py::test_latin1_title",
+      "LinkWatch\\tests\\test_checker.py::test_user_agent",
+      "LinkWatch\\tests\\test_config.py::test_sites_file_loads"
+    ],
+    "raw_stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.13.7, pytest-9.1.1, pluggy-1.6.0 -- C:\\Users\\ACER\\Downloads\\H26_ImpactForge_Resilify\\.venv_baseline\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\ACER\\Downloads\\H26_ImpactForge_Resilify\\LinkWatch\nconfigfile: pyproject.toml\ncollecting ... collected 10 items\n\nLinkWatch\\tests\\test_cache.py::test_cache_round_trip PASSED              [ 10%]\nLinkWatch\\tests\\test_checker.py::test_ok_is_up PASSED                    [ 20%]\nLinkWatch\\tests\\test_checker.py::test_missing_is_down PASSED             [ 30%]\nLinkWatch\\tests\\test_checker.py::test_redirect_is_up PASSED              [ 40%]\nLinkWatch\\tests\\test_checker.py::test_slow_is_up PASSED                  [ 50%]\nLinkWatch\\tests\\test_checker.py::test_closed_port_is_down PASSED         [ 60%]\nLinkWatch\\tests\\test_checker.py::test_latin1_title PASSED                [ 70%]\nLinkWatch\\tests\\test_checker.py::test_user_agent PASSED                  [ 80%]\nLinkWatch\\tests\\test_config.py::test_sites_file_loads PASSED             [ 90%]\nLinkWatch\\tests\\test_report.py::test_report_renders_all_sites FAILED     [100%]\n\n================================== FAILURES ===================================\n________________________ test_report_renders_all_sites ________________________\nLinkWatch\\tests\\test_report.py:20: in test_report_renders_all_sites\n    result = CliRunner().invoke(cli, [\"report\", \"-o\", str(output)], catch_exceptions=False)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n.venv_baseline\\Lib\\site-packages\\click\\testing.py:687: in invoke\n    return_value = cli.main(args=args or (), prog_name=prog_name, **extra)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n.venv_baseline\\Lib\\site-packages\\click\\core.py:1552: in main\n    rv = self.invoke(ctx)\n         ^^^^^^^^^^^^^^^^\n.venv_baseline\\Lib\\site-packages\\click\\core.py:2032: in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n.venv_baseline\\Lib\\site-packages\\click\\core.py:1415: in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n.venv_baseline\\Lib\\site-packages\\click\\core.py:910: in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nLinkWatch\\linkwatch\\cli.py:56: in report\n    from .report import render_report\nLinkWatch\\linkwatch\\report.py:3: in <module>\n    from jinja2 import Environment, FileSystemLoader, select_autoescape\n.venv_baseline\\Lib\\site-packages\\jinja2\\__init__.py:12: in <module>\n    from .environment import Environment\n.venv_baseline\\Lib\\site-packages\\jinja2\\environment.py:25: in <module>\n    from .defaults import BLOCK_END_STRING\n.venv_baseline\\Lib\\site-packages\\jinja2\\defaults.py:3: in <module>\n    from .filters import FILTERS as DEFAULT_FILTERS  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n.venv_baseline\\Lib\\site-packages\\jinja2\\filters.py:13: in <module>\n    from markupsafe import soft_unicode\nE   ImportError: cannot import name 'soft_unicode' from 'markupsafe' (C:\\Users\\ACER\\Downloads\\H26_ImpactForge_Resilify\\.venv_baseline\\Lib\\site-packages\\markupsafe\\__init__.py)\n============================== warnings summary ===============================\n.venv_baseline\\Lib\\site-packages\\pydantic\\typing.py:400\n  C:\\Users\\ACER\\Downloads\\H26_ImpactForge_Resilify\\.venv_baseline\\Lib\\site-packages\\pydantic\\typing.py:400: DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.\n    value = _eval_type(value, base_globals, None)\n\nLinkWatch\\linkwatch\\resources.py:1\n  C:\\Users\\ACER\\Downloads\\H26_ImpactForge_Resilify\\LinkWatch\\linkwatch\\resources.py:1: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html\n    import pkg_resources\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED LinkWatch\\tests\\test_report.py::test_report_renders_all_sites - Import...\n=================== 1 failed, 9 passed, 2 warnings in 8.69s ===================\n",
+    "raw_stderr": ""
+  },
+  "indirect_findings": [
+    {
+      "category": "GHOST_DEPENDENCY",
+      "package_name": "six",
+      "severity": "MEDIUM",
+      "evidence": "'six' is declared in requirements.txt:7, pyproject.toml:7 but has 0 imports and 0 call sites across the codebase. Python 2/3 compatibility shims are obsolete.",
+      "recommendation": "Safe to remove from requirements.txt and pyproject.toml.",
+      "file_locations": [
+        "requirements.txt",
+        "pyproject.toml"
+      ]
+    },
+    {
+      "category": "TRANSITIVE_PIN_RISK",
+      "package_name": "idna",
+      "severity": "HIGH",
+      "evidence": "'idna==2.7' is declared in requirements.txt:10, pyproject.toml:10 without direct codebase imports. It pins an obsolete 2018 release of an indirect dependency of 'requests', creating potential compatibility blocks with modern HTTP libraries.",
+      "recommendation": "Remove direct pin from requirements.txt and pyproject.toml; let requests resolve it.",
+      "file_locations": [
+        "requirements.txt",
+        "pyproject.toml"
+      ]
+    },
+    {
+      "category": "BROKEN_DEV_TOOL",
+      "package_name": "nose",
+      "severity": "HIGH",
+      "evidence": "'nose' is declared in requirements-dev.txt:2 but has 0 imports in tests and fails execution on Python 3.12+ (ModuleNotFoundError: No module named 'imp').",
+      "recommendation": "Purge 'nose==1.3.7' from requirements-dev.txt; pytest is already configured.",
+      "file_locations": [
+        "requirements-dev.txt"
+      ]
+    },
+    {
+      "category": "DEPRECATED_RUNTIME_API",
+      "package_name": "setuptools",
+      "severity": "HIGH",
+      "evidence": "Import of 'pkg_resources' detected in linkwatch/resources.py:1. pkg_resources is officially deprecated by setuptools and triggers DeprecationWarning at runtime.",
+      "recommendation": "Migrate to standard library 'importlib.resources' (files() and as_file()).",
+      "file_locations": [
+        "linkwatch/resources.py:1"
+      ]
+    },
+    {
+      "category": "DEPRECATED_RUNTIME_API",
+      "package_name": "toml",
+      "severity": "MEDIUM",
+      "evidence": "Direct import and usage of external 'toml' library in linkwatch/config.py:3. Python 3.11+ provides standard library 'tomllib' natively with faster and safer parsing.",
+      "recommendation": "Migrate to standard library 'tomllib' on Python 3.11+.",
+      "file_locations": [
+        "linkwatch/config.py:3"
+      ]
+    },
+    {
+      "category": "DEPRECATED_RUNTIME_API",
+      "package_name": "appdirs",
+      "severity": "HIGH",
+      "evidence": "Import of 'user_cache_dir' from 'appdirs' in linkwatch/cache.py:4. appdirs is unmaintained since 2017 with unresolved edge cases on modern operating systems.",
+      "recommendation": "Migrate to active drop-in replacement 'platformdirs'.",
+      "file_locations": [
+        "linkwatch/cache.py:4"
+      ]
+    },
+    {
+      "category": "DOCKER_RUNTIME",
+      "package_name": "python",
+      "severity": "INFO",
+      "evidence": "Dockerfile base image specifies: 'FROM python:3.12-slim' (line 1)",
+      "recommendation": "Ensure container runtime matches local Python 3.12/3.13 constraint.",
+      "file_locations": [
+        "Dockerfile:1"
+      ]
+    },
+    {
+      "category": "BROKEN_DEV_TOOL",
+      "package_name": "nose",
+      "severity": "HIGH",
+      "evidence": "Makefile references nose/nosetests: '.PHONY: setup test test-nose docker-build docker-test' at line 4",
+      "recommendation": "Replace nose invocation with pytest in Makefile.",
+      "file_locations": [
+        "Makefile:4"
+      ]
+    },
+    {
+      "category": "BROKEN_DEV_TOOL",
+      "package_name": "nose",
+      "severity": "HIGH",
+      "evidence": "Makefile references nose/nosetests: 'test-nose:' at line 13",
+      "recommendation": "Replace nose invocation with pytest in Makefile.",
+      "file_locations": [
+        "Makefile:13"
+      ]
+    },
+    {
+      "category": "BROKEN_DEV_TOOL",
+      "package_name": "nose",
+      "severity": "HIGH",
+      "evidence": "Makefile references nose/nosetests: 'nosetests tests/' at line 14",
+      "recommendation": "Replace nose invocation with pytest in Makefile.",
+      "file_locations": [
+        "Makefile:14"
+      ]
+    }
+  ],
+  "dependencies": {
+    "toml": {
+      "package_name": "toml",
+      "declarations": [
+        {
+          "name": "toml",
+          "normalized_name": "toml",
+          "specifier": "==0.10.2",
+          "is_pinned": true,
+          "pinned_version": "0.10.2",
+          "source_file": "requirements.txt",
+          "line_number": 1,
+          "raw_line": "toml==0.10.2",
+          "is_dev": false
+        },
+        {
+          "name": "toml",
+          "normalized_name": "toml",
+          "specifier": "==0.10.2",
+          "is_pinned": true,
+          "pinned_version": "0.10.2",
+          "source_file": "pyproject.toml",
+          "line_number": 1,
+          "raw_line": "toml==0.10.2",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "toml",
+        "latest_version": "0.10.2",
+        "latest_release_date": "2020-11-01T01:40:20.672915Z",
+        "pinned_version": "0.10.2",
+        "pinned_release_date": "2020-11-01T01:40:20.672915Z",
+        "days_outdated": 0,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*",
+        "license_str": "MIT",
+        "home_page": "https://github.com/uiri/toml",
+        "project_urls": {
+          "Homepage": "https://github.com/uiri/toml"
+        },
+        "is_inactive_or_deprecated": true,
+        "deprecation_evidence": [
+          "Ecosystem Advisory: Python 3.11+ includes standard library 'tomllib' for reading TOML. PyPI 'toml' package is unmaintained and superseded.",
+          "Stale package: Last release was 5 years ago (2020-11-01)"
+        ],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 1,
+        "call_count": 3,
+        "files_using": [
+          "linkwatch\\config.py"
+        ],
+        "imports": [
+          {
+            "file_path": "linkwatch\\config.py",
+            "line_number": 3,
+            "statement": "import toml",
+            "imported_module": "toml",
+            "imported_symbols": [
+              "toml"
+            ],
+            "package_name": "toml"
+          }
+        ],
+        "call_sites": [
+          {
+            "file_path": "linkwatch\\config.py",
+            "line_number": 14,
+            "call_expression": "validator",
+            "callee_name": "validator",
+            "code_snippet": "@validator(\"name\")"
+          },
+          {
+            "file_path": "linkwatch\\config.py",
+            "line_number": 20,
+            "call_expression": "validator",
+            "callee_name": "validator",
+            "code_snippet": "@validator(\"url\")"
+          },
+          {
+            "file_path": "linkwatch\\config.py",
+            "line_number": 37,
+            "call_expression": "toml.load",
+            "callee_name": "toml.load",
+            "code_snippet": "data = toml.load(path)"
+          }
+        ]
+      },
+      "objective_risks": [
+        "PYPI_DEPRECATION: Ecosystem Advisory: Python 3.11+ includes standard library 'tomllib' for reading TOML. PyPI 'toml' package is unmaintained and superseded.",
+        "PYPI_DEPRECATION: Stale package: Last release was 5 years ago (2020-11-01)",
+        "DEPRECATED_RUNTIME_API: Direct import and usage of external 'toml' library in linkwatch/config.py:3. Python 3.11+ provides standard library 'tomllib' natively with faster and safer parsing."
+      ],
+      "risk_count": 3,
+      "has_objective_risk": true
+    },
+    "appdirs": {
+      "package_name": "appdirs",
+      "declarations": [
+        {
+          "name": "appdirs",
+          "normalized_name": "appdirs",
+          "specifier": "==1.4.4",
+          "is_pinned": true,
+          "pinned_version": "1.4.4",
+          "source_file": "requirements.txt",
+          "line_number": 2,
+          "raw_line": "appdirs==1.4.4",
+          "is_dev": false
+        },
+        {
+          "name": "appdirs",
+          "normalized_name": "appdirs",
+          "specifier": "==1.4.4",
+          "is_pinned": true,
+          "pinned_version": "1.4.4",
+          "source_file": "pyproject.toml",
+          "line_number": 2,
+          "raw_line": "appdirs==1.4.4",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "appdirs",
+        "latest_version": "1.4.4",
+        "latest_release_date": "2020-05-11T07:59:49.499913Z",
+        "pinned_version": "1.4.4",
+        "pinned_release_date": "2020-05-11T07:59:49.499913Z",
+        "days_outdated": 0,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": "",
+        "license_str": "MIT",
+        "home_page": "http://github.com/ActiveState/appdirs",
+        "project_urls": {
+          "Homepage": "http://github.com/ActiveState/appdirs"
+        },
+        "is_inactive_or_deprecated": true,
+        "deprecation_evidence": [
+          "Ecosystem Advisory: Upstream repository is archived/unmaintained since 2017. Active fork and drop-in replacement is 'platformdirs'.",
+          "Stale package: Last release was 6 years ago (2020-05-11)"
+        ],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 1,
+        "call_count": 0,
+        "files_using": [
+          "linkwatch\\cache.py"
+        ],
+        "imports": [
+          {
+            "file_path": "linkwatch\\cache.py",
+            "line_number": 4,
+            "statement": "from appdirs import user_cache_dir",
+            "imported_module": "appdirs",
+            "imported_symbols": [
+              "user_cache_dir"
+            ],
+            "package_name": "appdirs"
+          }
+        ],
+        "call_sites": []
+      },
+      "objective_risks": [
+        "PYPI_DEPRECATION: Ecosystem Advisory: Upstream repository is archived/unmaintained since 2017. Active fork and drop-in replacement is 'platformdirs'.",
+        "PYPI_DEPRECATION: Stale package: Last release was 6 years ago (2020-05-11)",
+        "DEPRECATED_RUNTIME_API: Import of 'user_cache_dir' from 'appdirs' in linkwatch/cache.py:4. appdirs is unmaintained since 2017 with unresolved edge cases on modern operating systems."
+      ],
+      "risk_count": 3,
+      "has_objective_risk": true
+    },
+    "requests": {
+      "package_name": "requests",
+      "declarations": [
+        {
+          "name": "requests",
+          "normalized_name": "requests",
+          "specifier": "==2.31.0",
+          "is_pinned": true,
+          "pinned_version": "2.31.0",
+          "source_file": "requirements.txt",
+          "line_number": 3,
+          "raw_line": "requests==2.31.0",
+          "is_dev": false
+        },
+        {
+          "name": "requests",
+          "normalized_name": "requests",
+          "specifier": "==2.31.0",
+          "is_pinned": true,
+          "pinned_version": "2.31.0",
+          "source_file": "pyproject.toml",
+          "line_number": 3,
+          "raw_line": "requests==2.31.0",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "requests",
+        "latest_version": "2.34.2",
+        "latest_release_date": "2026-05-14T19:25:26.443000Z",
+        "pinned_version": "2.31.0",
+        "pinned_release_date": "2023-05-22T15:12:42.313790Z",
+        "days_outdated": 1088,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.10",
+        "license_str": "Apache-2.0",
+        "home_page": null,
+        "project_urls": {
+          "Documentation": "https://requests.readthedocs.io",
+          "Source": "https://github.com/psf/requests"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 4,
+        "call_count": 2,
+        "files_using": [
+          "linkwatch\\checker.py",
+          "linkwatch\\encoding.py",
+          "linkwatch\\http_patch.py"
+        ],
+        "imports": [
+          {
+            "file_path": "linkwatch\\checker.py",
+            "line_number": 5,
+            "statement": "import requests",
+            "imported_module": "requests",
+            "imported_symbols": [
+              "requests"
+            ],
+            "package_name": "requests"
+          },
+          {
+            "file_path": "linkwatch\\checker.py",
+            "line_number": 6,
+            "statement": "from requests import Session as S",
+            "imported_module": "requests",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "requests"
+          },
+          {
+            "file_path": "linkwatch\\encoding.py",
+            "line_number": 5,
+            "statement": "from requests.utils import _parse_content_type_header",
+            "imported_module": "requests.utils",
+            "imported_symbols": [
+              "_parse_content_type_header"
+            ],
+            "package_name": "requests"
+          },
+          {
+            "file_path": "linkwatch\\http_patch.py",
+            "line_number": 1,
+            "statement": "import requests",
+            "imported_module": "requests",
+            "imported_symbols": [
+              "requests"
+            ],
+            "package_name": "requests"
+          }
+        ],
+        "call_sites": [
+          {
+            "file_path": "linkwatch\\checker.py",
+            "line_number": 13,
+            "call_expression": "S",
+            "callee_name": "S",
+            "code_snippet": "session = S()"
+          },
+          {
+            "file_path": "linkwatch\\checker.py",
+            "line_number": 15,
+            "call_expression": "certifi.where",
+            "callee_name": "certifi.where",
+            "code_snippet": "return session.get(url, verify=certifi.where())"
+          }
+        ]
+      },
+      "objective_risks": [
+        "OUTDATED: Pinned version is 1088 days behind latest release"
+      ],
+      "risk_count": 1,
+      "has_objective_risk": true
+    },
+    "jinja2": {
+      "package_name": "jinja2",
+      "declarations": [
+        {
+          "name": "Jinja2",
+          "normalized_name": "jinja2",
+          "specifier": "==2.11.3",
+          "is_pinned": true,
+          "pinned_version": "2.11.3",
+          "source_file": "requirements.txt",
+          "line_number": 4,
+          "raw_line": "Jinja2==2.11.3",
+          "is_dev": false
+        },
+        {
+          "name": "Jinja2",
+          "normalized_name": "jinja2",
+          "specifier": "==2.11.3",
+          "is_pinned": true,
+          "pinned_version": "2.11.3",
+          "source_file": "pyproject.toml",
+          "line_number": 4,
+          "raw_line": "Jinja2==2.11.3",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "jinja2",
+        "latest_version": "3.1.6",
+        "latest_release_date": "2025-03-05T20:05:00.369721Z",
+        "pinned_version": "2.11.3",
+        "pinned_release_date": "2021-01-31T16:33:07.289264Z",
+        "days_outdated": 1494,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.7",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Changes": "https://jinja.palletsprojects.com/changes/",
+          "Chat": "https://discord.gg/pallets",
+          "Documentation": "https://jinja.palletsprojects.com/",
+          "Donate": "https://palletsprojects.com/donate",
+          "Source": "https://github.com/pallets/jinja/"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 1,
+        "call_count": 0,
+        "files_using": [
+          "linkwatch\\report.py"
+        ],
+        "imports": [
+          {
+            "file_path": "linkwatch\\report.py",
+            "line_number": 3,
+            "statement": "from jinja2 import Environment, FileSystemLoader, select_autoescape",
+            "imported_module": "jinja2",
+            "imported_symbols": [
+              "Environment",
+              "FileSystemLoader",
+              "select_autoescape"
+            ],
+            "package_name": "jinja2"
+          }
+        ],
+        "call_sites": []
+      },
+      "objective_risks": [
+        "OUTDATED: Pinned version is 1494 days behind latest release",
+        "RUNTIME_EXECUTION_FAILURE: Jinja2==2.11.3 fails during status report rendering due to MarkupSafe 3.0 incompatibility ('cannot import name soft_unicode from markupsafe')."
+      ],
+      "risk_count": 2,
+      "has_objective_risk": true
+    },
+    "pydantic": {
+      "package_name": "pydantic",
+      "declarations": [
+        {
+          "name": "pydantic",
+          "normalized_name": "pydantic",
+          "specifier": "==1.10.13",
+          "is_pinned": true,
+          "pinned_version": "1.10.13",
+          "source_file": "requirements.txt",
+          "line_number": 5,
+          "raw_line": "pydantic==1.10.13",
+          "is_dev": false
+        },
+        {
+          "name": "pydantic",
+          "normalized_name": "pydantic",
+          "specifier": ">=2",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "pyproject.toml",
+          "line_number": 5,
+          "raw_line": "pydantic>=2",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "pydantic",
+        "latest_version": "2.14.1",
+        "latest_release_date": "2026-10-11T18:37:53.437059Z",
+        "pinned_version": "1.10.13",
+        "pinned_release_date": "2023-09-27T17:43:07.172408Z",
+        "days_outdated": 1110,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.10",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Changelog": "https://pydantic.dev/docs/validation/latest/get-started/changelog/",
+          "Documentation": "https://pydantic.dev/docs/validation/latest/get-started/",
+          "Funding": "https://github.com/sponsors/samuelcolvin",
+          "Homepage": "https://github.com/pydantic/pydantic",
+          "Source": "https://github.com/pydantic/pydantic"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 1,
+        "call_count": 0,
+        "files_using": [
+          "linkwatch\\config.py"
+        ],
+        "imports": [
+          {
+            "file_path": "linkwatch\\config.py",
+            "line_number": 4,
+            "statement": "from pydantic import BaseModel, validator",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "validator"
+            ],
+            "package_name": "pydantic"
+          }
+        ],
+        "call_sites": []
+      },
+      "objective_risks": [
+        "MANIFEST_CONFLICT: Package 'pydantic' is strictly pinned in some manifests (requirements.txt: '==1.10.13', pyproject.toml: '>=2') but loose or constrained differently elsewhere.",
+        "OUTDATED: Pinned version is 1110 days behind latest release"
+      ],
+      "risk_count": 2,
+      "has_objective_risk": true
+    },
+    "click": {
+      "package_name": "click",
+      "declarations": [
+        {
+          "name": "click",
+          "normalized_name": "click",
+          "specifier": ">=7",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 6,
+          "raw_line": "click>=7",
+          "is_dev": false
+        },
+        {
+          "name": "click",
+          "normalized_name": "click",
+          "specifier": ">=7",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "pyproject.toml",
+          "line_number": 6,
+          "raw_line": "click>=7",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "click",
+        "latest_version": "8.5.0",
+        "latest_release_date": "2026-08-26T13:33:12.928043Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.10",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Changes": "https://click.palletsprojects.com/page/changes/",
+          "Chat": "https://discord.gg/pallets",
+          "Documentation": "https://click.palletsprojects.com/",
+          "Donate": "https://palletsprojects.com/donate",
+          "Source": "https://github.com/pallets/click/"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 2,
+        "call_count": 12,
+        "files_using": [
+          "linkwatch\\cli.py",
+          "tests\\test_report.py"
+        ],
+        "imports": [
+          {
+            "file_path": "linkwatch\\cli.py",
+            "line_number": 1,
+            "statement": "import click",
+            "imported_module": "click",
+            "imported_symbols": [
+              "click"
+            ],
+            "package_name": "click"
+          },
+          {
+            "file_path": "tests\\test_report.py",
+            "line_number": 1,
+            "statement": "from click.testing import CliRunner",
+            "imported_module": "click.testing",
+            "imported_symbols": [
+              "CliRunner"
+            ],
+            "package_name": "click"
+          }
+        ],
+        "call_sites": [
+          {
+            "file_path": "linkwatch\\cli.py",
+            "line_number": 9,
+            "call_expression": "Console",
+            "callee_name": "Console",
+            "code_snippet": "console = Console()"
+          },
+          {
+            "file_path": "linkwatch\\cli.py",
+            "line_number": 13,
+            "call_expression": "Table",
+            "callee_name": "Table",
+            "code_snippet": "table = Table(title=title)"
+          },
+          {
+            "file_path": "linkwatch\\cli.py",
+            "line_number": 27,
+            "call_expression": "click.group",
+            "callee_name": "click.group",
+            "code_snippet": "@click.group()"
+          },
+          {
+            "file_path": "linkwatch\\cli.py",
+            "line_number": 28,
+            "call_expression": "click.version_option",
+            "callee_name": "click.version_option",
+            "code_snippet": "@click.version_option(__version__, prog_name=\"linkwatch\")"
+          },
+          {
+            "file_path": "linkwatch\\cli.py",
+            "line_number": 40,
+            "call_expression": "Live",
+            "callee_name": "Live",
+            "code_snippet": "with Live(build_table(settings.title, results), console=console,"
+          },
+          {
+            "file_path": "linkwatch\\cli.py",
+            "line_number": 34,
+            "call_expression": "click.option",
+            "callee_name": "click.option",
+            "code_snippet": "@click.option(\"--config\", \"config_path\", default=\"sites.toml\", show_default=True,"
+          },
+          {
+            "file_path": "linkwatch\\cli.py",
+            "line_number": 60,
+            "call_expression": "click.ClickException",
+            "callee_name": "click.ClickException",
+            "code_snippet": "raise click.ClickException(\"No cached results, run 'linkwatch check' first.\")"
+          },
+          {
+            "file_path": "linkwatch\\cli.py",
+            "line_number": 62,
+            "call_expression": "click.echo",
+            "callee_name": "click.echo",
+            "code_snippet": "click.echo(\"Wrote %s\" % path)"
+          },
+          {
+            "file_path": "linkwatch\\cli.py",
+            "line_number": 51,
+            "call_expression": "click.option",
+            "callee_name": "click.option",
+            "code_snippet": "@click.option(\"--output\", \"-o\", default=\"status.html\", show_default=True,"
+          },
+          {
+            "file_path": "linkwatch\\cli.py",
+            "line_number": 53,
+            "call_expression": "click.option",
+            "callee_name": "click.option",
+            "code_snippet": "@click.option(\"--title\", default=\"linkwatch\", show_default=True)"
+          },
+          {
+            "file_path": "linkwatch\\cli.py",
+            "line_number": 68,
+            "call_expression": "click.echo",
+            "callee_name": "click.echo",
+            "code_snippet": "click.echo(\"Templates: %s\" % resources.template_dir())"
+          },
+          {
+            "file_path": "linkwatch\\cli.py",
+            "line_number": 69,
+            "call_expression": "click.echo",
+            "callee_name": "click.echo",
+            "code_snippet": "click.echo(\"Cache:     %s\" % cache.cache_file())"
+          }
+        ]
+      },
+      "objective_risks": [],
+      "risk_count": 0,
+      "has_objective_risk": false
+    },
+    "six": {
+      "package_name": "six",
+      "declarations": [
+        {
+          "name": "six",
+          "normalized_name": "six",
+          "specifier": "",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 7,
+          "raw_line": "six",
+          "is_dev": false
+        },
+        {
+          "name": "six",
+          "normalized_name": "six",
+          "specifier": "",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "pyproject.toml",
+          "line_number": 7,
+          "raw_line": "six",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "six",
+        "latest_version": "1.17.0",
+        "latest_release_date": "2024-12-04T17:35:26.475808Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7",
+        "license_str": "MIT",
+        "home_page": "https://github.com/benjaminp/six",
+        "project_urls": {
+          "Homepage": "https://github.com/benjaminp/six"
+        },
+        "is_inactive_or_deprecated": true,
+        "deprecation_evidence": [
+          "Ecosystem Advisory: Python 2 and 3 compatibility library. Redundant and obsolete on Python 3.10+."
+        ],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": false,
+        "import_count": 0,
+        "call_count": 0,
+        "files_using": [],
+        "imports": [],
+        "call_sites": []
+      },
+      "objective_risks": [
+        "PYPI_DEPRECATION: Ecosystem Advisory: Python 2 and 3 compatibility library. Redundant and obsolete on Python 3.10+.",
+        "GHOST_DEPENDENCY: 'six' is declared in requirements.txt:7, pyproject.toml:7 but has 0 imports and 0 call sites across the codebase. Python 2/3 compatibility shims are obsolete."
+      ],
+      "risk_count": 2,
+      "has_objective_risk": true
+    },
+    "chardet": {
+      "package_name": "chardet",
+      "declarations": [
+        {
+          "name": "chardet",
+          "normalized_name": "chardet",
+          "specifier": "==5.2.0",
+          "is_pinned": true,
+          "pinned_version": "5.2.0",
+          "source_file": "requirements.txt",
+          "line_number": 8,
+          "raw_line": "chardet==5.2.0",
+          "is_dev": false
+        },
+        {
+          "name": "chardet",
+          "normalized_name": "chardet",
+          "specifier": "==5.2.0",
+          "is_pinned": true,
+          "pinned_version": "5.2.0",
+          "source_file": "pyproject.toml",
+          "line_number": 8,
+          "raw_line": "chardet==5.2.0",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "chardet",
+        "latest_version": "7.6.0",
+        "latest_release_date": "2026-08-14T20:36:07.451224Z",
+        "pinned_version": "5.2.0",
+        "pinned_release_date": "2023-08-01T19:23:00.661021Z",
+        "days_outdated": 1109,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.10",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Bug Tracker": "https://github.com/chardet/chardet/issues",
+          "Changelog": "https://chardet.readthedocs.io/en/latest/changelog.html",
+          "Documentation": "https://chardet.readthedocs.io",
+          "Homepage": "https://github.com/chardet/chardet",
+          "Repository": "https://github.com/chardet/chardet"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 1,
+        "call_count": 2,
+        "files_using": [
+          "linkwatch\\encoding.py"
+        ],
+        "imports": [
+          {
+            "file_path": "linkwatch\\encoding.py",
+            "line_number": 4,
+            "statement": "import chardet",
+            "imported_module": "chardet",
+            "imported_symbols": [
+              "chardet"
+            ],
+            "package_name": "chardet"
+          }
+        ],
+        "call_sites": [
+          {
+            "file_path": "linkwatch\\encoding.py",
+            "line_number": 11,
+            "call_expression": "_parse_content_type_header",
+            "callee_name": "_parse_content_type_header",
+            "code_snippet": "_, params = _parse_content_type_header(resp.headers.get(\"Content-Type\", \"\"))"
+          },
+          {
+            "file_path": "linkwatch\\encoding.py",
+            "line_number": 15,
+            "call_expression": "chardet.detect",
+            "callee_name": "chardet.detect",
+            "code_snippet": "guess = chardet.detect(resp.content)"
+          }
+        ]
+      },
+      "objective_risks": [
+        "OUTDATED: Pinned version is 1109 days behind latest release"
+      ],
+      "risk_count": 1,
+      "has_objective_risk": true
+    },
+    "setuptools": {
+      "package_name": "setuptools",
+      "declarations": [
+        {
+          "name": "setuptools",
+          "normalized_name": "setuptools",
+          "specifier": "==75.8.0",
+          "is_pinned": true,
+          "pinned_version": "75.8.0",
+          "source_file": "requirements.txt",
+          "line_number": 9,
+          "raw_line": "setuptools==75.8.0",
+          "is_dev": false
+        },
+        {
+          "name": "setuptools",
+          "normalized_name": "setuptools",
+          "specifier": "==75.8.0",
+          "is_pinned": true,
+          "pinned_version": "75.8.0",
+          "source_file": "pyproject.toml",
+          "line_number": 9,
+          "raw_line": "setuptools==75.8.0",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "setuptools",
+        "latest_version": "84.0.0",
+        "latest_release_date": "2026-08-08T18:27:56.719708Z",
+        "pinned_version": "75.8.0",
+        "pinned_release_date": "2025-01-08T18:28:20.912929Z",
+        "days_outdated": 576,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.10",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Changelog": "https://setuptools.pypa.io/en/stable/history.html",
+          "Documentation": "https://setuptools.pypa.io/",
+          "Source": "https://github.com/pypa/setuptools"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 1,
+        "call_count": 1,
+        "files_using": [
+          "linkwatch\\resources.py"
+        ],
+        "imports": [
+          {
+            "file_path": "linkwatch\\resources.py",
+            "line_number": 1,
+            "statement": "import pkg_resources",
+            "imported_module": "pkg_resources",
+            "imported_symbols": [
+              "pkg_resources"
+            ],
+            "package_name": "setuptools"
+          }
+        ],
+        "call_sites": [
+          {
+            "file_path": "linkwatch\\resources.py",
+            "line_number": 7,
+            "call_expression": "pkg_resources.resource_filename",
+            "callee_name": "pkg_resources.resource_filename",
+            "code_snippet": "return pkg_resources.resource_filename(\"linkwatch\", \"templates\")"
+          }
+        ]
+      },
+      "objective_risks": [
+        "OUTDATED: Pinned version is 576 days behind latest release",
+        "DEPRECATED_RUNTIME_API: Import of 'pkg_resources' detected in linkwatch/resources.py:1. pkg_resources is officially deprecated by setuptools and triggers DeprecationWarning at runtime."
+      ],
+      "risk_count": 2,
+      "has_objective_risk": true
+    },
+    "idna": {
+      "package_name": "idna",
+      "declarations": [
+        {
+          "name": "idna",
+          "normalized_name": "idna",
+          "specifier": "==2.7",
+          "is_pinned": true,
+          "pinned_version": "2.7",
+          "source_file": "requirements.txt",
+          "line_number": 10,
+          "raw_line": "idna==2.7",
+          "is_dev": false
+        },
+        {
+          "name": "idna",
+          "normalized_name": "idna",
+          "specifier": "==2.7",
+          "is_pinned": true,
+          "pinned_version": "2.7",
+          "source_file": "pyproject.toml",
+          "line_number": 10,
+          "raw_line": "idna==2.7",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "idna",
+        "latest_version": "3.20",
+        "latest_release_date": "2026-09-17T14:11:03.168153Z",
+        "pinned_version": "2.7",
+        "pinned_release_date": "2018-06-11T02:52:19.321873Z",
+        "days_outdated": 3020,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.9",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Changelog": "https://github.com/kjd/idna/blob/master/HISTORY.md",
+          "Issue tracker": "https://github.com/kjd/idna/issues",
+          "Source": "https://github.com/kjd/idna"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": false,
+        "import_count": 0,
+        "call_count": 0,
+        "files_using": [],
+        "imports": [],
+        "call_sites": []
+      },
+      "objective_risks": [
+        "OUTDATED: Pinned version is 3020 days behind latest release",
+        "TRANSITIVE_PIN_RISK: 'idna==2.7' is declared in requirements.txt:10, pyproject.toml:10 without direct codebase imports. It pins an obsolete 2018 release of an indirect dependency of 'requests', creating potential compatibility blocks with modern HTTP libraries."
+      ],
+      "risk_count": 2,
+      "has_objective_risk": true
+    },
+    "python-dateutil": {
+      "package_name": "python-dateutil",
+      "declarations": [
+        {
+          "name": "python-dateutil",
+          "normalized_name": "python-dateutil",
+          "specifier": "",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 11,
+          "raw_line": "python-dateutil",
+          "is_dev": false
+        },
+        {
+          "name": "python-dateutil",
+          "normalized_name": "python-dateutil",
+          "specifier": "",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "pyproject.toml",
+          "line_number": 11,
+          "raw_line": "python-dateutil",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "python-dateutil",
+        "latest_version": "2.9.0.post0",
+        "latest_release_date": "2024-03-01T18:36:18.570437Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7",
+        "license_str": "Dual License",
+        "home_page": "https://github.com/dateutil/dateutil",
+        "project_urls": {
+          "Documentation": "https://dateutil.readthedocs.io/en/stable/",
+          "Homepage": "https://github.com/dateutil/dateutil",
+          "Source": "https://github.com/dateutil/dateutil"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 1,
+        "call_count": 0,
+        "files_using": [
+          "linkwatch\\dates.py"
+        ],
+        "imports": [
+          {
+            "file_path": "linkwatch\\dates.py",
+            "line_number": 1,
+            "statement": "from dateutil import parser",
+            "imported_module": "dateutil",
+            "imported_symbols": [
+              "parser"
+            ],
+            "package_name": "python-dateutil"
+          }
+        ],
+        "call_sites": []
+      },
+      "objective_risks": [],
+      "risk_count": 0,
+      "has_objective_risk": false
+    },
+    "rich": {
+      "package_name": "rich",
+      "declarations": [
+        {
+          "name": "rich",
+          "normalized_name": "rich",
+          "specifier": "",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 12,
+          "raw_line": "rich",
+          "is_dev": false
+        },
+        {
+          "name": "rich",
+          "normalized_name": "rich",
+          "specifier": "",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "pyproject.toml",
+          "line_number": 12,
+          "raw_line": "rich",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "rich",
+        "latest_version": "15.0.0",
+        "latest_release_date": "2026-04-12T08:24:02.830783Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.9.0",
+        "license_str": "MIT",
+        "home_page": null,
+        "project_urls": {
+          "Documentation": "https://rich.readthedocs.io/en/latest/",
+          "Homepage": "https://github.com/Textualize/rich"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 3,
+        "call_count": 0,
+        "files_using": [
+          "linkwatch\\cli.py"
+        ],
+        "imports": [
+          {
+            "file_path": "linkwatch\\cli.py",
+            "line_number": 2,
+            "statement": "from rich.console import Console",
+            "imported_module": "rich.console",
+            "imported_symbols": [
+              "Console"
+            ],
+            "package_name": "rich"
+          },
+          {
+            "file_path": "linkwatch\\cli.py",
+            "line_number": 3,
+            "statement": "from rich.live import Live",
+            "imported_module": "rich.live",
+            "imported_symbols": [
+              "Live"
+            ],
+            "package_name": "rich"
+          },
+          {
+            "file_path": "linkwatch\\cli.py",
+            "line_number": 4,
+            "statement": "from rich.table import Table",
+            "imported_module": "rich.table",
+            "imported_symbols": [
+              "Table"
+            ],
+            "package_name": "rich"
+          }
+        ],
+        "call_sites": []
+      },
+      "objective_risks": [],
+      "risk_count": 0,
+      "has_objective_risk": false
+    },
+    "pytest": {
+      "package_name": "pytest",
+      "declarations": [
+        {
+          "name": "pytest",
+          "normalized_name": "pytest",
+          "specifier": "",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements-dev.txt",
+          "line_number": 1,
+          "raw_line": "pytest",
+          "is_dev": true
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "pytest",
+        "latest_version": "9.1.1",
+        "latest_release_date": "2026-06-19T10:58:31.347074Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.10",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Changelog": "https://docs.pytest.org/en/stable/changelog.html",
+          "Contact": "https://docs.pytest.org/en/stable/contact.html",
+          "Funding": "https://docs.pytest.org/en/stable/sponsor.html",
+          "Homepage": "https://docs.pytest.org/en/latest/",
+          "Source": "https://github.com/pytest-dev/pytest",
+          "Tracker": "https://github.com/pytest-dev/pytest/issues"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 1,
+        "call_count": 1,
+        "files_using": [
+          "tests\\conftest.py"
+        ],
+        "imports": [
+          {
+            "file_path": "tests\\conftest.py",
+            "line_number": 6,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          }
+        ],
+        "call_sites": [
+          {
+            "file_path": "tests\\conftest.py",
+            "line_number": 60,
+            "call_expression": "pytest.fixture",
+            "callee_name": "pytest.fixture",
+            "code_snippet": "@pytest.fixture(scope=\"session\")"
+          }
+        ]
+      },
+      "objective_risks": [],
+      "risk_count": 0,
+      "has_objective_risk": false
+    },
+    "nose": {
+      "package_name": "nose",
+      "declarations": [
+        {
+          "name": "nose",
+          "normalized_name": "nose",
+          "specifier": "==1.3.7",
+          "is_pinned": true,
+          "pinned_version": "1.3.7",
+          "source_file": "requirements-dev.txt",
+          "line_number": 2,
+          "raw_line": "nose==1.3.7",
+          "is_dev": true
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "nose",
+        "latest_version": "1.3.7",
+        "latest_release_date": "2015-06-02T09:12:36.801799Z",
+        "pinned_version": "1.3.7",
+        "pinned_release_date": "2015-06-02T09:12:36.801799Z",
+        "days_outdated": 0,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": null,
+        "license_str": "GNU LGPL",
+        "home_page": "http://readthedocs.org/docs/nose/",
+        "project_urls": {
+          "Homepage": "http://readthedocs.org/docs/nose/"
+        },
+        "is_inactive_or_deprecated": true,
+        "deprecation_evidence": [
+          "Ecosystem Advisory: Project has been unmaintained since 2015. Completely broken on Python 3.12+ due to removal of standard library 'imp' module (PEP 594).",
+          "Stale package: Last release was 11 years ago (2015-06-02)"
+        ],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": false,
+        "import_count": 0,
+        "call_count": 0,
+        "files_using": [],
+        "imports": [],
+        "call_sites": []
+      },
+      "objective_risks": [
+        "PYPI_DEPRECATION: Ecosystem Advisory: Project has been unmaintained since 2015. Completely broken on Python 3.12+ due to removal of standard library 'imp' module (PEP 594).",
+        "PYPI_DEPRECATION: Stale package: Last release was 11 years ago (2015-06-02)",
+        "BROKEN_DEV_TOOL: 'nose' is declared in requirements-dev.txt:2 but has 0 imports in tests and fails execution on Python 3.12+ (ModuleNotFoundError: No module named 'imp').",
+        "BROKEN_DEV_TOOL: Makefile references nose/nosetests: '.PHONY: setup test test-nose docker-build docker-test' at line 4",
+        "BROKEN_DEV_TOOL: Makefile references nose/nosetests: 'test-nose:' at line 13",
+        "BROKEN_DEV_TOOL: Makefile references nose/nosetests: 'nosetests tests/' at line 14"
+      ],
+      "risk_count": 6,
+      "has_objective_risk": true
+    }
+  }
+}
