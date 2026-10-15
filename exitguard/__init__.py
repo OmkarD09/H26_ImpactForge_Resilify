@@ -19,6 +19,14 @@ from .capsule_schema import (
     VerificationVerdict,
     VersionVerification,
 )
+from .sandbox_manager import (
+    SandboxCleanupError,
+    SandboxCreationError,
+    SandboxError,
+    SandboxInfo,
+    SandboxManager,
+    SandboxVerificationError,
+)
 
 __all__ = [
     "DependencyExitCapsule",
@@ -29,6 +37,12 @@ __all__ = [
     "RiskEvidence",
     "RunRecord",
     "RunStatus",
+    "SandboxCleanupError",
+    "SandboxCreationError",
+    "SandboxError",
+    "SandboxInfo",
+    "SandboxManager",
+    "SandboxVerificationError",
     "TargetDependency",
     "TestCounts",
     "UsageLocation",
