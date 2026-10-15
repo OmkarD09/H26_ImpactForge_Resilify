@@ -26,7 +26,7 @@ LinkWatch\tests\test_report.py::test_report_renders_all_sites FAILED     [100%]
 ================================== FAILURES ===================================
 __________________ test_jinja2_bump_soft_unicode_resolution ___________________
 
-tmp_path = WindowsPath('C:/Users/ACER/AppData/Local/Temp/pytest-of-ACER/pytest-87/test_jinja2_bump_soft_unicode_0')
+tmp_path = WindowsPath('C:/Users/ACER/AppData/Local/Temp/pytest-of-ACER/pytest-89/test_jinja2_bump_soft_unicode_0')
 
     def test_jinja2_bump_soft_unicode_resolution(tmp_path):
         """Verifies modern Jinja2 renders templates cleanly without markupsafe soft_unicode import error."""
@@ -61,8 +61,8 @@ E   ImportError: cannot import name 'soft_unicode' from 'markupsafe' (C:\Users\A
 .venv_baseline\Lib\site-packages\jinja2\filters.py:13: ImportError
 ________________________ test_report_renders_all_sites ________________________
 
-tmp_path = WindowsPath('C:/Users/ACER/AppData/Local/Temp/pytest-of-ACER/pytest-87/test_report_renders_all_sites0')
-monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000013DD4F323F0>
+tmp_path = WindowsPath('C:/Users/ACER/AppData/Local/Temp/pytest-of-ACER/pytest-89/test_report_renders_all_sites0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001607B9A23F0>
 
     def test_report_renders_all_sites(tmp_path, monkeypatch):
         monkeypatch.setenv("LINKWATCH_CACHE_DIR", str(tmp_path))
@@ -135,4 +135,4 @@ LinkWatch\linkwatch\resources.py:1
 =========================== short test summary info ===========================
 FAILED LinkWatch\tests\test_migration_verification.py::test_jinja2_bump_soft_unicode_resolution
 FAILED LinkWatch\tests\test_report.py::test_report_renders_all_sites - Import...
-================== 2 failed, 15 passed, 7 warnings in 9.77s ===================
+================== 2 failed, 15 passed, 7 warnings in 8.62s ===================
