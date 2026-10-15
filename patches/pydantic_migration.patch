@@ -1,0 +1,27 @@
+--- a/LinkWatch/requirements.txt
++++ b/LinkWatch/requirements.txt
+@@ -2,7 +2,7 @@
+ appdirs==1.4.4
+ requests==2.31.0
+ Jinja2==2.11.3
+-pydantic==1.10.13
++pydantic>=2.0.0
+ click>=7
+ six
+ chardet==5.2.0
+--- a/LinkWatch/linkwatch/config.py
++++ b/LinkWatch/linkwatch/config.py
+@@ -1,7 +1,12 @@
+ from typing import List
+ 
+ import toml
+-from pydantic import BaseModel, validator
++try:
++    from pydantic import BaseModel, field_validator, ConfigDict
++    V2 = True
++except ImportError:
++    from pydantic import BaseModel, validator
++    V2 = False
+ 
+ 
+ class Site(BaseModel):

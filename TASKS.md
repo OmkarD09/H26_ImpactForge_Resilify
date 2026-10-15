@@ -21,12 +21,11 @@
 ## **Member 2: Gemma 4 AI Reasoning & Migration Patch Builder**
 * **Objective:** Leverage Gemma 4 to analyze risk evidence, filter out unverified risks, and synthesize accurate migration patches.
 
-### **Assigned Tasks:**
-- [ ] **Risk Evaluation Gate:** Filter scanned dependencies; if no evidence of risk or usage exists, record as "unknown" and prevent AI hallucination (*"Do not invent risk"*).
-- [ ] **Gemma 4 Prompt & API Integration:** Integrate the Google GenAI SDK to send AST usage snippets, manifest data, and PyPI metadata to Gemma 4.
-- [ ] **Migration Feasibility Assessment:** Evaluate whether a replacement or removal is feasible (e.g., standard library migration like `toml` $\rightarrow$ `tomllib`, or package drop-in like `appdirs` $\rightarrow$ `platformdirs`).
-- [ ] **Fallback Documentation:** For non-viable replacements, format structured documentation covering alternatives and open limitations.
-- [ ] **Patch & Test Synthesis:** Generate clean code diffs, migration steps, and suggested verification tests for viable replacements.
+- [x] **Risk Evaluation Gate:** Filter scanned dependencies; if no evidence of risk or usage exists, record as "unknown" and prevent AI hallucination (*"Do not invent risk"*).
+- [x] **Gemma 4 Prompt & API Integration:** Integrate the Google GenAI SDK to send AST usage snippets, manifest data, and PyPI metadata to Gemma 4.
+- [x] **Migration Feasibility Assessment:** Evaluate whether a replacement or removal is feasible (e.g., standard library migration like `toml` $\rightarrow$ `tomllib`, or package drop-in like `appdirs` $\rightarrow$ `platformdirs`).
+- [x] **Fallback Documentation:** For non-viable replacements, format structured documentation covering alternatives and open limitations.
+- [x] **Patch & Test Synthesis:** Generate clean code diffs, migration steps, and suggested verification tests for viable replacements.
 
 ---
 

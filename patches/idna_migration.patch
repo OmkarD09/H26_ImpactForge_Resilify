@@ -1,0 +1,20 @@
+--- a/LinkWatch/requirements.txt
++++ b/LinkWatch/requirements.txt
+@@ -7,7 +7,6 @@
+ six
+ chardet==5.2.0
+ setuptools==75.8.0
+-idna==2.7
+ python-dateutil
+ rich
+ # PyYAML==5.1
+--- a/LinkWatch/pyproject.toml
++++ b/LinkWatch/pyproject.toml
+@@ -19,7 +19,6 @@
+     "six",
+     "chardet==5.2.0",
+     "setuptools==75.8.0",
+-    "idna==2.7",
+     "python-dateutil",
+     "rich",
+ ]

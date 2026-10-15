@@ -1,0 +1,22 @@
+--- a/LinkWatch/linkwatch/config.py
++++ b/LinkWatch/linkwatch/config.py
+@@ -1,6 +1,10 @@
+ from typing import List
+ 
+-import toml
++import sys
++if sys.version_info >= (3, 11):
++    import tomllib
++else:
++    import tomli as tomllib
+ from pydantic import BaseModel, validator
+ 
+ 
+@@ -34,5 +38,6 @@
+ 
+ 
+ def load_settings(path="sites.toml"):
+-    data = toml.load(path)
++    with open(path, "rb") as f:
++        data = tomllib.load(f)
+     return Settings(**data)
