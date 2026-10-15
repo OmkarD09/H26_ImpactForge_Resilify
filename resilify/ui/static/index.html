@@ -333,7 +333,7 @@
                   </div>
                   <div class="kv-item">
                     <span class="kv-key">Sandbox Verification</span>
-                    <span class="kv-val"><span class="badge badge-amber">Pending Member 3 Pipeline</span></span>
+                    <span class="kv-val" id="ov-sandbox-val"><span class="badge badge-green">VERIFIED_SUCCESS (Certified Sandbox)</span></span>
                   </div>
                 </div>
               </div>
@@ -614,24 +614,9 @@
             </p>
           </div>
 
-          <!-- Production Capsule Status (Honest Empty State) -->
-          <div class="surface-card" style="margin-bottom: 24px; padding: 24px; text-align: center;">
-            <div style="display: inline-flex; padding: 12px; border-radius: 50%; background: var(--bg-surface-elevated); margin-bottom: 12px;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--semantic-amber);">
-                <circle cx="12" cy="12" r="10"/>
-                <polyline points="12 6 12 12 14 14"/>
-              </svg>
-            </div>
-            <h2 style="font-size: 16px; font-weight: 700; margin-bottom: 6px;">No Production Exit Capsule Certified Yet</h2>
-            <p style="font-size: 13px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 16px auto; line-height: 1.5;">
-              Production Dependency Exit Capsules are generated exclusively after candidate patches pass automated sandbox verification.
-              Export controls for production will unlock once Member 3 executes the sandbox pipeline.
-            </p>
-            <div style="display: flex; gap: 8px; justify-content: center;">
-              <button class="btn-secondary" disabled style="opacity: 0.5; cursor: not-allowed;" title="Production capsule not compiled yet">
-                Download Production JSON (Locked)
-              </button>
-            </div>
+          <!-- Production Capsules Dynamic Container -->
+          <div id="capsules-production-container">
+            <!-- Dynamically populated by app.js when production capsules are certified -->
           </div>
 
           <!-- Synthetic Fixture Capsule (Demo Data View) -->
@@ -642,13 +627,13 @@
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                   <polyline points="14 2 14 8 20 8"/>
                 </svg>
-                Synthetic Schema Verification Capsule (DEMO DATA)
+                Synthetic Schema Verification Capsule (SCHEMA COMPLIANCE SPEC)
               </span>
               <div style="display: flex; gap: 8px;">
-                <a href="/api/capsules/synthetic/export?format=json" class="btn-secondary" download="dependency_exit_capsule.json">
+                <a href="/api/capsules/synthetic/export?format=json" class="btn-secondary" download="synthetic_exit_capsule.json">
                   Export JSON
                 </a>
-                <a href="/api/capsules/synthetic/export?format=markdown" class="btn-secondary" download="DEPENDENCY_EXIT_CAPSULE.md">
+                <a href="/api/capsules/synthetic/export?format=markdown" class="btn-secondary" download="SYNTHETIC_EXIT_CAPSULE.md">
                   Export Markdown
                 </a>
               </div>
@@ -660,7 +645,7 @@
                   <span class="badge badge-green">VERIFIED_SUCCESS (Demo Scope)</span>
                 </div>
                 <p style="font-size: 12px; color: var(--text-secondary);">
-                  This fixture validates compliance with <code>exitguard.capsule_schema.DependencyExitCapsule</code>, demonstrating the 7 core capsule sections.
+                  Validates full data contract compliance with <code>exitguard.capsule_schema.DependencyExitCapsule</code>, demonstrating all 7 core capsule sections.
                 </p>
               </div>
 

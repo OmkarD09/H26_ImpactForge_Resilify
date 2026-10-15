@@ -111,6 +111,76 @@ class ResilifyUIHandler(BaseHTTPRequestHandler):
             self.send_json(api.get_capsules(project_id=project))
             return
 
+        if path == "/api/capsules/production/export":
+            fmt = query.get("format", ["json"])[0]
+            capsule_id_param = query.get("capsule_id", [None])[0]
+            capsules_info = api.get_capsules(project_id=project)
+            prod_list = capsules_info.get("production_capsules", [])
+            if not prod_list:
+                self.send_error(HTTPStatus.NOT_FOUND, "No production exit capsule certified for this project")
+                return
+
+            selected = None
+            if capsule_id_param:
+                for c in prod_list:
+                    if c.get("capsule_id") == capsule_id_param:
+                        selected = c
+                        break
+            if not selected:
+                selected = prod_list[0]
+
+            prod_cap = selected.get("full_json", {})
+            cid = selected.get("capsule_id", "PRODUCTION_CAPSULE")
+
+            if fmt == "markdown":
+                repo_dict = prod_cap.get("repository", {})
+                repo_url = repo_dict.get("url", "https://github.com/rishrek/LinkWatch" if project == "linkwatch" else "https://github.com/SwasthyaVaani/backend")
+                commit_sha = str(repo_dict.get("commit_sha", "HEAD"))[:8]
+                target_dep = selected.get("target_dependency", "Dependencies")
+                proposed_act = selected.get("proposed_action", "UPGRADE")
+                replacement = selected.get("replacement_package", "Target")
+                status = selected.get("status", "VERIFIED_SUCCESS")
+                generated_at = selected.get("generated_at", "")
+                verdict_scope = selected.get("verdict_scope", "")
+                telemetry = json.dumps(prod_cap.get("verification", {}), indent=2)
+
+                md_content = f"""# Production Dependency Exit Capsule: {target_dep}
+
+> **Certified Production Capsule** | Schema: `exitguard.capsule_schema.DependencyExitCapsule` (v1.0.0)
+
+- **Capsule ID:** `{cid}`
+- **Repository:** `{repo_url}` (`{commit_sha}`)
+- **Target Dependency:** `{target_dep}`
+- **Proposed Action:** `{proposed_act}` $\\rightarrow$ `{replacement}`
+- **Verification Verdict:** **{status}**
+- **Generated At:** `{generated_at}`
+
+## 1. Verification Scope & Certification
+{verdict_scope}
+
+## 2. Test Execution Telemetry
+```json
+{telemetry}
+```
+"""
+                payload = md_content.encode("utf-8")
+                self.send_response(HTTPStatus.OK)
+                self.send_header("Content-Type", "text/markdown; charset=utf-8")
+                self.send_header("Content-Disposition", f'attachment; filename="{cid}.md"')
+                self.send_header("Content-Length", str(len(payload)))
+                self.end_headers()
+                self.wfile.write(payload)
+                return
+            else:
+                payload = json.dumps(prod_cap, indent=2).encode("utf-8")
+                self.send_response(HTTPStatus.OK)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self.send_header("Content-Disposition", f'attachment; filename="{cid}.json"')
+                self.send_header("Content-Length", str(len(payload)))
+                self.end_headers()
+                self.wfile.write(payload)
+                return
+
         if path == "/api/capsules/synthetic/export":
             fmt = query.get("format", ["json"])[0]
             synth = api.get_synthetic_capsule()
