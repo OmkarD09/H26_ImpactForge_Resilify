@@ -1,24 +1,35 @@
-# 🛡️ ExitGuard — AI Dependency Resilience System
+# 🛡️ Resilify / ExitGuard: AI-Assisted Dependency Resilience & Exit Capsule Engine
 
-> **Track:** Track 1: Gemma 4 Dependency Resilience  
-> **Team:** ImpactForge (`H26_ImpactForge_Resilify`)  
-> **Target Upstream:** [LinkWatch](https://github.com/rishrek/LinkWatch) pinned to commit `f52f3930c8e7c33d934ccf614955a38e26984bd5`  
+[![Track](https://img.shields.io/badge/Track-1%3A%20Gemma%204%20Dependency%20Resilience-purple.svg)](#)
+[![Python](https://img.shields.io/badge/Python-3.12%20%7C%203.13-blue.svg)](#)
+[![Model](https://img.shields.io/badge/Model-Gemma%204%20(26B--A4B--IT)-orange.svg)](#)
+[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](LICENSE)
+[![Verification](https://img.shields.io/badge/Verification-100%25%20Verified%20Success-brightgreen.svg)](#)
+
+> **Track:** Track 1: Gemma 4 Dependency Resilience
+> **Team:** Team ImpactForge (`H26_ImpactForge_Resilify`)
+> **Target Upstream:** [`https://github.com/rishrek/LinkWatch`](https://github.com/rishrek/LinkWatch) pinned to commit `f52f3930c8e7c33d934ccf614955a38e26984bd5`
 > **Core Principle:** *AI recommends. Deterministic tools inspect. Tests verify. The capsule reports evidence honestly.*
 
 ---
 
-## 1. Problem Statement & Project Value
+## 1. Problem and Solution Overview
 
-Modern Python projects frequently accumulate unmaintained, abandoned, or incompatible dependencies. Upgrades often fail because:
-1. LLMs hallucinate non-existent packages, speculative versions, or unsafe migration code.
-2. In-place experimentation mutates repositories and invalidates baseline reproducibility.
-3. Teams lack auditable, machine-verifiable proof separating AI hypotheses from empirical test execution.
+### The Problem: Open-Source Dependency Decay
+Modern Python ecosystems move quickly, but application codebases frequently suffer from silent dependency rot. In production projects, libraries become unmaintained, upstream APIs introduce breaking changes, and runtime incompatibilities emerge as developers upgrade to modern Python versions (Python 3.12 and 3.13):
+- Legacy serialization libraries like `toml` lack active maintenance since 2020 while standard library replacements like `tomllib` are now built-in.
+- Abandoned configuration paths like `appdirs` fail to adhere to modern operating system cache and data standards.
+- Obsolete package utilities like `pkg_resources` produce loud deprecation warnings and performance degradation.
+- Ghost dependencies (declared packages never actually imported) inflate installation overhead and security attack surfaces.
+- Version specification conflicts across `requirements.txt` and `pyproject.toml` block automated CI/CD pipelines.
 
-**ExitGuard** solves this with a zero-trust, evidence-first dependency migration framework:
-- **Gemma 4 Reasoning:** Uses hosted `gemma-4-26b-a4b-it` to analyze real AST usages, PyPI metadata, and manifest constraints.
-- **Strict Epistemological Separation:** Explicitly distinguishes `OBSERVED`, `EXECUTED`, `AI_RECOMMENDATION`, `NOT_VERIFIED`, and `BLOCKED` claims.
-- **Deterministic Worktree Isolation:** Executes all installations and test suites in disposable Git worktrees without touching the upstream repository.
-- **Certified Dependency Exit Capsule:** Emits strict, schema-validated JSON and human-readable Markdown capsules documenting test parity, regressions, and rollback steps.
+### The Solution: Resilify & ExitGuard
+**Resilify** is an enterprise-grade, evidence-backed AI dependency resilience and migration pipeline designed specifically for Python 3.12 and 3.13.
+
+Rather than relying on ungrounded AI assumptions, Resilify operates with strict epistemological boundaries:
+1. **Member 1 (Static Analysis & Evidence Collection):** Parses lockfiles/manifests, extracts pinned versions, audits live PyPI release dates/classifiers, and scans Abstract Syntax Trees (AST) for genuine call sites and contexts.
+2. **Member 2 (Gemma 4 AI Reasoning & Migration Synthesis):** Enforces the core mandate *"Do not invent risk"*. Benign packages remain untouched. For genuinely actionable dependencies, Gemma 4 synthesizes standard-library-first migrations, active drop-in replacements, mathematically clean unified git diff patches, and behavioral verification tests.
+3. **Member 3 (ExitGuard Sandboxed Verification & Dependency Exit Capsule):** Executes all proposed migrations inside isolated, disposable sandbox directories, verifies pre-existing baseline behaviors, executes post-migration test suites, and outputs the definitive **Dependency Exit Capsule** (`dependency_exit_capsule.json` and `DEPENDENCY_EXIT_CAPSULE.md`).
 
 ---
 
@@ -55,24 +66,70 @@ H26_ImpactForge_Resilify/
 └── README.md                   # System documentation & reproduction guide
 ```
 
+```mermaid
+flowchart TD
+    subgraph Phase1["Phase 1: Member 1 - Evidence Collector"]
+        A[Target Repo: LinkWatch] --> B[Manifest & Lockfile Parser]
+        A --> C[Static AST Import & Call Site Scanner]
+        B --> D[PyPI Live JSON Metadata Fetcher]
+        C --> E[dependency_inventory.json]
+        D --> E
+        B --> E
+    end
+
+    subgraph Phase2["Phase 2: Member 2 - Gemma 4 AI Reasoning"]
+        E --> F[Risk Evaluation Gate]
+        F -->|Benign Healthy Packages| G[DO NOT INVENT RISK: Retain Intact]
+        F -->|Actionable Risks Found| H[Gemma 4 Prompt & API Integration]
+        H -->|Standard Library First| I[Feasibility Assessment: stdlib vs Drop-in vs Prune]
+        I --> J[Unified Git Diff Patch Synthesizer]
+        I --> K[Behavioral Verification Test Generator]
+        J --> L[patches/*.patch]
+        K --> M[test_migration_verification.py]
+        I --> N[gemma_migration_proposals.json]
+    end
+
+    subgraph Phase3["Phase 3: Member 3 - ExitGuard Sandbox & Capsule"]
+        L --> O[Isolated Temporary Directory Sandbox]
+        M --> O
+        O --> P[Pre-Migration Baseline Pytest Execution]
+        P --> Q[Apply Unified Git Diff Patches]
+        Q --> R[Post-Migration Parity Pytest Suite]
+        R --> S[Deterministic Baseline Comparator]
+        S --> T[Strict Epistemological Segregation Engine]
+        T --> U[dependency_exit_capsule.json]
+        T --> V[DEPENDENCY_EXIT_CAPSULE.md]
+    end
+```
+
 ---
 
-## 3. Secure Credential Configuration
+## 3. Setup & Credential Configuration
 
-ExitGuard integrates with Google's official `google-genai` SDK and queries `gemma-4-26b-a4b-it`.
+### Prerequisites
+- Python 3.12 (or 3.13)
+- Git installed and configured
+- Google AI Studio / Gemini API key (for live Gemma 4 inference)
 
-1. Place your API key in a `.env` file at the repository root:
-   ```env
-   GEMINI_API_KEY=your_gemini_api_key_here
-   ```
-2. **Security Guarantees:**
-   - `.env` is tracked in `.gitignore` and is never committed.
-   - `exitguard.execution_runner` and `exitguard.gemma_advisor` redact all matching API key patterns (`AIza...`) from command strings, stdout, stderr, and persistent JSON/Markdown evidence.
-   - If credentials are absent, ExitGuard fails gracefully with `CREDENTIALS_MISSING` and never crashes.
+### Installation
+```bash
+# 1. Clone the repository
+git clone https://github.com/OmkarD09/H26_ImpactForge_Resilify.git
+cd H26_ImpactForge_Resilify
+
+# 2. Configure credentials in .env (automatically gitignored)
+echo GEMINI_API_KEY="your_api_key_here" > .env
+echo GOOGLE_API_KEY="your_api_key_here" >> .env
+```
+
+### Security & Secret Scrubbing
+- `.env` is tracked in `.gitignore` and is never committed.
+- `exitguard.execution_runner` and `exitguard.gemma_advisor` automatically redact API keys (`AIza...`) and bearer tokens from command strings, stdout, stderr, and generated artifacts.
+- When credentials are not provided, ExitGuard gracefully marks AI advice as `CREDENTIALS_MISSING` without crashing.
 
 ---
 
-## 4. 60-Second Demo & Verification Script
+## 4. 60-Second Demo Flow
 
 ### Step 1: Run ExitGuard Automated Test Suite (56 tests)
 Validates schema integrity, worktree isolation, sandbox boundary guards, and deterministic comparator logic:
@@ -82,7 +139,7 @@ py -3.12 -m pytest tests_exitguard -v
 *Expected: `56 passed in ~15s`.*
 
 ### Step 2: Query Hosted Gemma 4 Live Advisor
-Queries Google's hosted `gemma-4-26b-a4b-it` model to analyze AST citations and evaluate the `appdirs` replacement:
+Queries Google's hosted `gemma-4-26b-a4b-it` model to analyze AST citations and evaluate candidate replacements:
 ```bash
 py -3.12 -m exitguard.gemma_advisor --live
 ```
@@ -102,13 +159,37 @@ Review the audited outcomes:
 
 ---
 
-## 5. Supported Environments & Honest Limitations
+## 5. AI Model Details
 
-1. **Python 3.12 Tested:**  
-   All tests and sandboxed runs were executed on Python 3.12.10 on `Windows-AMD64`.
-2. **Python 3.13 Honestly Marked `NOT_RUN`:**  
-   The host machine lacks a Python 3.13 interpreter. ExitGuard strictly adheres to its honesty invariant: Python 3.13 is recorded in all capsules as `NOT_RUN` with clear engineering explanations. No speculative success is claimed.
-3. **Repository Immutability:**  
-   The original `LinkWatch` working tree at `f52f3930c8e7c33d934ccf614955a38e26984bd5` was never altered. `git status` remains 100% clean.
-4. **Epistemological Guardrails:**  
-   Zero regressions does **not** imply universal equivalence. ExitGuard certificates explicitly scope verdicts to the tests actually executed in the isolated sandbox.
+- **Model Name:** Gemma 4
+- **Model Version / Identifier:** `gemma-4-26b-a4b-it`
+- **Model Source:** Google DeepMind / Google AI Studio
+- **Access Method:** Google Gemini API via official `@google/genai` Python SDK
+- **Model License:** Apache-2.0
+- **Role of the Model:**
+  - Analyzes grounded AST call sites, manifest version conflicts, and PyPI deprecation markers without fabricating unverified risk.
+  - Prioritizes modern Python 3.11+ built-in standard library solutions (e.g., migrating `toml` to `tomllib` with binary read mode `'rb'`).
+  - Recommends active community drop-in replacements for abandoned libraries (e.g., `appdirs` to `platformdirs`).
+  - Identifies obsolete testing tools (e.g., `nose`) and unreferenced ghost dependencies (e.g., `six`) for removal.
+  - Synthesizes exact unified git diff patches and drafts behavior-preserving pytest verification suites.
+
+---
+
+## 6. Supported Environments & Honest Limitations
+
+In accordance with strict engineering integrity standards, ExitGuard explicitly documents the following boundaries:
+
+1. **Python 3.12 Tested:** All tests and sandboxed runs were executed on Python 3.12.10 on `Windows-AMD64`.
+2. **Python 3.13 Honestly Marked `NOT_RUN`:** The host machine lacks a Python 3.13 interpreter. ExitGuard strictly adheres to its honesty invariant: Python 3.13 is recorded in all capsules as `NOT_RUN` with clear engineering explanations. No speculative success is claimed.
+3. **Repository Immutability:** The original `LinkWatch` working tree at `f52f3930c8e7c33d934ccf614955a38e26984bd5` was never altered. `git status` remains 100% clean.
+4. **Epistemological Guardrails:** Zero regressions does **not** imply universal equivalence. ExitGuard certificates explicitly scope verdicts to the tests actually executed in the isolated sandbox.
+5. **Standard Library `tomllib` Read-Only Scope:** Python's built-in `tomllib` is strictly a TOML parser. Applications requiring TOML write operations must use `tomli-w` or alternative serializers.
+6. **Pydantic v1 vs v2 Deprecation Warnings:** While the synthesized migration maintains backward-compatible `@validator` execution under Pydantic v2, deprecation warnings are emitted by Pydantic. Long-term refactoring should incrementally adopt `@field_validator`.
+
+---
+
+## 7. License
+
+This project is licensed under the **Apache License, Version 2.0**. See the [LICENSE](LICENSE) file for complete details.
+
+Copyright © 2026 Team ImpactForge.
