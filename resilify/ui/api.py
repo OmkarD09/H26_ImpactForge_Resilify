@@ -581,8 +581,13 @@ def get_settings() -> Dict[str, Any]:
     inv = get_inventory_data()
     api_key_configured = bool(os.environ.get("GOOGLE_API_KEY") or os.environ.get("GEMINI_API_KEY"))
 
-    # PyPI cache status
-    pypi_cache_path = WORKSPACE_ROOT / ".pypi_cache.json"
+    # PyPI cache status (prefer evidence/.pypi_cache.json which has all 14 packages)
+    pypi_cache_path = EVIDENCE_DIR / ".pypi_cache.json"
+    if not pypi_cache_path.exists() or len(_safe_load_json(pypi_cache_path) or {}) < 14:
+        alt_path = WORKSPACE_ROOT / ".pypi_cache.json"
+        if alt_path.exists():
+            pypi_cache_path = alt_path
+
     cache_entries = 0
     if pypi_cache_path.exists():
         cache_data = _safe_load_json(pypi_cache_path)

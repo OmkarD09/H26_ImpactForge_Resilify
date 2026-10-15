@@ -1,0 +1,139 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.7, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\ACER\AppData\Local\Temp\exitguard_sb_95e6c729\LinkWatch
+configfile: pyproject.toml
+collecting ... collected 17 items
+
+tests/test_cache.py::test_cache_round_trip PASSED                        [  5%]
+tests/test_checker.py::test_ok_is_up PASSED                              [ 11%]
+tests/test_checker.py::test_missing_is_down PASSED                       [ 17%]
+tests/test_checker.py::test_redirect_is_up PASSED                        [ 23%]
+tests/test_checker.py::test_slow_is_up PASSED                            [ 29%]
+tests/test_checker.py::test_closed_port_is_down PASSED                   [ 35%]
+tests/test_checker.py::test_latin1_title PASSED                          [ 41%]
+tests/test_checker.py::test_user_agent PASSED                            [ 47%]
+tests/test_config.py::test_sites_file_loads PASSED                       [ 52%]
+tests/test_migration_verification.py::test_toml_to_tomllib_migration_parity PASSED [ 58%]
+tests/test_migration_verification.py::test_appdirs_to_platformdirs_migration_parity PASSED [ 64%]
+tests/test_migration_verification.py::test_jinja2_bump_soft_unicode_resolution FAILED [ 70%]
+tests/test_migration_verification.py::test_setuptools_pkg_resources_to_importlib_resources_parity PASSED [ 76%]
+tests/test_migration_verification.py::test_ghost_and_obsolete_dependencies_elimination PASSED [ 82%]
+tests/test_migration_verification.py::test_pydantic_manifest_and_syntax_compatibility PASSED [ 88%]
+tests/test_migration_verification.py::test_requests_idna_transitive_resolution PASSED [ 94%]
+tests/test_report.py::test_report_renders_all_sites FAILED               [100%]
+
+================================== FAILURES ===================================
+__________________ test_jinja2_bump_soft_unicode_resolution ___________________
+
+tmp_path = WindowsPath('C:/Users/ACER/AppData/Local/Temp/pytest-of-ACER/pytest-81/test_jinja2_bump_soft_unicode_0')
+
+    def test_jinja2_bump_soft_unicode_resolution(tmp_path):
+        """Verifies modern Jinja2 renders templates cleanly without markupsafe soft_unicode import error."""
+>       from jinja2 import Environment, FileSystemLoader, select_autoescape
+
+tests\test_migration_verification.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\jinja2\__init__.py:12: in <module>
+    from .environment import Environment
+C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\jinja2\environment.py:25: in <module>
+    from .defaults import BLOCK_END_STRING
+C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\jinja2\defaults.py:3: in <module>
+    from .filters import FILTERS as DEFAULT_FILTERS  # noqa: F401
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    # -*- coding: utf-8 -*-
+    """Built-in template filters used with the ``|`` operator."""
+    import math
+    import random
+    import re
+    import warnings
+    from collections import namedtuple
+    from itertools import chain
+    from itertools import groupby
+    
+    from markupsafe import escape
+    from markupsafe import Markup
+>   from markupsafe import soft_unicode
+E   ImportError: cannot import name 'soft_unicode' from 'markupsafe' (C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\markupsafe\__init__.py)
+
+C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\jinja2\filters.py:13: ImportError
+________________________ test_report_renders_all_sites ________________________
+
+tmp_path = WindowsPath('C:/Users/ACER/AppData/Local/Temp/pytest-of-ACER/pytest-81/test_report_renders_all_sites0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000020BFC0F2780>
+
+    def test_report_renders_all_sites(tmp_path, monkeypatch):
+        monkeypatch.setenv("LINKWATCH_CACHE_DIR", str(tmp_path))
+        cache.save_results(RESULTS)
+        output = tmp_path / "status.html"
+>       result = CliRunner().invoke(cli, ["report", "-o", str(output)], catch_exceptions=False)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_report.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\click\testing.py:687: in invoke
+    return_value = cli.main(args=args or (), prog_name=prog_name, **extra)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\click\core.py:1552: in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\click\core.py:2032: in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\click\core.py:1415: in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\click\core.py:910: in invoke
+    return callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+linkwatch\cli.py:56: in report
+    from .report import render_report
+linkwatch\report.py:3: in <module>
+    from jinja2 import Environment, FileSystemLoader, select_autoescape
+C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\jinja2\__init__.py:12: in <module>
+    from .environment import Environment
+C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\jinja2\environment.py:25: in <module>
+    from .defaults import BLOCK_END_STRING
+C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\jinja2\defaults.py:3: in <module>
+    from .filters import FILTERS as DEFAULT_FILTERS  # noqa: F401
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    # -*- coding: utf-8 -*-
+    """Built-in template filters used with the ``|`` operator."""
+    import math
+    import random
+    import re
+    import warnings
+    from collections import namedtuple
+    from itertools import chain
+    from itertools import groupby
+    
+    from markupsafe import escape
+    from markupsafe import Markup
+>   from markupsafe import soft_unicode
+E   ImportError: cannot import name 'soft_unicode' from 'markupsafe' (C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\markupsafe\__init__.py)
+
+C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\jinja2\filters.py:13: ImportError
+============================== warnings summary ===============================
+..\..\..\..\..\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\pydantic\typing.py:400
+..\..\..\..\..\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\pydantic\typing.py:400
+..\..\..\..\..\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\pydantic\typing.py:400
+..\..\..\..\..\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\pydantic\typing.py:400
+..\..\..\..\..\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\pydantic\typing.py:400
+..\..\..\..\..\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\pydantic\typing.py:400
+  C:\Users\ACER\Downloads\H26_ImpactForge_Resilify\.venv_baseline\Lib\site-packages\pydantic\typing.py:400: DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.
+    value = _eval_type(value, base_globals, None)
+
+linkwatch\resources.py:1
+  C:\Users\ACER\AppData\Local\Temp\exitguard_sb_95e6c729\LinkWatch\linkwatch\resources.py:1: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+    import pkg_resources
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_migration_verification.py::test_jinja2_bump_soft_unicode_resolution
+FAILED tests/test_report.py::test_report_renders_all_sites - ImportError: can...
+================== 2 failed, 15 passed, 7 warnings in 9.17s ===================
+

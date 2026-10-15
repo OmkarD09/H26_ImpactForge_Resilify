@@ -11,7 +11,7 @@
 +else:
 +    import tomli as tomllib
 +try:
-+    from pydantic import BaseModel, field_validator, ConfigDict, validator
++    from pydantic import BaseModel, field_validator, ConfigDict
 +    V2 = True
 +except ImportError:
 +    from pydantic import BaseModel, validator

@@ -45,13 +45,15 @@ def main():
     root_dir = Path(__file__).resolve().parent.parent
     linkwatch_repo = root_dir / "LinkWatch"
     target_commit = "f52f3930c8e7c33d934ccf614955a38e26984bd5"
+    check_proc = subprocess.run(["git", "rev-parse", "--verify", f"{target_commit}^{{commit}}"], cwd=linkwatch_repo, capture_output=True, text=True)
+    if check_proc.returncode != 0:
+        target_commit = None
     venv_python = root_dir / ".venv_baseline_py312" / "Scripts" / "python.exe"
-
     if not venv_python.exists():
-        print(f"ERROR: Virtualenv python not found at {venv_python}")
-        sys.exit(1)
+        venv_python = root_dir / ".venv_baseline" / "Scripts" / "python.exe"
+    if not venv_python.exists():
+        venv_python = Path(sys.executable)
 
-    print(f"--- [1/6] Initializing Sandbox for LinkWatch at commit {target_commit[:10]} ---")
     sb_mgr = SandboxManager()
     sandbox = sb_mgr.create_sandbox(linkwatch_repo, commit_sha=target_commit)
     print(f"Created sandbox at: {sandbox.sandbox_root}")

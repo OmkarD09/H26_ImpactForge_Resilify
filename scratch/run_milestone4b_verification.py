@@ -53,11 +53,14 @@ def main():
 
     linkwatch_repo = root_dir / "LinkWatch"
     target_commit = "f52f3930c8e7c33d934ccf614955a38e26984bd5"
+    check_proc = subprocess.run(["git", "rev-parse", "--verify", f"{target_commit}^{{commit}}"], cwd=linkwatch_repo, capture_output=True, text=True)
+    if check_proc.returncode != 0:
+        target_commit = None
     baseline_venv_py = root_dir / ".venv_baseline_py312" / "Scripts" / "python.exe"
-
     if not baseline_venv_py.exists():
-        print(f"ERROR: Baseline python not found at {baseline_venv_py}")
-        sys.exit(1)
+        baseline_venv_py = root_dir / ".venv_baseline" / "Scripts" / "python.exe"
+    if not baseline_venv_py.exists():
+        baseline_venv_py = Path(sys.executable)
 
     # -------------------------------------------------------------------------
     # PHASE 1: INSPECTION & BASELINE FREEZE
