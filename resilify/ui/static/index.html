@@ -34,18 +34,27 @@
         </div>
       </div>
 
-      <!-- Target Repository Context Card -->
+      <!-- Target Repository Context & Project Selector -->
       <div class="sidebar-repo-card">
-        <div class="repo-card-label">Target Repository</div>
+        <div class="repo-card-header-row">
+          <label for="project-select" class="repo-card-label">Active Project</label>
+          <span class="project-pill-badge" id="sidebar-project-badge">Track 1 Target</span>
+        </div>
+        <div class="project-select-wrapper">
+          <select id="project-select" class="project-select-input" aria-label="Select Target Project">
+            <option value="linkwatch">LinkWatch (Track 1 Target)</option>
+            <option value="swasthyavaani">SwasthyaVaani (Clinical Platform)</option>
+          </select>
+        </div>
         <div class="repo-card-name" id="sidebar-repo-name" title="rishrek/LinkWatch">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
           </svg>
-          rishrek/LinkWatch
+          <span id="sidebar-repo-label">rishrek/LinkWatch</span>
         </div>
         <div class="repo-card-meta">
-          <span class="commit-pill">main @ f52f393</span>
+          <span class="commit-pill" id="sidebar-commit-pill">main @ f52f393</span>
         </div>
       </div>
 
@@ -121,16 +130,16 @@
             </svg>
           </button>
           <div class="breadcrumb-trail">
-            <span class="breadcrumb-project">LinkWatch</span>
+            <span class="breadcrumb-project" id="topbar-project-name">LinkWatch</span>
             <span class="breadcrumb-sep">/</span>
             <span class="breadcrumb-current" id="topbar-view-title">Overview</span>
           </div>
-          <span class="historical-snapshot-tag" title="Data based on evidence generated 2026-10-15">
+          <span class="historical-snapshot-tag" id="topbar-snapshot-badge" title="Data based on evidence generated 2026-10-15">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"/>
               <polyline points="12 6 12 12 16 14"/>
             </svg>
-            Historical Snapshot: 2026-10-15
+            <span id="topbar-snapshot-text">Track 1 Target Snapshot</span>
           </span>
         </div>
 
@@ -160,6 +169,14 @@
             <span id="theme-btn-label">Warm Light</span>
           </button>
 
+          <!-- Live Pytest Test Execution Button -->
+          <button class="btn-secondary" id="btn-run-tests" title="Execute pytest test suite on active project" style="font-weight: 600;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            <span id="run-tests-btn-text">Run Tests</span>
+          </button>
+
           <button class="btn-primary" id="btn-analyze-repo" title="Run AST and manifest dependency scan">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
@@ -179,7 +196,7 @@
           <div class="page-header">
             <h1 class="page-title" id="overview-heading">Resilience Overview</h1>
             <p class="page-description">
-              Evidence-backed dependency health analysis for <strong style="color: var(--text-primary);">rishrek/LinkWatch</strong>.
+              Evidence-backed dependency health analysis for <strong style="color: var(--text-primary);" id="ov-repo-name-display">rishrek/LinkWatch</strong>.
               All findings are substantiated by static AST code scans, PyPI metadata, and baseline test execution.
             </p>
           </div>
@@ -195,9 +212,9 @@
               </div>
               <div class="metric-value-row">
                 <span class="metric-value" id="ov-metric-total-deps">14</span>
-                <span class="badge badge-neutral">3 Manifests</span>
+                <span class="badge badge-neutral" id="ov-deps-manifest-badge">3 Manifests</span>
               </div>
-              <span class="metric-sub">8 Runtime, 4 Dev/Build, 2 Transitive</span>
+              <span class="metric-sub" id="ov-metric-deps-sub">Scanned manifest declarations</span>
             </div>
 
             <div class="metric-card">
@@ -213,7 +230,7 @@
                 <span class="metric-value" style="color: var(--semantic-amber);" id="ov-metric-risks">8</span>
                 <span class="badge badge-amber">Requires Action</span>
               </div>
-              <span class="metric-sub">3 Deprecated, 1 Pin Conflict, 1 Crash</span>
+              <span class="metric-sub" id="ov-metric-risks-sub">Evidence-backed risk gate</span>
             </div>
 
             <div class="metric-card">
@@ -233,7 +250,7 @@
             <div class="metric-card">
               <div class="metric-card-top">
                 <span class="metric-label">Baseline Test Outcome</span>
-                <svg class="metric-icon" style="color: var(--semantic-red);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg class="metric-icon" id="ov-test-metric-icon" style="color: var(--semantic-red);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <circle cx="12" cy="12" r="10"/>
                   <line x1="15" y1="9" x2="9" y2="15"/>
                   <line x1="9" y1="9" x2="15" y2="15"/>
@@ -241,9 +258,9 @@
               </div>
               <div class="metric-value-row">
                 <span class="metric-value" style="color: var(--semantic-red);" id="ov-metric-tests">9 / 1</span>
-                <span class="badge badge-red">Exit Code 1</span>
+                <span class="badge badge-red" id="ov-test-metric-badge">Exit Code 1</span>
               </div>
-              <span class="metric-sub">Jinja2 & MarkupSafe Incompatibility</span>
+              <span class="metric-sub" id="ov-metric-tests-sub">Jinja2 &amp; MarkupSafe Incompatibility</span>
             </div>
           </div>
 
@@ -257,7 +274,7 @@
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                     <polyline points="14 2 14 8 20 8"/>
                   </svg>
-                  Manifests & Baseline Test Health
+                  Manifests &amp; Baseline Test Health
                 </span>
                 <span class="badge badge-neutral" id="ov-manifest-badge">3 Manifests</span>
               </div>
@@ -265,23 +282,23 @@
                 <div class="kv-list">
                   <div class="kv-item">
                     <span class="kv-key">Manifest Files</span>
-                    <span class="kv-val"><code>requirements.txt</code>, <code>requirements-dev.txt</code>, <code>pyproject.toml</code></span>
+                    <span class="kv-val" id="ov-manifest-files-val"><code>requirements.txt</code>, <code>requirements-dev.txt</code>, <code>pyproject.toml</code></span>
                   </div>
                   <div class="kv-item">
                     <span class="kv-key">Manifest Conflict</span>
-                    <span class="kv-val">
+                    <span class="kv-val" id="ov-conflict-row">
                       <span class="badge badge-red">pydantic</span>
                       <code>==1.10.13</code> in requirements.txt vs <code>&gt;=2</code> in pyproject.toml
                     </span>
                   </div>
                   <div class="kv-item">
                     <span class="kv-key">Baseline Execution</span>
-                    <span class="kv-val">10 collected: 9 passed, 1 failed (11.19s)</span>
+                    <span class="kv-val" id="ov-baseline-row">10 collected: 9 passed, 1 failed (11.19s)</span>
                   </div>
                   <div class="kv-item">
                     <span class="kv-key">Pre-Existing Failure</span>
-                    <span class="kv-val" style="color: var(--semantic-red);">
-                      <code>test_report_renders_all_sites</code> — MarkupSafe soft_unicode
+                    <span class="kv-val" id="ov-failure-row" style="color: var(--semantic-red);">
+                      <code>test_report_renders_all_sites</code> &mdash; MarkupSafe soft_unicode
                     </span>
                   </div>
                 </div>
@@ -558,93 +575,31 @@
             </p>
           </div>
 
-          <!-- Baseline Run Card -->
-          <div class="run-card">
-            <div class="run-header">
-              <div class="run-title-area">
-                <span class="badge badge-red">Exit Code 1</span>
-                <span class="run-title">Upstream Baseline Run (LinkWatch @ f52f393)</span>
+          <!-- Live Execution Banner -->
+          <div class="runs-action-card">
+            <div class="runs-action-left">
+              <div class="runs-action-title">
+                <span class="badge badge-neutral" id="runs-card-badge">Target Project</span>
+                <span class="runs-project-name" id="runs-project-name-display">LinkWatch</span>
               </div>
-              <div style="font-size: 12px; font-family: var(--font-mono); color: var(--text-secondary);">
-                Command: <code>pytest -q --disable-warnings -v LinkWatch/tests</code> (11.19s)
+              <div class="runs-action-command">
+                <span>Active Test Suite:</span>
+                <code id="runs-command-display">pytest -q --disable-warnings -v LinkWatch/tests</code>
               </div>
             </div>
-            <div style="padding: 16px 18px;">
-              <div class="kv-list" style="margin-bottom: 14px;">
-                <div class="kv-item">
-                  <span class="kv-key">Python Interpreter</span>
-                  <span class="kv-val">Python 3.13.7</span>
-                </div>
-                <div class="kv-item">
-                  <span class="kv-key">Test Outcomes</span>
-                  <span class="kv-val">
-                    <span class="badge badge-green">9 Passed</span>
-                    <span class="badge badge-red">1 Failed</span>
-                    <span class="badge badge-neutral">10 Collected</span>
-                  </span>
-                </div>
-                <div class="kv-item">
-                  <span class="kv-key">Pre-Existing Failure</span>
-                  <span class="kv-val" style="color: var(--semantic-red);">
-                    <code>LinkWatch/tests/test_report.py::test_report_renders_all_sites</code>
-                  </span>
-                </div>
-                <div class="kv-item">
-                  <span class="kv-key">Failure Diagnostic</span>
-                  <span class="kv-val">
-                    <code>ImportError: cannot import name 'soft_unicode' from 'markupsafe'</code>
-                    (Jinja2 2.11.3 pinned in requirements.txt incompatible with MarkupSafe 3.0+)
-                  </span>
-                </div>
-              </div>
-
-              <!-- Terminal Log Viewer -->
-              <div class="diff-toolbar" style="border-radius: var(--radius-sm) var(--radius-sm) 0 0;">
-                <span class="diff-filename">Artifact Log: artifacts/baseline_logs/py312_baseline.log</span>
-              </div>
-              <div class="terminal-box" id="runs-baseline-log">
-                Loading execution log...
-              </div>
+            <div class="runs-action-right">
+              <button class="btn-primary" id="btn-runs-execute-now" title="Execute pytest suite on active project now">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+                <span id="runs-execute-btn-text">Execute Test Suite Now</span>
+              </button>
             </div>
           </div>
 
-          <!-- Sandbox Worktree Unit Validation -->
-          <div class="run-card">
-            <div class="run-header">
-              <div class="run-title-area">
-                <span class="badge badge-green">Verified</span>
-                <span class="run-title">ExitGuard Worktree Sandbox Isolation Validation</span>
-              </div>
-              <div style="font-size: 12px; font-family: var(--font-mono); color: var(--text-secondary);">
-                Command: <code>pytest tests_exitguard/test_sandbox_manager.py</code> (1.42s)
-              </div>
-            </div>
-            <div style="padding: 16px 18px;">
-              <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px;">
-                Verifies git worktree creation, detached checkout from baseline commit, and clean worktree teardown.
-              </p>
-              <div class="terminal-box" id="runs-sandbox-log">
-                Loading isolation log...
-              </div>
-            </div>
-          </div>
-
-          <!-- Post-Migration Candidate Runs -->
-          <div class="run-card" style="border-color: var(--semantic-amber-border);">
-            <div class="run-header" style="background: var(--semantic-amber-bg);">
-              <div class="run-title-area">
-                <span class="badge badge-amber">NOT VERIFIED</span>
-                <span class="run-title" style="color: var(--semantic-amber);">Post-Migration Full Suite Verification</span>
-              </div>
-            </div>
-            <div style="padding: 16px 18px;">
-              <p style="font-size: 13px; color: var(--text-primary); line-height: 1.6;">
-                <strong>Engineering Notice:</strong> Candidate patches have been generated by Member 2, but end-to-end post-migration execution inside the sandbox is awaiting Member 3's pipeline execution.
-              </p>
-              <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">
-                Resilify does not fabricate test execution logs or falsely claim tests passed without actual sandbox runs.
-              </p>
-            </div>
+          <!-- Dynamic Run Cards Container -->
+          <div id="runs-cards-container">
+            <!-- Dynamically populated by app.js based on selected project -->
           </div>
         </section>
 
@@ -780,15 +735,15 @@
                 <div class="kv-list">
                   <div class="kv-item">
                     <span class="kv-key">Target Path</span>
-                    <span class="kv-val"><code>LinkWatch/</code></span>
+                    <span class="kv-val"><code id="settings-target-path">LinkWatch/</code></span>
                   </div>
                   <div class="kv-item">
                     <span class="kv-key">Upstream Commit</span>
-                    <span class="kv-val"><code>f52f3930c8e7c33d934ccf614955a38e26984bd5</code></span>
+                    <span class="kv-val"><code id="settings-upstream-commit">f52f3930c8e7c33d934ccf614955a38e26984bd5</code></span>
                   </div>
                   <div class="kv-item">
                     <span class="kv-key">PyPI Local Cache</span>
-                    <span class="kv-val"><code>.pypi_cache.json</code> (14 entries cached)</span>
+                    <span class="kv-val"><code id="settings-pypi-cache">.pypi_cache.json (14 entries cached)</code></span>
                   </div>
                   <div class="kv-item">
                     <span class="kv-key">Network Dependency</span>

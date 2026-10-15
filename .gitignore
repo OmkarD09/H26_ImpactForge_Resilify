@@ -43,6 +43,7 @@ htmlcov/
 
 # Output files
 status.html
+*.db
 
 # IDE and OS
 .DS_Store

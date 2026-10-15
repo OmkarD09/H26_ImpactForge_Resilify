@@ -78,32 +78,37 @@ class ResilifyUIHandler(BaseHTTPRequestHandler):
         parsed = urlparse(self.path)
         path = parsed.path
         query = parse_qs(parsed.query)
+        project = query.get("project", ["linkwatch"])[0]
 
         # API Endpoints
+        if path == "/api/projects":
+            self.send_json(api.get_projects())
+            return
+
         if path == "/api/overview":
-            self.send_json(api.get_overview())
+            self.send_json(api.get_overview(project_id=project))
             return
 
         if path == "/api/dependencies":
             search = query.get("search", [""])[0]
             risk = query.get("risk", [""])[0]
             manifest = query.get("manifest", [""])[0]
-            self.send_json(api.get_dependencies(search=search, risk_filter=risk, manifest_filter=manifest))
+            self.send_json(api.get_dependencies(project_id=project, search=search, risk_filter=risk, manifest_filter=manifest))
             return
 
         if path.startswith("/api/workbench"):
             pkg = query.get("package", [""])[0]
             if not pkg and "/" in path[len("/api/workbench"):].strip("/"):
                 pkg = path[len("/api/workbench"):].strip("/").split("/")[0]
-            self.send_json(api.get_workbench(package_name=pkg if pkg else None))
+            self.send_json(api.get_workbench(project_id=project, package_name=pkg if pkg else None))
             return
 
         if path == "/api/runs":
-            self.send_json(api.get_runs())
+            self.send_json(api.get_runs(project_id=project))
             return
 
         if path == "/api/capsules":
-            self.send_json(api.get_capsules())
+            self.send_json(api.get_capsules(project_id=project))
             return
 
         if path == "/api/capsules/synthetic/export":
@@ -155,7 +160,7 @@ class ResilifyUIHandler(BaseHTTPRequestHandler):
                 return
 
         if path == "/api/settings":
-            self.send_json(api.get_settings())
+            self.send_json(api.get_settings(project_id=project))
             return
 
         # Static Assets
@@ -182,18 +187,30 @@ class ResilifyUIHandler(BaseHTTPRequestHandler):
         self.send_error(HTTPStatus.NOT_FOUND, f"Resource {path} not found")
 
     def do_POST(self) -> None:
-        """Route POST requests (e.g. triggering repository analysis)."""
+        """Route POST requests (e.g. triggering repository analysis or test execution)."""
         parsed = urlparse(self.path)
+        query = parse_qs(parsed.query)
+
+        # Parse optional JSON body
+        content_len = int(self.headers.get("Content-Length", 0))
+        body = {}
+        if content_len > 0:
+            try:
+                raw_body = self.rfile.read(content_len).decode("utf-8")
+                body = json.loads(raw_body)
+            except Exception:
+                body = {}
+
+        project = body.get("project") or query.get("project", ["linkwatch"])[0]
+
+        if parsed.path == "/api/run-tests":
+            res = api.run_project_tests(project_id=project)
+            self.send_json(res)
+            return
+
         if parsed.path == "/api/analyze":
-            # Simulate real-time re-analysis refresh
-            overview = api.get_overview()
-            self.send_json({
-                "status": "COMPLETED",
-                "message": "Repository analysis refreshed. All AST call sites, manifest declarations, and PyPI metadata verified.",
-                "timestamp": "2026-10-15T14:40:00Z",
-                "scanned_dependencies": overview["metrics"]["total_dependencies"],
-                "actionable_risks": overview["metrics"]["actionable_risks"]
-            })
+            res = api.run_project_analysis(project_id=project)
+            self.send_json(res)
             return
 
         self.send_error(HTTPStatus.NOT_FOUND, f"Endpoint {parsed.path} not found")

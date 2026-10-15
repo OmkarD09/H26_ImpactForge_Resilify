@@ -1,0 +1,178 @@
+{
+  "metadata": {
+    "generated_at_utc": "2026-10-15T11:22:18.481195+00:00",
+    "author": "Member 2: Gemma 4 AI Reasoning & Migration Patch Builder",
+    "operating_mode": "Deterministic Expert Synthesis",
+    "total_actionable_evaluated": 8,
+    "total_benign_retained": 1,
+    "total_unknown_retained": 9
+  },
+  "gate_summary": {
+    "actionable_packages": [
+      "google-genai",
+      "paddlepaddle",
+      "psycopg2-binary",
+      "pydantic-settings",
+      "pyjwt",
+      "pytest-asyncio",
+      "python-multipart",
+      "ruff"
+    ],
+    "benign_packages": [
+      "pytest"
+    ],
+    "unknown_packages": [
+      "alembic",
+      "fastapi",
+      "groq",
+      "httpx",
+      "paddleocr",
+      "pydantic",
+      "pymupdf",
+      "sqlalchemy",
+      "supabase"
+    ]
+  },
+  "proposals": [
+    {
+      "package_name": "google-genai",
+      "target_action": "RETAIN_OR_UPDATE",
+      "feasibility": "HIGH_FEASIBILITY",
+      "recommended_package": "google-genai",
+      "is_stdlib": false,
+      "min_python_version": "3.10",
+      "rationale": "Package google-genai is active and functioning properly without breaking deprecations. Retain with compatible version constraint.",
+      "migration_steps": [
+        "Keep google-genai in requirements.txt with flexible pinning"
+      ],
+      "unified_diff": "",
+      "verification_tests": [],
+      "compatibility_gaps_and_limitations": [],
+      "rollback_risk": "LOW"
+    },
+    {
+      "package_name": "paddlepaddle",
+      "target_action": "RETAIN_OR_UPDATE",
+      "feasibility": "HIGH_FEASIBILITY",
+      "recommended_package": "paddlepaddle",
+      "is_stdlib": false,
+      "min_python_version": "3.10",
+      "rationale": "Package paddlepaddle is active and functioning properly without breaking deprecations. Retain with compatible version constraint.",
+      "migration_steps": [
+        "Keep paddlepaddle in requirements.txt with flexible pinning"
+      ],
+      "unified_diff": "",
+      "verification_tests": [],
+      "compatibility_gaps_and_limitations": [],
+      "rollback_risk": "LOW"
+    },
+    {
+      "package_name": "psycopg2-binary",
+      "target_action": "RETAIN_OR_UPDATE",
+      "feasibility": "HIGH_FEASIBILITY",
+      "recommended_package": "psycopg2-binary",
+      "is_stdlib": false,
+      "min_python_version": "3.10",
+      "rationale": "Package psycopg2-binary is active and functioning properly without breaking deprecations. Retain with compatible version constraint.",
+      "migration_steps": [
+        "Keep psycopg2-binary in requirements.txt with flexible pinning"
+      ],
+      "unified_diff": "",
+      "verification_tests": [],
+      "compatibility_gaps_and_limitations": [],
+      "rollback_risk": "LOW"
+    },
+    {
+      "package_name": "pydantic-settings",
+      "target_action": "RETAIN_OR_UPDATE",
+      "feasibility": "HIGH_FEASIBILITY",
+      "recommended_package": "pydantic-settings",
+      "is_stdlib": false,
+      "min_python_version": "3.10",
+      "rationale": "Package pydantic-settings is active and functioning properly without breaking deprecations. Retain with compatible version constraint.",
+      "migration_steps": [
+        "Keep pydantic-settings in requirements.txt with flexible pinning"
+      ],
+      "unified_diff": "",
+      "verification_tests": [],
+      "compatibility_gaps_and_limitations": [],
+      "rollback_risk": "LOW"
+    },
+    {
+      "package_name": "pyjwt",
+      "target_action": "RETAIN_OR_UPDATE",
+      "feasibility": "HIGH_FEASIBILITY",
+      "recommended_package": "pyjwt",
+      "is_stdlib": false,
+      "min_python_version": "3.10",
+      "rationale": "Package pyjwt is active and functioning properly without breaking deprecations. Retain with compatible version constraint.",
+      "migration_steps": [
+        "Keep pyjwt in requirements.txt with flexible pinning"
+      ],
+      "unified_diff": "",
+      "verification_tests": [],
+      "compatibility_gaps_and_limitations": [],
+      "rollback_risk": "LOW"
+    },
+    {
+      "package_name": "pytest-asyncio",
+      "target_action": "RETAIN_OR_UPDATE",
+      "feasibility": "HIGH_FEASIBILITY",
+      "recommended_package": "pytest-asyncio",
+      "is_stdlib": false,
+      "min_python_version": "3.10",
+      "rationale": "Package pytest-asyncio is active and functioning properly without breaking deprecations. Retain with compatible version constraint.",
+      "migration_steps": [
+        "Keep pytest-asyncio in requirements.txt with flexible pinning"
+      ],
+      "unified_diff": "",
+      "verification_tests": [],
+      "compatibility_gaps_and_limitations": [],
+      "rollback_risk": "LOW"
+    },
+    {
+      "package_name": "python-multipart",
+      "target_action": "RETAIN_OR_UPDATE",
+      "feasibility": "HIGH_FEASIBILITY",
+      "recommended_package": "python-multipart",
+      "is_stdlib": false,
+      "min_python_version": "3.10",
+      "rationale": "Package python-multipart is active and functioning properly without breaking deprecations. Retain with compatible version constraint.",
+      "migration_steps": [
+        "Keep python-multipart in requirements.txt with flexible pinning"
+      ],
+      "unified_diff": "",
+      "verification_tests": [],
+      "compatibility_gaps_and_limitations": [],
+      "rollback_risk": "LOW"
+    },
+    {
+      "package_name": "ruff",
+      "target_action": "RETAIN_OR_UPDATE",
+      "feasibility": "HIGH_FEASIBILITY",
+      "recommended_package": "ruff",
+      "is_stdlib": false,
+      "min_python_version": "3.10",
+      "rationale": "Package ruff is active and functioning properly without breaking deprecations. Retain with compatible version constraint.",
+      "migration_steps": [
+        "Keep ruff in requirements.txt with flexible pinning"
+      ],
+      "unified_diff": "",
+      "verification_tests": [],
+      "compatibility_gaps_and_limitations": [],
+      "rollback_risk": "LOW"
+    }
+  ],
+  "patch_files": {
+    "toml": "patches\\swasthyavaani\\toml_migration.patch",
+    "appdirs": "patches\\swasthyavaani\\appdirs_migration.patch",
+    "jinja2": "patches\\swasthyavaani\\jinja2_migration.patch",
+    "nose": "patches\\swasthyavaani\\nose_migration.patch",
+    "setuptools": "patches\\swasthyavaani\\setuptools_migration.patch",
+    "six": "patches\\swasthyavaani\\six_migration.patch",
+    "idna": "patches\\swasthyavaani\\idna_migration.patch",
+    "pydantic": "patches\\swasthyavaani\\pydantic_migration.patch",
+    "_consolidated": "patches\\swasthyavaani\\consolidated_resilify_migrations.patch"
+  },
+  "verification_test_suite": "C:\\Users\\ACER\\Downloads\\SwasthyaVaani\\backend\\tests\\test_migration_verification.py"
+}

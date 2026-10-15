@@ -84,14 +84,21 @@ class BaselineRunner:
             "--tb=short",
         ]
 
+        # Add repo_dir to PYTHONPATH so local modules (e.g. linkwatch, app) resolve
+        run_env = subprocess.os.environ.copy()
+        repo_abs = str(self.repo_dir.resolve())
+        existing_pp = run_env.get("PYTHONPATH", "")
+        run_env["PYTHONPATH"] = f"{repo_abs}{subprocess.os.pathsep}{existing_pp}" if existing_pp else repo_abs
+
         try:
             start_time = subprocess.time.time()
             proc = subprocess.run(
                 cmd,
                 capture_output=True,
                 text=True,
-                cwd=str(self.repo_dir.parent.resolve()),
-                timeout=60,
+                cwd=repo_abs,
+                env=run_env,
+                timeout=120,
             )
             duration = round(subprocess.time.time() - start_time, 2)
             stdout = proc.stdout

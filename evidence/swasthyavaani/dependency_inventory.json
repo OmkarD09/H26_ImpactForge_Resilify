@@ -1,0 +1,3942 @@
+{
+  "metadata": {
+    "generated_at_utc": "2026-10-15T11:22:01.771323+00:00",
+    "collector_role": "Member 1: Static Analysis, Manifests & Baseline Evidence Collector",
+    "target_repository": "C:\\Users\\ACER\\Downloads\\SwasthyaVaani\\backend",
+    "python_runtime": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+    "python_executable": "C:\\Users\\ACER\\Downloads\\SwasthyaVaani\\backend\\venv\\Scripts\\python.exe"
+  },
+  "manifest_summary": {
+    "manifest_files_found": [
+      "requirements.txt",
+      "requirements-dev.txt",
+      "pyproject.toml"
+    ],
+    "total_unique_dependencies": 18,
+    "conflicts": [],
+    "dependencies": {
+      "fastapi": [
+        {
+          "name": "fastapi",
+          "normalized_name": "fastapi",
+          "specifier": ">=0.115.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 1,
+          "raw_line": "fastapi>=0.115.0",
+          "is_dev": false
+        }
+      ],
+      "pydantic": [
+        {
+          "name": "pydantic",
+          "normalized_name": "pydantic",
+          "specifier": ">=2.8.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 3,
+          "raw_line": "pydantic>=2.8.0",
+          "is_dev": false
+        }
+      ],
+      "pydantic-settings": [
+        {
+          "name": "pydantic-settings",
+          "normalized_name": "pydantic-settings",
+          "specifier": ">=2.4.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 4,
+          "raw_line": "pydantic-settings>=2.4.0",
+          "is_dev": false
+        }
+      ],
+      "sqlalchemy": [
+        {
+          "name": "sqlalchemy",
+          "normalized_name": "sqlalchemy",
+          "specifier": ">=2.0.30",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 5,
+          "raw_line": "sqlalchemy>=2.0.30",
+          "is_dev": false
+        }
+      ],
+      "alembic": [
+        {
+          "name": "alembic",
+          "normalized_name": "alembic",
+          "specifier": ">=1.13.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 6,
+          "raw_line": "alembic>=1.13.0",
+          "is_dev": false
+        },
+        {
+          "name": "alembic",
+          "normalized_name": "alembic",
+          "specifier": ">=1.13.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 11,
+          "raw_line": "alembic>=1.13.0",
+          "is_dev": false
+        }
+      ],
+      "pyjwt": [
+        {
+          "name": "pyjwt",
+          "normalized_name": "pyjwt",
+          "specifier": ">=2.9.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 7,
+          "raw_line": "pyjwt>=2.9.0",
+          "is_dev": false
+        }
+      ],
+      "python-multipart": [
+        {
+          "name": "python-multipart",
+          "normalized_name": "python-multipart",
+          "specifier": ">=0.0.9",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 8,
+          "raw_line": "python-multipart>=0.0.9",
+          "is_dev": false
+        }
+      ],
+      "supabase": [
+        {
+          "name": "supabase",
+          "normalized_name": "supabase",
+          "specifier": ">=2.6.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 9,
+          "raw_line": "supabase>=2.6.0",
+          "is_dev": false
+        }
+      ],
+      "psycopg2-binary": [
+        {
+          "name": "psycopg2-binary",
+          "normalized_name": "psycopg2-binary",
+          "specifier": ">=2.9.9",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 10,
+          "raw_line": "psycopg2-binary>=2.9.9",
+          "is_dev": false
+        }
+      ],
+      "httpx": [
+        {
+          "name": "httpx",
+          "normalized_name": "httpx",
+          "specifier": ">=0.27.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 12,
+          "raw_line": "httpx>=0.27.0",
+          "is_dev": false
+        }
+      ],
+      "pytest": [
+        {
+          "name": "pytest",
+          "normalized_name": "pytest",
+          "specifier": ">=8.2.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 13,
+          "raw_line": "pytest>=8.2.0",
+          "is_dev": false
+        }
+      ],
+      "pytest-asyncio": [
+        {
+          "name": "pytest-asyncio",
+          "normalized_name": "pytest-asyncio",
+          "specifier": ">=0.23.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 14,
+          "raw_line": "pytest-asyncio>=0.23.0",
+          "is_dev": false
+        }
+      ],
+      "paddleocr": [
+        {
+          "name": "paddleocr",
+          "normalized_name": "paddleocr",
+          "specifier": "==3.7.0",
+          "is_pinned": true,
+          "pinned_version": "3.7.0",
+          "source_file": "requirements.txt",
+          "line_number": 15,
+          "raw_line": "paddleocr==3.7.0",
+          "is_dev": false
+        }
+      ],
+      "paddlepaddle": [
+        {
+          "name": "paddlepaddle",
+          "normalized_name": "paddlepaddle",
+          "specifier": "==3.3.1",
+          "is_pinned": true,
+          "pinned_version": "3.3.1",
+          "source_file": "requirements.txt",
+          "line_number": 16,
+          "raw_line": "paddlepaddle==3.3.1",
+          "is_dev": false
+        }
+      ],
+      "pymupdf": [
+        {
+          "name": "PyMuPDF",
+          "normalized_name": "pymupdf",
+          "specifier": "==1.28.2",
+          "is_pinned": true,
+          "pinned_version": "1.28.2",
+          "source_file": "requirements.txt",
+          "line_number": 17,
+          "raw_line": "PyMuPDF==1.28.2",
+          "is_dev": false
+        }
+      ],
+      "google-genai": [
+        {
+          "name": "google-genai",
+          "normalized_name": "google-genai",
+          "specifier": "==2.20.0",
+          "is_pinned": true,
+          "pinned_version": "2.20.0",
+          "source_file": "requirements.txt",
+          "line_number": 18,
+          "raw_line": "google-genai==2.20.0",
+          "is_dev": false
+        }
+      ],
+      "groq": [
+        {
+          "name": "groq",
+          "normalized_name": "groq",
+          "specifier": "==1.7.0",
+          "is_pinned": true,
+          "pinned_version": "1.7.0",
+          "source_file": "requirements.txt",
+          "line_number": 19,
+          "raw_line": "groq==1.7.0",
+          "is_dev": false
+        }
+      ],
+      "ruff": [
+        {
+          "name": "ruff",
+          "normalized_name": "ruff",
+          "specifier": "==0.16.5",
+          "is_pinned": true,
+          "pinned_version": "0.16.5",
+          "source_file": "requirements-dev.txt",
+          "line_number": 2,
+          "raw_line": "ruff==0.16.5",
+          "is_dev": true
+        }
+      ]
+    }
+  },
+  "baseline_test_results": {
+    "python_version": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+    "python_executable": "C:\\Users\\ACER\\Downloads\\SwasthyaVaani\\backend\\venv\\Scripts\\python.exe",
+    "total_collected": 0,
+    "passed_count": 0,
+    "failed_count": 0,
+    "skipped_count": 0,
+    "execution_time_seconds": 0.0,
+    "exit_code": -1,
+    "failures": [],
+    "warnings": [],
+    "passed_tests": [],
+    "raw_stdout": "",
+    "raw_stderr": "Execution error: Command '['C:\\\\Users\\\\ACER\\\\Downloads\\\\SwasthyaVaani\\\\backend\\\\venv\\\\Scripts\\\\python.exe', '-m', 'pytest', 'C:\\\\Users\\\\ACER\\\\Downloads\\\\SwasthyaVaani\\\\backend\\\\tests', '-v', '-W', 'default', '--tb=short']' timed out after 120 seconds"
+  },
+  "indirect_findings": [
+    {
+      "category": "GHOST_DEPENDENCY",
+      "package_name": "pydantic-settings",
+      "severity": "LOW",
+      "evidence": "Declared in requirements.txt:4 but no static import was detected in Python files.",
+      "recommendation": "Verify whether this is required at runtime or can be safely pruned.",
+      "file_locations": [
+        "requirements.txt"
+      ]
+    },
+    {
+      "category": "GHOST_DEPENDENCY",
+      "package_name": "pyjwt",
+      "severity": "LOW",
+      "evidence": "Declared in requirements.txt:7 but no static import was detected in Python files.",
+      "recommendation": "Verify whether this is required at runtime or can be safely pruned.",
+      "file_locations": [
+        "requirements.txt"
+      ]
+    },
+    {
+      "category": "GHOST_DEPENDENCY",
+      "package_name": "python-multipart",
+      "severity": "LOW",
+      "evidence": "Declared in requirements.txt:8 but no static import was detected in Python files.",
+      "recommendation": "Verify whether this is required at runtime or can be safely pruned.",
+      "file_locations": [
+        "requirements.txt"
+      ]
+    },
+    {
+      "category": "GHOST_DEPENDENCY",
+      "package_name": "psycopg2-binary",
+      "severity": "LOW",
+      "evidence": "Declared in requirements.txt:10 but no static import was detected in Python files.",
+      "recommendation": "Verify whether this is required at runtime or can be safely pruned.",
+      "file_locations": [
+        "requirements.txt"
+      ]
+    },
+    {
+      "category": "GHOST_DEPENDENCY",
+      "package_name": "pytest-asyncio",
+      "severity": "LOW",
+      "evidence": "Declared in requirements.txt:14 but no static import was detected in Python files.",
+      "recommendation": "Verify whether this is required at runtime or can be safely pruned.",
+      "file_locations": [
+        "requirements.txt"
+      ]
+    },
+    {
+      "category": "GHOST_DEPENDENCY",
+      "package_name": "paddlepaddle",
+      "severity": "LOW",
+      "evidence": "Declared in requirements.txt:16 but no static import was detected in Python files.",
+      "recommendation": "Verify whether this is required at runtime or can be safely pruned.",
+      "file_locations": [
+        "requirements.txt"
+      ]
+    },
+    {
+      "category": "GHOST_DEPENDENCY",
+      "package_name": "google-genai",
+      "severity": "LOW",
+      "evidence": "Declared in requirements.txt:18 but no static import was detected in Python files.",
+      "recommendation": "Verify whether this is required at runtime or can be safely pruned.",
+      "file_locations": [
+        "requirements.txt"
+      ]
+    },
+    {
+      "category": "GHOST_DEPENDENCY",
+      "package_name": "ruff",
+      "severity": "LOW",
+      "evidence": "Declared in requirements-dev.txt:2 but no static import was detected in Python files.",
+      "recommendation": "Verify whether this is required at runtime or can be safely pruned.",
+      "file_locations": [
+        "requirements-dev.txt"
+      ]
+    }
+  ],
+  "dependencies": {
+    "fastapi": {
+      "package_name": "fastapi",
+      "declarations": [
+        {
+          "name": "fastapi",
+          "normalized_name": "fastapi",
+          "specifier": ">=0.115.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 1,
+          "raw_line": "fastapi>=0.115.0",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "fastapi",
+        "latest_version": "0.143.1",
+        "latest_release_date": "2026-10-14T12:53:07.690929Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.10",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Changelog": "https://fastapi.tiangolo.com/release-notes/",
+          "Documentation": "https://fastapi.tiangolo.com/",
+          "Homepage": "https://github.com/fastapi/fastapi",
+          "Issues": "https://github.com/fastapi/fastapi/issues",
+          "Repository": "https://github.com/fastapi/fastapi"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 42,
+        "call_count": 0,
+        "files_using": [
+          "app\\main.py",
+          "scratch\\run_ayush_e2e_acceptance.py",
+          "scratch\\verify_voice_adaptive_scenarios.py",
+          "tests\\audit_db_sync.py",
+          "tests\\conftest.py",
+          "tests\\test_abdm_fhir.py",
+          "tests\\test_admin_authorization.py",
+          "tests\\test_api_endpoints.py",
+          "tests\\test_authentication.py",
+          "tests\\test_ayush_doctor_review.py",
+          "tests\\test_ayush_domain_and_demographics_refinements.py",
+          "tests\\test_doctor_authorization.py",
+          "tests\\test_doctor_documents.py",
+          "tests\\test_doctor_patient_summary_states.py",
+          "tests\\test_document_intelligence.py",
+          "tests\\test_http_conversation_persistence.py",
+          "tests\\test_modality_equivalence.py",
+          "tests\\test_non_informative_answers.py",
+          "tests\\test_ocr_integration_flow.py",
+          "tests\\test_patient_abha_intake.py",
+          "tests\\test_patient_audio_consent.py",
+          "tests\\test_qa_context_integrity_regression.py",
+          "tests\\test_question_event_contract.py",
+          "tests\\test_simple_patient_id.py",
+          "tests\\test_voice_tts_timeout.py",
+          "app\\api\\router.py",
+          "app\\core\\events.py",
+          "app\\core\\security.py",
+          "app\\services\\abdm\\live_gateway.py",
+          "app\\api\\v1\\abdm.py",
+          "app\\api\\v1\\admin.py",
+          "app\\api\\v1\\auth.py",
+          "app\\api\\v1\\departments.py",
+          "app\\api\\v1\\doctor.py",
+          "app\\api\\v1\\documents.py",
+          "app\\api\\v1\\fhir.py",
+          "app\\api\\v1\\intakes.py",
+          "app\\api\\v1\\rag.py",
+          "app\\api\\v1\\speech.py"
+        ],
+        "imports": [
+          {
+            "file_path": "app\\main.py",
+            "line_number": 3,
+            "statement": "from fastapi import FastAPI",
+            "imported_module": "fastapi",
+            "imported_symbols": [
+              "FastAPI"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\main.py",
+            "line_number": 4,
+            "statement": "from fastapi.middleware.cors import CORSMiddleware",
+            "imported_module": "fastapi.middleware.cors",
+            "imported_symbols": [
+              "CORSMiddleware"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "scratch\\run_ayush_e2e_acceptance.py",
+            "line_number": 20,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "scratch\\verify_voice_adaptive_scenarios.py",
+            "line_number": 13,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\audit_db_sync.py",
+            "line_number": 6,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\conftest.py",
+            "line_number": 4,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_abdm_fhir.py",
+            "line_number": 1,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_admin_authorization.py",
+            "line_number": 2,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_api_endpoints.py",
+            "line_number": 1,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_authentication.py",
+            "line_number": 1,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_ayush_doctor_review.py",
+            "line_number": 3,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_ayush_domain_and_demographics_refinements.py",
+            "line_number": 2,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_doctor_authorization.py",
+            "line_number": 2,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_doctor_documents.py",
+            "line_number": 5,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_doctor_patient_summary_states.py",
+            "line_number": 3,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 5,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_http_conversation_persistence.py",
+            "line_number": 2,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_modality_equivalence.py",
+            "line_number": 2,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_non_informative_answers.py",
+            "line_number": 2,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_ocr_integration_flow.py",
+            "line_number": 3,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_patient_abha_intake.py",
+            "line_number": 1,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_patient_audio_consent.py",
+            "line_number": 3,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_qa_context_integrity_regression.py",
+            "line_number": 4,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_question_event_contract.py",
+            "line_number": 1,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_simple_patient_id.py",
+            "line_number": 4,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "tests\\test_voice_tts_timeout.py",
+            "line_number": 3,
+            "statement": "from fastapi.testclient import TestClient",
+            "imported_module": "fastapi.testclient",
+            "imported_symbols": [
+              "TestClient"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\api\\router.py",
+            "line_number": 1,
+            "statement": "from fastapi import APIRouter",
+            "imported_module": "fastapi",
+            "imported_symbols": [
+              "APIRouter"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\core\\events.py",
+            "line_number": 2,
+            "statement": "from fastapi import WebSocket",
+            "imported_module": "fastapi",
+            "imported_symbols": [
+              "WebSocket"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\core\\security.py",
+            "line_number": 8,
+            "statement": "from fastapi import Depends, HTTPException, status",
+            "imported_module": "fastapi",
+            "imported_symbols": [
+              "Depends",
+              "HTTPException",
+              "status"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\core\\security.py",
+            "line_number": 9,
+            "statement": "from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials",
+            "imported_module": "fastapi.security",
+            "imported_symbols": [
+              "HTTPBearer",
+              "HTTPAuthorizationCredentials"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\services\\abdm\\live_gateway.py",
+            "line_number": 8,
+            "statement": "from fastapi import HTTPException, status",
+            "imported_module": "fastapi",
+            "imported_symbols": [
+              "HTTPException",
+              "status"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\api\\v1\\abdm.py",
+            "line_number": 6,
+            "statement": "from fastapi import APIRouter, Depends, HTTPException, status",
+            "imported_module": "fastapi",
+            "imported_symbols": [
+              "APIRouter",
+              "Depends",
+              "HTTPException",
+              "status"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\api\\v1\\admin.py",
+            "line_number": 8,
+            "statement": "from fastapi import APIRouter, Depends, HTTPException, Query, status",
+            "imported_module": "fastapi",
+            "imported_symbols": [
+              "APIRouter",
+              "Depends",
+              "HTTPException",
+              "Query",
+              "status"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\api\\v1\\auth.py",
+            "line_number": 2,
+            "statement": "from fastapi import APIRouter, Depends, HTTPException, status",
+            "imported_module": "fastapi",
+            "imported_symbols": [
+              "APIRouter",
+              "Depends",
+              "HTTPException",
+              "status"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\api\\v1\\departments.py",
+            "line_number": 2,
+            "statement": "from fastapi import APIRouter, Depends",
+            "imported_module": "fastapi",
+            "imported_symbols": [
+              "APIRouter",
+              "Depends"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\api\\v1\\doctor.py",
+            "line_number": 4,
+            "statement": "from fastapi import APIRouter, Depends, HTTPException, WebSocket, WebSocketDisconnect",
+            "imported_module": "fastapi",
+            "imported_symbols": [
+              "APIRouter",
+              "Depends",
+              "HTTPException",
+              "WebSocket",
+              "WebSocketDisconnect"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\api\\v1\\documents.py",
+            "line_number": 7,
+            "statement": "from fastapi import (",
+            "imported_module": "fastapi",
+            "imported_symbols": [
+              "APIRouter",
+              "BackgroundTasks",
+              "Depends",
+              "File",
+              "Form",
+              "HTTPException",
+              "Query",
+              "Response",
+              "UploadFile"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\api\\v1\\documents.py",
+            "line_number": 18,
+            "statement": "from fastapi.security import HTTPAuthorizationCredentials",
+            "imported_module": "fastapi.security",
+            "imported_symbols": [
+              "HTTPAuthorizationCredentials"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\api\\v1\\fhir.py",
+            "line_number": 1,
+            "statement": "from fastapi import APIRouter, Depends, HTTPException",
+            "imported_module": "fastapi",
+            "imported_symbols": [
+              "APIRouter",
+              "Depends",
+              "HTTPException"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\api\\v1\\intakes.py",
+            "line_number": 9,
+            "statement": "from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile",
+            "imported_module": "fastapi",
+            "imported_symbols": [
+              "APIRouter",
+              "Depends",
+              "File",
+              "Form",
+              "HTTPException",
+              "UploadFile"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\api\\v1\\rag.py",
+            "line_number": 1,
+            "statement": "from fastapi import APIRouter, Depends, HTTPException, status",
+            "imported_module": "fastapi",
+            "imported_symbols": [
+              "APIRouter",
+              "Depends",
+              "HTTPException",
+              "status"
+            ],
+            "package_name": "fastapi"
+          },
+          {
+            "file_path": "app\\api\\v1\\speech.py",
+            "line_number": 2,
+            "statement": "from fastapi import APIRouter, File, Form, HTTPException, UploadFile",
+            "imported_module": "fastapi",
+            "imported_symbols": [
+              "APIRouter",
+              "File",
+              "Form",
+              "HTTPException",
+              "UploadFile"
+            ],
+            "package_name": "fastapi"
+          }
+        ],
+        "call_sites": []
+      },
+      "objective_risks": [],
+      "risk_count": 0,
+      "has_objective_risk": false
+    },
+    "pydantic": {
+      "package_name": "pydantic",
+      "declarations": [
+        {
+          "name": "pydantic",
+          "normalized_name": "pydantic",
+          "specifier": ">=2.8.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 3,
+          "raw_line": "pydantic>=2.8.0",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "pydantic",
+        "latest_version": "2.14.1",
+        "latest_release_date": "2026-10-11T18:37:53.437059Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.10",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Changelog": "https://pydantic.dev/docs/validation/latest/get-started/changelog/",
+          "Documentation": "https://pydantic.dev/docs/validation/latest/get-started/",
+          "Funding": "https://github.com/sponsors/samuelcolvin",
+          "Homepage": "https://github.com/pydantic/pydantic",
+          "Source": "https://github.com/pydantic/pydantic"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 22,
+        "call_count": 0,
+        "files_using": [
+          "tests\\test_ayush_contract.py",
+          "tests\\test_document_intelligence.py",
+          "app\\core\\config.py",
+          "app\\schemas\\abdm.py",
+          "app\\schemas\\admin.py",
+          "app\\schemas\\ayush.py",
+          "app\\schemas\\clinical_state.py",
+          "app\\schemas\\doctor.py",
+          "app\\schemas\\document.py",
+          "app\\schemas\\fhir.py",
+          "app\\schemas\\intake.py",
+          "app\\schemas\\question.py",
+          "app\\schemas\\rag.py",
+          "app\\services\\document_extraction.py",
+          "app\\services\\benchmarking\\metrics.py",
+          "app\\services\\benchmarking\\runner.py",
+          "app\\services\\benchmarking\\scenarios.py",
+          "app\\services\\providers\\base.py",
+          "app\\services\\providers\\llm_provider.py",
+          "app\\api\\v1\\auth.py",
+          "app\\api\\v1\\departments.py",
+          "app\\api\\v1\\speech.py"
+        ],
+        "imports": [
+          {
+            "file_path": "tests\\test_ayush_contract.py",
+            "line_number": 9,
+            "statement": "from pydantic import ValidationError",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "ValidationError"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 6,
+            "statement": "from pydantic import ValidationError",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "ValidationError"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\core\\config.py",
+            "line_number": 2,
+            "statement": "from pydantic import field_validator",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "field_validator"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\schemas\\abdm.py",
+            "line_number": 3,
+            "statement": "from pydantic import BaseModel, Field",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "Field"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\schemas\\admin.py",
+            "line_number": 3,
+            "statement": "from pydantic import BaseModel, Field",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "Field"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\schemas\\ayush.py",
+            "line_number": 9,
+            "statement": "from pydantic import BaseModel, Field",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "Field"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\schemas\\clinical_state.py",
+            "line_number": 4,
+            "statement": "from pydantic import BaseModel, Field, field_validator",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "Field",
+              "field_validator"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\schemas\\doctor.py",
+            "line_number": 3,
+            "statement": "from pydantic import BaseModel, Field, field_validator",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "Field",
+              "field_validator"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\schemas\\document.py",
+            "line_number": 4,
+            "statement": "from pydantic import BaseModel, Field",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "Field"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\schemas\\fhir.py",
+            "line_number": 3,
+            "statement": "from pydantic import BaseModel, Field",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "Field"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\schemas\\intake.py",
+            "line_number": 4,
+            "statement": "from pydantic import BaseModel, field_validator",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "field_validator"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\schemas\\question.py",
+            "line_number": 2,
+            "statement": "from pydantic import BaseModel, Field",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "Field"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\schemas\\rag.py",
+            "line_number": 4,
+            "statement": "from pydantic import BaseModel, ConfigDict, Field",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "ConfigDict",
+              "Field"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\services\\document_extraction.py",
+            "line_number": 9,
+            "statement": "from pydantic import ValidationError",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "ValidationError"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\services\\benchmarking\\metrics.py",
+            "line_number": 20,
+            "statement": "from pydantic import BaseModel, Field",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "Field"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\services\\benchmarking\\runner.py",
+            "line_number": 11,
+            "statement": "from pydantic import BaseModel, Field",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "Field"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\services\\benchmarking\\scenarios.py",
+            "line_number": 14,
+            "statement": "from pydantic import BaseModel, Field",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "Field"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\services\\providers\\base.py",
+            "line_number": 4,
+            "statement": "from pydantic import BaseModel, Field",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "Field"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\services\\providers\\llm_provider.py",
+            "line_number": 6,
+            "statement": "from pydantic import BaseModel, Field",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "Field"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\api\\v1\\auth.py",
+            "line_number": 3,
+            "statement": "from pydantic import BaseModel, ConfigDict, Field",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel",
+              "ConfigDict",
+              "Field"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\api\\v1\\departments.py",
+            "line_number": 3,
+            "statement": "from pydantic import BaseModel",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel"
+            ],
+            "package_name": "pydantic"
+          },
+          {
+            "file_path": "app\\api\\v1\\speech.py",
+            "line_number": 3,
+            "statement": "from pydantic import BaseModel",
+            "imported_module": "pydantic",
+            "imported_symbols": [
+              "BaseModel"
+            ],
+            "package_name": "pydantic"
+          }
+        ],
+        "call_sites": []
+      },
+      "objective_risks": [],
+      "risk_count": 0,
+      "has_objective_risk": false
+    },
+    "pydantic-settings": {
+      "package_name": "pydantic-settings",
+      "declarations": [
+        {
+          "name": "pydantic-settings",
+          "normalized_name": "pydantic-settings",
+          "specifier": ">=2.4.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 4,
+          "raw_line": "pydantic-settings>=2.4.0",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "pydantic-settings",
+        "latest_version": "2.16.0",
+        "latest_release_date": "2026-10-14T12:44:08.233310Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.11",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Changelog": "https://github.com/pydantic/pydantic-settings/releases",
+          "Documentation": "https://docs.pydantic.dev/dev-v2/concepts/pydantic_settings/",
+          "Funding": "https://github.com/sponsors/samuelcolvin",
+          "Homepage": "https://github.com/pydantic/pydantic-settings",
+          "Source": "https://github.com/pydantic/pydantic-settings"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": false,
+        "import_count": 0,
+        "call_count": 0,
+        "files_using": [],
+        "imports": [],
+        "call_sites": []
+      },
+      "objective_risks": [
+        "GHOST_DEPENDENCY: Declared in requirements.txt:4 but no static import was detected in Python files."
+      ],
+      "risk_count": 1,
+      "has_objective_risk": true
+    },
+    "sqlalchemy": {
+      "package_name": "sqlalchemy",
+      "declarations": [
+        {
+          "name": "sqlalchemy",
+          "normalized_name": "sqlalchemy",
+          "specifier": ">=2.0.30",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 5,
+          "raw_line": "sqlalchemy>=2.0.30",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "sqlalchemy",
+        "latest_version": "2.1.4",
+        "latest_release_date": "2026-10-07T18:17:21.503212Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.11",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Changelog": "https://docs.sqlalchemy.org/latest/changelog/index.html",
+          "Discussions": "https://github.com/sqlalchemy/sqlalchemy/discussions",
+          "Documentation": "https://docs.sqlalchemy.org",
+          "Homepage": "https://www.sqlalchemy.org",
+          "Issue Tracker": "https://github.com/sqlalchemy/sqlalchemy/issues",
+          "Source Code": "https://github.com/sqlalchemy/sqlalchemy"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 61,
+        "call_count": 0,
+        "files_using": [
+          "alembic\\env.py",
+          "tests\\audit_db_sync.py",
+          "tests\\conftest.py",
+          "tests\\test_ayush_data_bridge.py",
+          "tests\\test_ayush_domain_and_demographics_refinements.py",
+          "tests\\test_non_informative_answers.py",
+          "tests\\test_patient_abha_intake.py",
+          "tests\\test_rag.py",
+          "tests\\test_simple_patient_id.py",
+          "app\\core\\database.py",
+          "app\\models\\ayush.py",
+          "app\\models\\document.py",
+          "app\\models\\intake.py",
+          "app\\models\\knowledge.py",
+          "app\\models\\review.py",
+          "app\\models\\safety.py",
+          "app\\models\\user.py",
+          "app\\seed\\seed_data.py",
+          "app\\services\\document_extraction.py",
+          "app\\services\\document_intelligence.py",
+          "app\\services\\patient_id.py",
+          "app\\services\\clinical_ai\\adaptive_engine.py",
+          "app\\services\\rag\\rag_service.py",
+          "app\\api\\v1\\abdm.py",
+          "app\\api\\v1\\admin.py",
+          "app\\api\\v1\\auth.py",
+          "app\\api\\v1\\departments.py",
+          "app\\api\\v1\\doctor.py",
+          "app\\api\\v1\\documents.py",
+          "app\\api\\v1\\fhir.py",
+          "app\\api\\v1\\intakes.py",
+          "app\\api\\v1\\rag.py",
+          "alembic\\versions\\2c1db709b90d_initial_schema.py",
+          "alembic\\versions\\43ab6177c2da_merge_abha_and_ayush_heads.py",
+          "alembic\\versions\\6f3a1c9d8b42_document_intelligence.py",
+          "alembic\\versions\\9a72e4c18f31_persist_ocr_evidence.py",
+          "alembic\\versions\\a7c3e91d4b20_align_doctor_schema.py",
+          "alembic\\versions\\b4f08c2e6a91_add_user_password_hash.py",
+          "alembic\\versions\\c4e8d2a71b09_persist_document_candidates.py",
+          "alembic\\versions\\d8f2a6b91c04_rag_knowledge_tables.py",
+          "alembic\\versions\\e1a7b3c8f204_add_abha_fields_to_patients.py",
+          "alembic\\versions\\e5f1b2c3d4e5_add_ayush_assessments_table.py",
+          "alembic\\versions\\f3b8c1d9e2a4_add_review_lifecycle_to_intake_sessions.py",
+          "alembic\\versions\\g1b9d4e2a8c3_add_display_id_to_patients.py"
+        ],
+        "imports": [
+          {
+            "file_path": "alembic\\env.py",
+            "line_number": 5,
+            "statement": "from sqlalchemy import engine_from_config, pool",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "engine_from_config",
+              "pool"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "tests\\audit_db_sync.py",
+            "line_number": 24,
+            "statement": "from sqlalchemy import inspect",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "inspect"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "tests\\conftest.py",
+            "line_number": 7,
+            "statement": "from sqlalchemy import create_engine",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "create_engine"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "tests\\conftest.py",
+            "line_number": 10,
+            "statement": "from sqlalchemy.orm import sessionmaker",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "sessionmaker"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "tests\\conftest.py",
+            "line_number": 13,
+            "statement": "from sqlalchemy.pool import StaticPool",
+            "imported_module": "sqlalchemy.pool",
+            "imported_symbols": [
+              "StaticPool"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "tests\\test_ayush_data_bridge.py",
+            "line_number": 4,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "tests\\test_ayush_domain_and_demographics_refinements.py",
+            "line_number": 3,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "tests\\test_non_informative_answers.py",
+            "line_number": 3,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "tests\\test_patient_abha_intake.py",
+            "line_number": 2,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "tests\\test_rag.py",
+            "line_number": 4,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "tests\\test_simple_patient_id.py",
+            "line_number": 3,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\core\\database.py",
+            "line_number": 2,
+            "statement": "from sqlalchemy import create_engine",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "create_engine"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\core\\database.py",
+            "line_number": 3,
+            "statement": "from sqlalchemy.orm import declarative_base, sessionmaker, Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "declarative_base",
+              "sessionmaker",
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\models\\ayush.py",
+            "line_number": 3,
+            "statement": "from sqlalchemy import Column, String, DateTime, ForeignKey, JSON",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "Column",
+              "String",
+              "DateTime",
+              "ForeignKey",
+              "JSON"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\models\\ayush.py",
+            "line_number": 4,
+            "statement": "from sqlalchemy.orm import relationship",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "relationship"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\models\\document.py",
+            "line_number": 4,
+            "statement": "from sqlalchemy import (",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "JSON",
+              "Column",
+              "DateTime",
+              "Float",
+              "ForeignKey",
+              "Integer",
+              "String",
+              "Text",
+              "UniqueConstraint"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\models\\document.py",
+            "line_number": 15,
+            "statement": "from sqlalchemy.orm import relationship",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "relationship"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\models\\intake.py",
+            "line_number": 3,
+            "statement": "from sqlalchemy import Column, String, Boolean, DateTime, ForeignKey, Integer, Float, JSON, Text",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "Column",
+              "String",
+              "Boolean",
+              "DateTime",
+              "ForeignKey",
+              "Integer",
+              "Float",
+              "JSON",
+              "Text"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\models\\intake.py",
+            "line_number": 4,
+            "statement": "from sqlalchemy.orm import relationship",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "relationship"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\models\\knowledge.py",
+            "line_number": 4,
+            "statement": "from sqlalchemy import JSON, Column, DateTime, ForeignKey, Integer, String, Text",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "JSON",
+              "Column",
+              "DateTime",
+              "ForeignKey",
+              "Integer",
+              "String",
+              "Text"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\models\\knowledge.py",
+            "line_number": 5,
+            "statement": "from sqlalchemy.orm import relationship",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "relationship"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\models\\review.py",
+            "line_number": 3,
+            "statement": "from sqlalchemy import Column, String, DateTime, ForeignKey, Text, JSON",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "Column",
+              "String",
+              "DateTime",
+              "ForeignKey",
+              "Text",
+              "JSON"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\models\\review.py",
+            "line_number": 4,
+            "statement": "from sqlalchemy.orm import relationship",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "relationship"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\models\\safety.py",
+            "line_number": 3,
+            "statement": "from sqlalchemy import Column, String, DateTime, ForeignKey, JSON",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "Column",
+              "String",
+              "DateTime",
+              "ForeignKey",
+              "JSON"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\models\\safety.py",
+            "line_number": 4,
+            "statement": "from sqlalchemy.orm import relationship",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "relationship"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\models\\user.py",
+            "line_number": 3,
+            "statement": "from sqlalchemy import Column, String, Boolean, DateTime, ForeignKey, Integer",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "Column",
+              "String",
+              "Boolean",
+              "DateTime",
+              "ForeignKey",
+              "Integer"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\models\\user.py",
+            "line_number": 4,
+            "statement": "from sqlalchemy.orm import relationship",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "relationship"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\seed\\seed_data.py",
+            "line_number": 2,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\services\\document_extraction.py",
+            "line_number": 10,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\services\\document_intelligence.py",
+            "line_number": 10,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\services\\patient_id.py",
+            "line_number": 1,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\services\\clinical_ai\\adaptive_engine.py",
+            "line_number": 3,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\services\\rag\\rag_service.py",
+            "line_number": 6,
+            "statement": "from sqlalchemy.exc import SQLAlchemyError",
+            "imported_module": "sqlalchemy.exc",
+            "imported_symbols": [
+              "SQLAlchemyError"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\services\\rag\\rag_service.py",
+            "line_number": 7,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\api\\v1\\abdm.py",
+            "line_number": 7,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\api\\v1\\admin.py",
+            "line_number": 9,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\api\\v1\\admin.py",
+            "line_number": 10,
+            "statement": "from sqlalchemy import func",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "func"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\api\\v1\\auth.py",
+            "line_number": 4,
+            "statement": "from sqlalchemy import func, or_",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "func",
+              "or_"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\api\\v1\\auth.py",
+            "line_number": 5,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\api\\v1\\departments.py",
+            "line_number": 4,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\api\\v1\\doctor.py",
+            "line_number": 5,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\api\\v1\\doctor.py",
+            "line_number": 6,
+            "statement": "from sqlalchemy.orm.attributes import flag_modified",
+            "imported_module": "sqlalchemy.orm.attributes",
+            "imported_symbols": [
+              "flag_modified"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\api\\v1\\documents.py",
+            "line_number": 19,
+            "statement": "from sqlalchemy import text",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "text"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\api\\v1\\documents.py",
+            "line_number": 20,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\api\\v1\\fhir.py",
+            "line_number": 2,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\api\\v1\\intakes.py",
+            "line_number": 10,
+            "statement": "from sqlalchemy import or_",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "or_"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\api\\v1\\intakes.py",
+            "line_number": 11,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\api\\v1\\intakes.py",
+            "line_number": 12,
+            "statement": "from sqlalchemy.orm.attributes import flag_modified",
+            "imported_module": "sqlalchemy.orm.attributes",
+            "imported_symbols": [
+              "flag_modified"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "app\\api\\v1\\rag.py",
+            "line_number": 2,
+            "statement": "from sqlalchemy.orm import Session",
+            "imported_module": "sqlalchemy.orm",
+            "imported_symbols": [
+              "Session"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "alembic\\versions\\2c1db709b90d_initial_schema.py",
+            "line_number": 10,
+            "statement": "import sqlalchemy as sa",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "sqlalchemy"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "alembic\\versions\\43ab6177c2da_merge_abha_and_ayush_heads.py",
+            "line_number": 11,
+            "statement": "import sqlalchemy as sa",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "sqlalchemy"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "alembic\\versions\\6f3a1c9d8b42_document_intelligence.py",
+            "line_number": 10,
+            "statement": "import sqlalchemy as sa",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "sqlalchemy"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "alembic\\versions\\9a72e4c18f31_persist_ocr_evidence.py",
+            "line_number": 10,
+            "statement": "import sqlalchemy as sa",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "sqlalchemy"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "alembic\\versions\\a7c3e91d4b20_align_doctor_schema.py",
+            "line_number": 10,
+            "statement": "import sqlalchemy as sa",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "sqlalchemy"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "alembic\\versions\\b4f08c2e6a91_add_user_password_hash.py",
+            "line_number": 10,
+            "statement": "import sqlalchemy as sa",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "sqlalchemy"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "alembic\\versions\\c4e8d2a71b09_persist_document_candidates.py",
+            "line_number": 10,
+            "statement": "import sqlalchemy as sa",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "sqlalchemy"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "alembic\\versions\\d8f2a6b91c04_rag_knowledge_tables.py",
+            "line_number": 10,
+            "statement": "import sqlalchemy as sa",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "sqlalchemy"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "alembic\\versions\\e1a7b3c8f204_add_abha_fields_to_patients.py",
+            "line_number": 10,
+            "statement": "import sqlalchemy as sa",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "sqlalchemy"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "alembic\\versions\\e5f1b2c3d4e5_add_ayush_assessments_table.py",
+            "line_number": 9,
+            "statement": "import sqlalchemy as sa",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "sqlalchemy"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "alembic\\versions\\f3b8c1d9e2a4_add_review_lifecycle_to_intake_sessions.py",
+            "line_number": 10,
+            "statement": "import sqlalchemy as sa",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "sqlalchemy"
+            ],
+            "package_name": "sqlalchemy"
+          },
+          {
+            "file_path": "alembic\\versions\\g1b9d4e2a8c3_add_display_id_to_patients.py",
+            "line_number": 10,
+            "statement": "import sqlalchemy as sa",
+            "imported_module": "sqlalchemy",
+            "imported_symbols": [
+              "sqlalchemy"
+            ],
+            "package_name": "sqlalchemy"
+          }
+        ],
+        "call_sites": []
+      },
+      "objective_risks": [],
+      "risk_count": 0,
+      "has_objective_risk": false
+    },
+    "alembic": {
+      "package_name": "alembic",
+      "declarations": [
+        {
+          "name": "alembic",
+          "normalized_name": "alembic",
+          "specifier": ">=1.13.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 6,
+          "raw_line": "alembic>=1.13.0",
+          "is_dev": false
+        },
+        {
+          "name": "alembic",
+          "normalized_name": "alembic",
+          "specifier": ">=1.13.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 11,
+          "raw_line": "alembic>=1.13.0",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "alembic",
+        "latest_version": "1.20.0",
+        "latest_release_date": "2026-09-11T19:09:12.880981Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.10",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Changelog": "https://alembic.sqlalchemy.org/en/latest/changelog.html",
+          "Documentation": "https://alembic.sqlalchemy.org/en/latest/",
+          "Homepage": "https://alembic.sqlalchemy.org",
+          "Issue Tracker": "https://github.com/sqlalchemy/alembic/issues/",
+          "Source": "https://github.com/sqlalchemy/alembic/"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 13,
+        "call_count": 0,
+        "files_using": [
+          "alembic\\env.py",
+          "alembic\\versions\\2c1db709b90d_initial_schema.py",
+          "alembic\\versions\\43ab6177c2da_merge_abha_and_ayush_heads.py",
+          "alembic\\versions\\6f3a1c9d8b42_document_intelligence.py",
+          "alembic\\versions\\9a72e4c18f31_persist_ocr_evidence.py",
+          "alembic\\versions\\a7c3e91d4b20_align_doctor_schema.py",
+          "alembic\\versions\\b4f08c2e6a91_add_user_password_hash.py",
+          "alembic\\versions\\c4e8d2a71b09_persist_document_candidates.py",
+          "alembic\\versions\\d8f2a6b91c04_rag_knowledge_tables.py",
+          "alembic\\versions\\e1a7b3c8f204_add_abha_fields_to_patients.py",
+          "alembic\\versions\\e5f1b2c3d4e5_add_ayush_assessments_table.py",
+          "alembic\\versions\\f3b8c1d9e2a4_add_review_lifecycle_to_intake_sessions.py",
+          "alembic\\versions\\g1b9d4e2a8c3_add_display_id_to_patients.py"
+        ],
+        "imports": [
+          {
+            "file_path": "alembic\\env.py",
+            "line_number": 6,
+            "statement": "from alembic import context",
+            "imported_module": "alembic",
+            "imported_symbols": [
+              "context"
+            ],
+            "package_name": "alembic"
+          },
+          {
+            "file_path": "alembic\\versions\\2c1db709b90d_initial_schema.py",
+            "line_number": 9,
+            "statement": "from alembic import op",
+            "imported_module": "alembic",
+            "imported_symbols": [
+              "op"
+            ],
+            "package_name": "alembic"
+          },
+          {
+            "file_path": "alembic\\versions\\43ab6177c2da_merge_abha_and_ayush_heads.py",
+            "line_number": 10,
+            "statement": "from alembic import op",
+            "imported_module": "alembic",
+            "imported_symbols": [
+              "op"
+            ],
+            "package_name": "alembic"
+          },
+          {
+            "file_path": "alembic\\versions\\6f3a1c9d8b42_document_intelligence.py",
+            "line_number": 12,
+            "statement": "from alembic import op",
+            "imported_module": "alembic",
+            "imported_symbols": [
+              "op"
+            ],
+            "package_name": "alembic"
+          },
+          {
+            "file_path": "alembic\\versions\\9a72e4c18f31_persist_ocr_evidence.py",
+            "line_number": 12,
+            "statement": "from alembic import op",
+            "imported_module": "alembic",
+            "imported_symbols": [
+              "op"
+            ],
+            "package_name": "alembic"
+          },
+          {
+            "file_path": "alembic\\versions\\a7c3e91d4b20_align_doctor_schema.py",
+            "line_number": 12,
+            "statement": "from alembic import op",
+            "imported_module": "alembic",
+            "imported_symbols": [
+              "op"
+            ],
+            "package_name": "alembic"
+          },
+          {
+            "file_path": "alembic\\versions\\b4f08c2e6a91_add_user_password_hash.py",
+            "line_number": 12,
+            "statement": "from alembic import op",
+            "imported_module": "alembic",
+            "imported_symbols": [
+              "op"
+            ],
+            "package_name": "alembic"
+          },
+          {
+            "file_path": "alembic\\versions\\c4e8d2a71b09_persist_document_candidates.py",
+            "line_number": 12,
+            "statement": "from alembic import op",
+            "imported_module": "alembic",
+            "imported_symbols": [
+              "op"
+            ],
+            "package_name": "alembic"
+          },
+          {
+            "file_path": "alembic\\versions\\d8f2a6b91c04_rag_knowledge_tables.py",
+            "line_number": 12,
+            "statement": "from alembic import op",
+            "imported_module": "alembic",
+            "imported_symbols": [
+              "op"
+            ],
+            "package_name": "alembic"
+          },
+          {
+            "file_path": "alembic\\versions\\e1a7b3c8f204_add_abha_fields_to_patients.py",
+            "line_number": 11,
+            "statement": "from alembic import op",
+            "imported_module": "alembic",
+            "imported_symbols": [
+              "op"
+            ],
+            "package_name": "alembic"
+          },
+          {
+            "file_path": "alembic\\versions\\e5f1b2c3d4e5_add_ayush_assessments_table.py",
+            "line_number": 10,
+            "statement": "from alembic import op",
+            "imported_module": "alembic",
+            "imported_symbols": [
+              "op"
+            ],
+            "package_name": "alembic"
+          },
+          {
+            "file_path": "alembic\\versions\\f3b8c1d9e2a4_add_review_lifecycle_to_intake_sessions.py",
+            "line_number": 11,
+            "statement": "from alembic import op",
+            "imported_module": "alembic",
+            "imported_symbols": [
+              "op"
+            ],
+            "package_name": "alembic"
+          },
+          {
+            "file_path": "alembic\\versions\\g1b9d4e2a8c3_add_display_id_to_patients.py",
+            "line_number": 11,
+            "statement": "from alembic import op",
+            "imported_module": "alembic",
+            "imported_symbols": [
+              "op"
+            ],
+            "package_name": "alembic"
+          }
+        ],
+        "call_sites": []
+      },
+      "objective_risks": [],
+      "risk_count": 0,
+      "has_objective_risk": false
+    },
+    "pyjwt": {
+      "package_name": "pyjwt",
+      "declarations": [
+        {
+          "name": "pyjwt",
+          "normalized_name": "pyjwt",
+          "specifier": ">=2.9.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 7,
+          "raw_line": "pyjwt>=2.9.0",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "pyjwt",
+        "latest_version": "2.15.1",
+        "latest_release_date": "2026-09-28T18:40:41.429003Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.9",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Homepage": "https://github.com/jpadilla/pyjwt"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": false,
+        "import_count": 0,
+        "call_count": 0,
+        "files_using": [],
+        "imports": [],
+        "call_sites": []
+      },
+      "objective_risks": [
+        "GHOST_DEPENDENCY: Declared in requirements.txt:7 but no static import was detected in Python files."
+      ],
+      "risk_count": 1,
+      "has_objective_risk": true
+    },
+    "python-multipart": {
+      "package_name": "python-multipart",
+      "declarations": [
+        {
+          "name": "python-multipart",
+          "normalized_name": "python-multipart",
+          "specifier": ">=0.0.9",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 8,
+          "raw_line": "python-multipart>=0.0.9",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "python-multipart",
+        "latest_version": "0.0.32",
+        "latest_release_date": "2026-06-04T16:18:57.319904Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.10",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Changelog": "https://github.com/Kludex/python-multipart/blob/master/CHANGELOG.md",
+          "Documentation": "https://kludex.github.io/python-multipart/",
+          "Homepage": "https://github.com/Kludex/python-multipart",
+          "Source": "https://github.com/Kludex/python-multipart"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": false,
+        "import_count": 0,
+        "call_count": 0,
+        "files_using": [],
+        "imports": [],
+        "call_sites": []
+      },
+      "objective_risks": [
+        "GHOST_DEPENDENCY: Declared in requirements.txt:8 but no static import was detected in Python files."
+      ],
+      "risk_count": 1,
+      "has_objective_risk": true
+    },
+    "supabase": {
+      "package_name": "supabase",
+      "declarations": [
+        {
+          "name": "supabase",
+          "normalized_name": "supabase",
+          "specifier": ">=2.6.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 9,
+          "raw_line": "supabase>=2.6.0",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "supabase",
+        "latest_version": "2.32.0",
+        "latest_release_date": "2026-10-02T19:18:58.372140Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.9",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "changelog": "https://github.com/supabase/supabase-py/tree/main/CHANGELOG.md",
+          "documentation": "https://github.com/supabase/supabase-py/src/supabase",
+          "homepage": "https://github.com/supabase/supabase-py",
+          "repository": "https://github.com/supabase/supabase-py"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 1,
+        "call_count": 0,
+        "files_using": [
+          "app\\core\\database.py"
+        ],
+        "imports": [
+          {
+            "file_path": "app\\core\\database.py",
+            "line_number": 40,
+            "statement": "from supabase import create_client, Client",
+            "imported_module": "supabase",
+            "imported_symbols": [
+              "create_client",
+              "Client"
+            ],
+            "package_name": "supabase"
+          }
+        ],
+        "call_sites": []
+      },
+      "objective_risks": [],
+      "risk_count": 0,
+      "has_objective_risk": false
+    },
+    "psycopg2-binary": {
+      "package_name": "psycopg2-binary",
+      "declarations": [
+        {
+          "name": "psycopg2-binary",
+          "normalized_name": "psycopg2-binary",
+          "specifier": ">=2.9.9",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 10,
+          "raw_line": "psycopg2-binary>=2.9.9",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "psycopg2-binary",
+        "latest_version": "2.9.13",
+        "latest_release_date": "2026-09-09T23:54:05.509581Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.10",
+        "license_str": "LGPL with exceptions",
+        "home_page": "https://psycopg.org/",
+        "project_urls": {
+          "Changes": "https://www.psycopg.org/docs/news.html",
+          "Code": "https://github.com/psycopg/psycopg2",
+          "Documentation": "https://www.psycopg.org/docs/",
+          "Download": "https://pypi.org/project/psycopg2/",
+          "Homepage": "https://psycopg.org/",
+          "Issue Tracker": "https://github.com/psycopg/psycopg2/issues"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": false,
+        "import_count": 0,
+        "call_count": 0,
+        "files_using": [],
+        "imports": [],
+        "call_sites": []
+      },
+      "objective_risks": [
+        "GHOST_DEPENDENCY: Declared in requirements.txt:10 but no static import was detected in Python files."
+      ],
+      "risk_count": 1,
+      "has_objective_risk": true
+    },
+    "httpx": {
+      "package_name": "httpx",
+      "declarations": [
+        {
+          "name": "httpx",
+          "normalized_name": "httpx",
+          "specifier": ">=0.27.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 12,
+          "raw_line": "httpx>=0.27.0",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "httpx",
+        "latest_version": "0.28.1",
+        "latest_release_date": "2024-12-06T15:37:21.509172Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.8",
+        "license_str": "BSD-3-Clause",
+        "home_page": null,
+        "project_urls": {
+          "Changelog": "https://github.com/encode/httpx/blob/master/CHANGELOG.md",
+          "Documentation": "https://www.python-httpx.org",
+          "Homepage": "https://github.com/encode/httpx",
+          "Source": "https://github.com/encode/httpx"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 10,
+        "call_count": 0,
+        "files_using": [
+          "scratch\\forensic_provider_audit.py",
+          "scratch\\run_forensic_audit.py",
+          "scratch\\verify_frontend_integration_e2e.py",
+          "scratch\\verify_live_scenarios.py",
+          "tests\\test_qa_context_integrity_regression.py",
+          "tests\\verify_e2e_adaptive.py",
+          "tests\\verify_voice_text_unification.py",
+          "app\\services\\abdm\\live_gateway.py",
+          "app\\services\\providers\\llm_provider.py",
+          "app\\services\\providers\\speech_provider.py"
+        ],
+        "imports": [
+          {
+            "file_path": "scratch\\forensic_provider_audit.py",
+            "line_number": 44,
+            "statement": "import httpx",
+            "imported_module": "httpx",
+            "imported_symbols": [
+              "httpx"
+            ],
+            "package_name": "httpx"
+          },
+          {
+            "file_path": "scratch\\run_forensic_audit.py",
+            "line_number": 5,
+            "statement": "import httpx",
+            "imported_module": "httpx",
+            "imported_symbols": [
+              "httpx"
+            ],
+            "package_name": "httpx"
+          },
+          {
+            "file_path": "scratch\\verify_frontend_integration_e2e.py",
+            "line_number": 5,
+            "statement": "import httpx",
+            "imported_module": "httpx",
+            "imported_symbols": [
+              "httpx"
+            ],
+            "package_name": "httpx"
+          },
+          {
+            "file_path": "scratch\\verify_live_scenarios.py",
+            "line_number": 3,
+            "statement": "import httpx",
+            "imported_module": "httpx",
+            "imported_symbols": [
+              "httpx"
+            ],
+            "package_name": "httpx"
+          },
+          {
+            "file_path": "tests\\test_qa_context_integrity_regression.py",
+            "line_number": 1,
+            "statement": "import httpx",
+            "imported_module": "httpx",
+            "imported_symbols": [
+              "httpx"
+            ],
+            "package_name": "httpx"
+          },
+          {
+            "file_path": "tests\\verify_e2e_adaptive.py",
+            "line_number": 2,
+            "statement": "import httpx",
+            "imported_module": "httpx",
+            "imported_symbols": [
+              "httpx"
+            ],
+            "package_name": "httpx"
+          },
+          {
+            "file_path": "tests\\verify_voice_text_unification.py",
+            "line_number": 2,
+            "statement": "import httpx",
+            "imported_module": "httpx",
+            "imported_symbols": [
+              "httpx"
+            ],
+            "package_name": "httpx"
+          },
+          {
+            "file_path": "app\\services\\abdm\\live_gateway.py",
+            "line_number": 7,
+            "statement": "import httpx",
+            "imported_module": "httpx",
+            "imported_symbols": [
+              "httpx"
+            ],
+            "package_name": "httpx"
+          },
+          {
+            "file_path": "app\\services\\providers\\llm_provider.py",
+            "line_number": 5,
+            "statement": "import httpx",
+            "imported_module": "httpx",
+            "imported_symbols": [
+              "httpx"
+            ],
+            "package_name": "httpx"
+          },
+          {
+            "file_path": "app\\services\\providers\\speech_provider.py",
+            "line_number": 4,
+            "statement": "import httpx",
+            "imported_module": "httpx",
+            "imported_symbols": [
+              "httpx"
+            ],
+            "package_name": "httpx"
+          }
+        ],
+        "call_sites": []
+      },
+      "objective_risks": [],
+      "risk_count": 0,
+      "has_objective_risk": false
+    },
+    "pytest": {
+      "package_name": "pytest",
+      "declarations": [
+        {
+          "name": "pytest",
+          "normalized_name": "pytest",
+          "specifier": ">=8.2.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 13,
+          "raw_line": "pytest>=8.2.0",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "pytest",
+        "latest_version": "9.1.1",
+        "latest_release_date": "2026-06-19T10:58:31.347074Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.10",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Changelog": "https://docs.pytest.org/en/stable/changelog.html",
+          "Contact": "https://docs.pytest.org/en/stable/contact.html",
+          "Funding": "https://docs.pytest.org/en/stable/sponsor.html",
+          "Homepage": "https://docs.pytest.org/en/latest/",
+          "Source": "https://github.com/pytest-dev/pytest",
+          "Tracker": "https://github.com/pytest-dev/pytest/issues"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 42,
+        "call_count": 58,
+        "files_using": [
+          "tests\\audit_db_sync.py",
+          "tests\\conftest.py",
+          "tests\\test_abdm_gateway.py",
+          "tests\\test_adaptive_ayush_dimensions.py",
+          "tests\\test_adaptive_conversation_refinement.py",
+          "tests\\test_adaptive_engine.py",
+          "tests\\test_adaptive_selection.py",
+          "tests\\test_admin_api.py",
+          "tests\\test_admin_authorization.py",
+          "tests\\test_ayush_contract.py",
+          "tests\\test_ayush_data_bridge.py",
+          "tests\\test_ayush_data_integrity.py",
+          "tests\\test_ayush_doctor_review.py",
+          "tests\\test_ayush_domain_and_demographics_refinements.py",
+          "tests\\test_benchmark.py",
+          "tests\\test_cross_domain_adaptive_matrix.py",
+          "tests\\test_department_router.py",
+          "tests\\test_doctor_authorization.py",
+          "tests\\test_doctor_documents.py",
+          "tests\\test_doctor_patient_summary_states.py",
+          "tests\\test_document_extraction.py",
+          "tests\\test_document_intelligence.py",
+          "tests\\test_duplicate_processing_guard.py",
+          "tests\\test_evidence_grounding.py",
+          "tests\\test_extraction_fallback.py",
+          "tests\\test_extraction_payload_size.py",
+          "tests\\test_http_conversation_persistence.py",
+          "tests\\test_indic_symptom_canonical_resolution.py",
+          "tests\\test_kiosk_hygiene.py",
+          "tests\\test_modality_equivalence.py",
+          "tests\\test_negation_canonical_resolution.py",
+          "tests\\test_non_informative_answers.py",
+          "tests\\test_ocr_integration_flow.py",
+          "tests\\test_open_exploration_drilling.py",
+          "tests\\test_patient_audio_consent.py",
+          "tests\\test_providers.py",
+          "tests\\test_qa_context_integrity_regression.py",
+          "tests\\test_rag.py",
+          "tests\\test_safety_rules.py",
+          "tests\\test_simple_patient_id.py",
+          "tests\\test_timezone_handling.py",
+          "tests\\test_voice_tts_timeout.py"
+        ],
+        "imports": [
+          {
+            "file_path": "tests\\audit_db_sync.py",
+            "line_number": 5,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\conftest.py",
+            "line_number": 3,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_abdm_gateway.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_adaptive_ayush_dimensions.py",
+            "line_number": 14,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_adaptive_conversation_refinement.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_adaptive_engine.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_adaptive_selection.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_admin_api.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_admin_authorization.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_ayush_contract.py",
+            "line_number": 8,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_ayush_data_bridge.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_ayush_data_integrity.py",
+            "line_number": 6,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_ayush_doctor_review.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_ayush_domain_and_demographics_refinements.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_benchmark.py",
+            "line_number": 11,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_cross_domain_adaptive_matrix.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_department_router.py",
+            "line_number": 2,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_doctor_authorization.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_doctor_documents.py",
+            "line_number": 4,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_doctor_patient_summary_states.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_document_extraction.py",
+            "line_number": 3,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 4,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_duplicate_processing_guard.py",
+            "line_number": 2,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_evidence_grounding.py",
+            "line_number": 2,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_extraction_fallback.py",
+            "line_number": 2,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_extraction_payload_size.py",
+            "line_number": 2,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_http_conversation_persistence.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_indic_symptom_canonical_resolution.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_kiosk_hygiene.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_modality_equivalence.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_negation_canonical_resolution.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_non_informative_answers.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_ocr_integration_flow.py",
+            "line_number": 2,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_open_exploration_drilling.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_patient_audio_consent.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_providers.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_qa_context_integrity_regression.py",
+            "line_number": 2,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_rag.py",
+            "line_number": 3,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_safety_rules.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_simple_patient_id.py",
+            "line_number": 2,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_timezone_handling.py",
+            "line_number": 1,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          },
+          {
+            "file_path": "tests\\test_voice_tts_timeout.py",
+            "line_number": 2,
+            "statement": "import pytest",
+            "imported_module": "pytest",
+            "imported_symbols": [
+              "pytest"
+            ],
+            "package_name": "pytest"
+          }
+        ],
+        "call_sites": [
+          {
+            "file_path": "tests\\conftest.py",
+            "line_number": 32,
+            "call_expression": "pytest.fixture",
+            "callee_name": "pytest.fixture",
+            "code_snippet": "@pytest.fixture(autouse=True)"
+          },
+          {
+            "file_path": "tests\\conftest.py",
+            "line_number": 50,
+            "call_expression": "pytest.fixture",
+            "callee_name": "pytest.fixture",
+            "code_snippet": "@pytest.fixture(scope=\"function\")"
+          },
+          {
+            "file_path": "tests\\conftest.py",
+            "line_number": 62,
+            "call_expression": "pytest.fixture",
+            "callee_name": "pytest.fixture",
+            "code_snippet": "@pytest.fixture(scope=\"function\")"
+          },
+          {
+            "file_path": "tests\\test_admin_authorization.py",
+            "line_number": 10,
+            "call_expression": "pytest.mark.parametrize",
+            "callee_name": "pytest.mark.parametrize",
+            "code_snippet": "@pytest.mark.parametrize("
+          },
+          {
+            "file_path": "tests\\test_admin_authorization.py",
+            "line_number": 30,
+            "call_expression": "pytest.mark.parametrize",
+            "callee_name": "pytest.mark.parametrize",
+            "code_snippet": "@pytest.mark.parametrize("
+          },
+          {
+            "file_path": "tests\\test_admin_authorization.py",
+            "line_number": 39,
+            "call_expression": "pytest.mark.parametrize",
+            "callee_name": "pytest.mark.parametrize",
+            "code_snippet": "@pytest.mark.parametrize("
+          },
+          {
+            "file_path": "tests\\test_ayush_contract.py",
+            "line_number": 115,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(ValidationError):"
+          },
+          {
+            "file_path": "tests\\test_ayush_contract.py",
+            "line_number": 119,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(ValidationError):"
+          },
+          {
+            "file_path": "tests\\test_ayush_contract.py",
+            "line_number": 142,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(ValidationError):"
+          },
+          {
+            "file_path": "tests\\test_ayush_contract.py",
+            "line_number": 194,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(ValidationError):"
+          },
+          {
+            "file_path": "tests\\test_doctor_authorization.py",
+            "line_number": 25,
+            "call_expression": "pytest.mark.parametrize",
+            "callee_name": "pytest.mark.parametrize",
+            "code_snippet": "@pytest.mark.parametrize("
+          },
+          {
+            "file_path": "tests\\test_doctor_authorization.py",
+            "line_number": 37,
+            "call_expression": "pytest.mark.parametrize",
+            "callee_name": "pytest.mark.parametrize",
+            "code_snippet": "@pytest.mark.parametrize("
+          },
+          {
+            "file_path": "tests\\test_doctor_authorization.py",
+            "line_number": 41,
+            "call_expression": "pytest.mark.parametrize",
+            "callee_name": "pytest.mark.parametrize",
+            "code_snippet": "@pytest.mark.parametrize(\"suffix\", [\"\", \"/conversation\"])"
+          },
+          {
+            "file_path": "tests\\test_doctor_authorization.py",
+            "line_number": 59,
+            "call_expression": "pytest.mark.parametrize",
+            "callee_name": "pytest.mark.parametrize",
+            "code_snippet": "@pytest.mark.parametrize("
+          },
+          {
+            "file_path": "tests\\test_doctor_documents.py",
+            "line_number": 17,
+            "call_expression": "pytest.fixture",
+            "callee_name": "pytest.fixture",
+            "code_snippet": "@pytest.fixture(autouse=True)"
+          },
+          {
+            "file_path": "tests\\test_document_extraction.py",
+            "line_number": 151,
+            "call_expression": "pytest.approx",
+            "callee_name": "pytest.approx",
+            "code_snippet": "assert medication.extraction_confidence == pytest.approx(0.87)"
+          },
+          {
+            "file_path": "tests\\test_document_extraction.py",
+            "line_number": 157,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises("
+          },
+          {
+            "file_path": "tests\\test_document_extraction.py",
+            "line_number": 182,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(DocumentExtractorConfigurationError, match=\"Unsupported\"):"
+          },
+          {
+            "file_path": "tests\\test_document_extraction.py",
+            "line_number": 193,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises("
+          },
+          {
+            "file_path": "tests\\test_document_extraction.py",
+            "line_number": 199,
+            "call_expression": "pytest.mark.parametrize",
+            "callee_name": "pytest.mark.parametrize",
+            "code_snippet": "@pytest.mark.parametrize("
+          },
+          {
+            "file_path": "tests\\test_document_extraction.py",
+            "line_number": 247,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(DocumentExtractorConfigurationError, match=error_setting):"
+          },
+          {
+            "file_path": "tests\\test_document_extraction.py",
+            "line_number": 232,
+            "call_expression": "pytest.mark.parametrize",
+            "callee_name": "pytest.mark.parametrize",
+            "code_snippet": "@pytest.mark.parametrize("
+          },
+          {
+            "file_path": "tests\\test_document_extraction.py",
+            "line_number": 254,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(DocumentExtractorConfigurationError, match=\"Unsupported document\"):"
+          },
+          {
+            "file_path": "tests\\test_document_extraction.py",
+            "line_number": 322,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(DocumentExtractorProviderError, match=\"transport\"):"
+          },
+          {
+            "file_path": "tests\\test_document_extraction.py",
+            "line_number": 341,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(DocumentCandidateValidationError, match=\"outside\"):"
+          },
+          {
+            "file_path": "tests\\test_document_extraction.py",
+            "line_number": 356,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(DocumentCandidateValidationError, match=\"invalid\"):"
+          },
+          {
+            "file_path": "tests\\test_document_extraction.py",
+            "line_number": 365,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(DocumentExtractorProviderError, match=\"transport\"):"
+          },
+          {
+            "file_path": "tests\\test_document_extraction.py",
+            "line_number": 448,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "pytest.raises(DocumentCandidateValidationError, match=\"unsupported\"),"
+          },
+          {
+            "file_path": "tests\\test_document_extraction.py",
+            "line_number": 530,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(DocumentCandidateValidationError, match=\"unsupported\"):"
+          },
+          {
+            "file_path": "tests\\test_document_extraction.py",
+            "line_number": 539,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(DocumentCandidateValidationError, match=\"unsupported\"):"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 82,
+            "call_expression": "pytest.fixture",
+            "callee_name": "pytest.fixture",
+            "code_snippet": "@pytest.fixture(autouse=True)"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 114,
+            "call_expression": "pytest.mark.parametrize",
+            "callee_name": "pytest.mark.parametrize",
+            "code_snippet": "@pytest.mark.parametrize("
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 249,
+            "call_expression": "pytest.approx",
+            "callee_name": "pytest.approx",
+            "code_snippet": "assert block.confidence == pytest.approx(expected_ocr_confidence)"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 208,
+            "call_expression": "pytest.mark.parametrize",
+            "callee_name": "pytest.mark.parametrize",
+            "code_snippet": "@pytest.mark.parametrize("
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 259,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(OCRProviderConfigurationError, match=\"PaddleOCR\"):"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 310,
+            "call_expression": "pytest.approx",
+            "callee_name": "pytest.approx",
+            "code_snippet": "assert result.confidence_score == pytest.approx(0.73)"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 311,
+            "call_expression": "pytest.approx",
+            "callee_name": "pytest.approx",
+            "code_snippet": "assert result.text_blocks[0][\"confidence\"] == pytest.approx(0.73)"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 364,
+            "call_expression": "pytest.approx",
+            "callee_name": "pytest.approx",
+            "code_snippet": "assert result.text_blocks[0][\"confidence\"] == pytest.approx(0.91)"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 407,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(OCRUnsupportedDocumentError, match=\"could not render\"):"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 419,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(OCRUnsupportedDocumentError, match=\"page-count limit\"):"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 443,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(OCRUnsupportedDocumentError, match=\"Encrypted PDF\"):"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 459,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(OCRNormalizationError, match=\"unsupported result shape\"):"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 485,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(OCRNormalizationError, match=\"finite 0..1 range\"):"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 463,
+            "call_expression": "pytest.mark.parametrize",
+            "callee_name": "pytest.mark.parametrize",
+            "code_snippet": "@pytest.mark.parametrize("
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 500,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(OCRNormalizationError, match=\"non-numeric\"):"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 855,
+            "call_expression": "pytest.approx",
+            "callee_name": "pytest.approx",
+            "code_snippet": "assert blocks[0].confidence == pytest.approx(0.83)"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 874,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(ValidationError):"
+          },
+          {
+            "file_path": "tests\\test_duplicate_processing_guard.py",
+            "line_number": 106,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(DocumentExtractorRateLimitError):"
+          },
+          {
+            "file_path": "tests\\test_evidence_grounding.py",
+            "line_number": 126,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(DocumentCandidateValidationError) as excinfo:"
+          },
+          {
+            "file_path": "tests\\test_evidence_grounding.py",
+            "line_number": 139,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(DocumentCandidateValidationError) as excinfo:"
+          },
+          {
+            "file_path": "tests\\test_evidence_grounding.py",
+            "line_number": 152,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(DocumentCandidateValidationError) as excinfo:"
+          },
+          {
+            "file_path": "tests\\test_extraction_fallback.py",
+            "line_number": 130,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(DocumentExtractorProviderError, match=\"Internal 500 server error\"):"
+          },
+          {
+            "file_path": "tests\\test_extraction_fallback.py",
+            "line_number": 158,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(DocumentCandidateValidationError, match=\"unsupported\"):"
+          },
+          {
+            "file_path": "tests\\test_providers.py",
+            "line_number": 63,
+            "call_expression": "pytest.mark.parametrize",
+            "callee_name": "pytest.mark.parametrize",
+            "code_snippet": "@pytest.mark.parametrize("
+          },
+          {
+            "file_path": "tests\\test_providers.py",
+            "line_number": 92,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(ProviderConfigurationError, match=\"Unsupported patient\"):"
+          },
+          {
+            "file_path": "tests\\test_qa_context_integrity_regression.py",
+            "line_number": 71,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(SpeechProviderError):"
+          },
+          {
+            "file_path": "tests\\test_rag.py",
+            "line_number": 244,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(EmbeddingProviderConfigurationError, match=\"GEMINI_API_KEY\"):"
+          },
+          {
+            "file_path": "tests\\test_rag.py",
+            "line_number": 262,
+            "call_expression": "pytest.raises",
+            "callee_name": "pytest.raises",
+            "code_snippet": "with pytest.raises(EmbeddingProviderRequestError, match=\"request failed\"):"
+          }
+        ]
+      },
+      "objective_risks": [],
+      "risk_count": 0,
+      "has_objective_risk": false
+    },
+    "pytest-asyncio": {
+      "package_name": "pytest-asyncio",
+      "declarations": [
+        {
+          "name": "pytest-asyncio",
+          "normalized_name": "pytest-asyncio",
+          "specifier": ">=0.23.0",
+          "is_pinned": false,
+          "pinned_version": null,
+          "source_file": "requirements.txt",
+          "line_number": 14,
+          "raw_line": "pytest-asyncio>=0.23.0",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "pytest-asyncio",
+        "latest_version": "1.4.0",
+        "latest_release_date": "2026-05-26T09:56:02.576082Z",
+        "pinned_version": null,
+        "pinned_release_date": null,
+        "days_outdated": null,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.10",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Bug Tracker": "https://github.com/pytest-dev/pytest-asyncio/issues",
+          "Changelog": "https://pytest-asyncio.readthedocs.io/en/stable/reference/changelog.html",
+          "Documentation": "https://pytest-asyncio.readthedocs.io",
+          "Homepage": "https://github.com/pytest-dev/pytest-asyncio",
+          "Source Code": "https://github.com/pytest-dev/pytest-asyncio"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": false,
+        "import_count": 0,
+        "call_count": 0,
+        "files_using": [],
+        "imports": [],
+        "call_sites": []
+      },
+      "objective_risks": [
+        "GHOST_DEPENDENCY: Declared in requirements.txt:14 but no static import was detected in Python files."
+      ],
+      "risk_count": 1,
+      "has_objective_risk": true
+    },
+    "paddleocr": {
+      "package_name": "paddleocr",
+      "declarations": [
+        {
+          "name": "paddleocr",
+          "normalized_name": "paddleocr",
+          "specifier": "==3.7.0",
+          "is_pinned": true,
+          "pinned_version": "3.7.0",
+          "source_file": "requirements.txt",
+          "line_number": 15,
+          "raw_line": "paddleocr==3.7.0",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "paddleocr",
+        "latest_version": "3.7.0",
+        "latest_release_date": "2026-06-11T12:09:51.204074Z",
+        "pinned_version": "3.7.0",
+        "pinned_release_date": "2026-06-11T12:09:51.204074Z",
+        "days_outdated": 0,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.8",
+        "license_str": "Apache License 2.0",
+        "home_page": null,
+        "project_urls": {
+          "documentation": "https://github.com/PaddlePaddle/PaddleOCR/blob/main/README.md",
+          "homepage": "https://github.com/PaddlePaddle/PaddleOCR",
+          "issues": "https://github.com/PaddlePaddle/PaddleOCR/issues",
+          "repository": "https://github.com/PaddlePaddle/PaddleOCR.git"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 1,
+        "call_count": 0,
+        "files_using": [
+          "app\\services\\providers\\ocr_provider.py"
+        ],
+        "imports": [
+          {
+            "file_path": "app\\services\\providers\\ocr_provider.py",
+            "line_number": 114,
+            "statement": "from paddleocr import PaddleOCR",
+            "imported_module": "paddleocr",
+            "imported_symbols": [
+              "PaddleOCR"
+            ],
+            "package_name": "paddleocr"
+          }
+        ],
+        "call_sites": []
+      },
+      "objective_risks": [],
+      "risk_count": 0,
+      "has_objective_risk": false
+    },
+    "paddlepaddle": {
+      "package_name": "paddlepaddle",
+      "declarations": [
+        {
+          "name": "paddlepaddle",
+          "normalized_name": "paddlepaddle",
+          "specifier": "==3.3.1",
+          "is_pinned": true,
+          "pinned_version": "3.3.1",
+          "source_file": "requirements.txt",
+          "line_number": 16,
+          "raw_line": "paddlepaddle==3.3.1",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "paddlepaddle",
+        "latest_version": "3.3.1",
+        "latest_release_date": "2026-03-26T11:17:55.180936Z",
+        "pinned_version": "3.3.1",
+        "pinned_release_date": "2026-03-26T11:17:55.180936Z",
+        "days_outdated": 0,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": null,
+        "license_str": "Apache Software License",
+        "home_page": "https://www.paddlepaddle.org.cn/",
+        "project_urls": {
+          "Download": "https://github.com/paddlepaddle/paddle",
+          "Homepage": "https://www.paddlepaddle.org.cn/"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": false,
+        "import_count": 0,
+        "call_count": 0,
+        "files_using": [],
+        "imports": [],
+        "call_sites": []
+      },
+      "objective_risks": [
+        "GHOST_DEPENDENCY: Declared in requirements.txt:16 but no static import was detected in Python files."
+      ],
+      "risk_count": 1,
+      "has_objective_risk": true
+    },
+    "pymupdf": {
+      "package_name": "pymupdf",
+      "declarations": [
+        {
+          "name": "PyMuPDF",
+          "normalized_name": "pymupdf",
+          "specifier": "==1.28.2",
+          "is_pinned": true,
+          "pinned_version": "1.28.2",
+          "source_file": "requirements.txt",
+          "line_number": 17,
+          "raw_line": "PyMuPDF==1.28.2",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "pymupdf",
+        "latest_version": "1.28.2",
+        "latest_release_date": "2026-08-06T21:37:25.001127Z",
+        "pinned_version": "1.28.2",
+        "pinned_release_date": "2026-08-06T21:37:25.001127Z",
+        "days_outdated": 0,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.10",
+        "license_str": "Dual Licensed - GNU AFFERO GPL 3.0 or Artifex Commercial License",
+        "home_page": null,
+        "project_urls": {
+          "Changelog": "https://pymupdf.readthedocs.io/en/latest/changes.html",
+          "Documentation": "https://pymupdf.readthedocs.io/",
+          "Source": "https://github.com/pymupdf/pymupdf",
+          "Tracker": "https://github.com/pymupdf/PyMuPDF/issues"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 3,
+        "call_count": 0,
+        "files_using": [
+          "tests\\test_document_intelligence.py",
+          "app\\services\\providers\\ocr_provider.py"
+        ],
+        "imports": [
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 327,
+            "statement": "import pymupdf",
+            "imported_module": "pymupdf",
+            "imported_symbols": [
+              "pymupdf"
+            ],
+            "package_name": "pymupdf"
+          },
+          {
+            "file_path": "tests\\test_document_intelligence.py",
+            "line_number": 431,
+            "statement": "import pymupdf",
+            "imported_module": "pymupdf",
+            "imported_symbols": [
+              "pymupdf"
+            ],
+            "package_name": "pymupdf"
+          },
+          {
+            "file_path": "app\\services\\providers\\ocr_provider.py",
+            "line_number": 164,
+            "statement": "import pymupdf",
+            "imported_module": "pymupdf",
+            "imported_symbols": [
+              "pymupdf"
+            ],
+            "package_name": "pymupdf"
+          }
+        ],
+        "call_sites": []
+      },
+      "objective_risks": [],
+      "risk_count": 0,
+      "has_objective_risk": false
+    },
+    "google-genai": {
+      "package_name": "google-genai",
+      "declarations": [
+        {
+          "name": "google-genai",
+          "normalized_name": "google-genai",
+          "specifier": "==2.20.0",
+          "is_pinned": true,
+          "pinned_version": "2.20.0",
+          "source_file": "requirements.txt",
+          "line_number": 18,
+          "raw_line": "google-genai==2.20.0",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "google-genai",
+        "latest_version": "2.31.0",
+        "latest_release_date": "2026-10-14T23:52:22.766734Z",
+        "pinned_version": "2.20.0",
+        "pinned_release_date": "2026-08-25T21:28:25.287434Z",
+        "days_outdated": 50,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.10",
+        "license_str": null,
+        "home_page": null,
+        "project_urls": {
+          "Homepage": "https://github.com/googleapis/python-genai"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": false,
+        "import_count": 0,
+        "call_count": 0,
+        "files_using": [],
+        "imports": [],
+        "call_sites": []
+      },
+      "objective_risks": [
+        "GHOST_DEPENDENCY: Declared in requirements.txt:18 but no static import was detected in Python files."
+      ],
+      "risk_count": 1,
+      "has_objective_risk": true
+    },
+    "groq": {
+      "package_name": "groq",
+      "declarations": [
+        {
+          "name": "groq",
+          "normalized_name": "groq",
+          "specifier": "==1.7.0",
+          "is_pinned": true,
+          "pinned_version": "1.7.0",
+          "source_file": "requirements.txt",
+          "line_number": 19,
+          "raw_line": "groq==1.7.0",
+          "is_dev": false
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "groq",
+        "latest_version": "1.7.0",
+        "latest_release_date": "2026-08-26T02:36:18.497590Z",
+        "pinned_version": "1.7.0",
+        "pinned_release_date": "2026-08-26T02:36:18.497590Z",
+        "days_outdated": 0,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.10",
+        "license_str": "Apache-2.0",
+        "home_page": null,
+        "project_urls": {
+          "Homepage": "https://github.com/groq/groq-python",
+          "Repository": "https://github.com/groq/groq-python"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": true,
+        "import_count": 1,
+        "call_count": 0,
+        "files_using": [
+          "app\\services\\document_extraction.py"
+        ],
+        "imports": [
+          {
+            "file_path": "app\\services\\document_extraction.py",
+            "line_number": 222,
+            "statement": "from groq import AsyncGroq",
+            "imported_module": "groq",
+            "imported_symbols": [
+              "AsyncGroq"
+            ],
+            "package_name": "groq"
+          }
+        ],
+        "call_sites": []
+      },
+      "objective_risks": [],
+      "risk_count": 0,
+      "has_objective_risk": false
+    },
+    "ruff": {
+      "package_name": "ruff",
+      "declarations": [
+        {
+          "name": "ruff",
+          "normalized_name": "ruff",
+          "specifier": "==0.16.5",
+          "is_pinned": true,
+          "pinned_version": "0.16.5",
+          "source_file": "requirements-dev.txt",
+          "line_number": 2,
+          "raw_line": "ruff==0.16.5",
+          "is_dev": true
+        }
+      ],
+      "pypi_metadata": {
+        "package_name": "ruff",
+        "latest_version": "0.17.0",
+        "latest_release_date": "2026-10-09T19:46:38.695158Z",
+        "pinned_version": "0.16.5",
+        "pinned_release_date": "2026-08-27T16:33:41.287711Z",
+        "days_outdated": 43,
+        "is_yanked": false,
+        "yanked_reason": null,
+        "requires_python": ">=3.7",
+        "license_str": null,
+        "home_page": "https://docs.astral.sh/ruff",
+        "project_urls": {
+          "Changelog": "https://github.com/astral-sh/ruff/blob/main/CHANGELOG.md",
+          "Documentation": "https://docs.astral.sh/ruff/",
+          "Homepage": "https://docs.astral.sh/ruff",
+          "Repository": "https://github.com/astral-sh/ruff"
+        },
+        "is_inactive_or_deprecated": false,
+        "deprecation_evidence": [],
+        "raw_status": "FOUND"
+      },
+      "ast_usage": {
+        "is_used": false,
+        "import_count": 0,
+        "call_count": 0,
+        "files_using": [],
+        "imports": [],
+        "call_sites": []
+      },
+      "objective_risks": [
+        "GHOST_DEPENDENCY: Declared in requirements-dev.txt:2 but no static import was detected in Python files."
+      ],
+      "risk_count": 1,
+      "has_objective_risk": true
+    }
+  }
+}
