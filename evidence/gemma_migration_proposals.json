@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at_utc": "2026-10-15T08:03:11.877716+00:00",
+    "generated_at_utc": "2026-10-15T08:37:52.741095+00:00",
     "author": "Member 2: Gemma 4 AI Reasoning & Migration Patch Builder",
     "operating_mode": "Deterministic Expert Synthesis",
     "total_actionable_evaluated": 8,
@@ -42,7 +42,7 @@
         "Change 'from appdirs import user_cache_dir' to 'from platformdirs import user_cache_dir' in linkwatch/cache.py",
         "Replace 'appdirs==1.4.4' with 'platformdirs>=3.0.0' in requirements.txt and pyproject.toml"
       ],
-      "unified_diff": "--- a/linkwatch/cache.py\n+++ b/linkwatch/cache.py\n@@ -2,3 +2,3 @@\n import os\n \n-from appdirs import user_cache_dir\n+from platformdirs import user_cache_dir\n \n",
+      "unified_diff": "--- a/LinkWatch/linkwatch/cache.py\n+++ b/LinkWatch/linkwatch/cache.py\n@@ -1,7 +1,7 @@\n import json\n import os\n \n-from appdirs import user_cache_dir\n+from platformdirs import user_cache_dir\n \n RESULTS_FILE = \"results.json\"\n \n--- a/LinkWatch/requirements.txt\n+++ b/LinkWatch/requirements.txt\n@@ -1,5 +1,5 @@\n toml==0.10.2\n-appdirs==1.4.4\n+platformdirs>=3.0.0\n requests==2.31.0\n Jinja2==2.11.3\n pydantic==1.10.13\n--- a/LinkWatch/pyproject.toml\n+++ b/LinkWatch/pyproject.toml\n@@ -11,7 +11,7 @@\n requires-python = \">=3.10\"\n dependencies = [\n     \"toml==0.10.2\",\n-    \"appdirs==1.4.4\",\n+    \"platformdirs>=3.0.0\",\n     \"requests==2.31.0\",\n     \"Jinja2==2.11.3\",\n     \"pydantic>=2\",\n",
       "verification_tests": [
         "def test_platformdirs_user_cache_dir():\n    from linkwatch.cache import cache_dir\n    path = cache_dir()\n    assert os.path.exists(path)\n    assert 'linkwatch' in path.lower()"
       ],
@@ -64,7 +64,7 @@
         "Remove direct pin 'idna==2.7' from pyproject.toml",
         "Allow requests to resolve compatible modern idna versions automatically"
       ],
-      "unified_diff": "--- a/requirements.txt\n+++ b/requirements.txt\n@@ -10,1 +9,0 @@\n-idna==2.7\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -22,1 +21,0 @@\n-    \"idna==2.7\",\n",
+      "unified_diff": "--- a/LinkWatch/requirements.txt\n+++ b/LinkWatch/requirements.txt\n@@ -7,7 +7,6 @@\n six\n chardet==5.2.0\n setuptools==75.8.0\n-idna==2.7\n python-dateutil\n rich\n # PyYAML==5.1\n--- a/LinkWatch/pyproject.toml\n+++ b/LinkWatch/pyproject.toml\n@@ -19,7 +19,6 @@\n     \"six\",\n     \"chardet==5.2.0\",\n     \"setuptools==75.8.0\",\n-    \"idna==2.7\",\n     \"python-dateutil\",\n     \"rich\",\n ]\n",
       "verification_tests": [
         "def test_requests_idna_resolution():\n    import requests\n    resp = requests.compat.urlparse('https://example.com')\n    assert resp.scheme == 'https'"
       ],
@@ -84,7 +84,7 @@
         "Update pyproject.toml: change Jinja2==2.11.3 to Jinja2>=3.1.5",
         "Re-run test_report.py to verify HTML report rendering passes without markupsafe errors"
       ],
-      "unified_diff": "--- a/requirements.txt\n+++ b/requirements.txt\n@@ -4,1 +4,1 @@\n-Jinja2==2.11.3\n+Jinja2>=3.1.5\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -16,1 +16,1 @@\n-    \"Jinja2==2.11.3\",\n+    \"Jinja2>=3.1.5\",\n",
+      "unified_diff": "--- a/LinkWatch/requirements.txt\n+++ b/LinkWatch/requirements.txt\n@@ -1,7 +1,7 @@\n toml==0.10.2\n appdirs==1.4.4\n requests==2.31.0\n-Jinja2==2.11.3\n+Jinja2>=3.1.5\n pydantic==1.10.13\n click>=7\n six\n--- a/LinkWatch/pyproject.toml\n+++ b/LinkWatch/pyproject.toml\n@@ -13,7 +13,7 @@\n     \"toml==0.10.2\",\n     \"appdirs==1.4.4\",\n     \"requests==2.31.0\",\n-    \"Jinja2==2.11.3\",\n+    \"Jinja2>=3.1.5\",\n     \"pydantic>=2\",\n     \"click>=7\",\n     \"six\",\n",
       "verification_tests": [
         "def test_jinja2_report_rendering(tmp_path):\n    from linkwatch.report import render_report\n    out = tmp_path / 'out.html'\n    render_report([{'name': 'Test', 'url': 'http://test', 'up': True}], output=str(out))\n    assert out.exists()\n    assert 'Test' in out.read_text()"
       ],
@@ -106,7 +106,7 @@
         "Remove 'test-nose' target and nosetests references from Makefile",
         "Retain pytest as the sole standard test runner"
       ],
-      "unified_diff": "--- a/requirements-dev.txt\n+++ b/requirements-dev.txt\n@@ -2,1 +1,0 @@\n-nose==1.3.7\n--- a/Makefile\n+++ b/Makefile\n@@ -4,1 +4,1 @@\n-.PHONY: setup test test-nose docker-build docker-test\n+.PHONY: setup test docker-build docker-test\n@@ -13,3 +13,0 @@\n-test-nose:\n-\tnosetests tests/\n-\n",
+      "unified_diff": "--- a/LinkWatch/requirements-dev.txt\n+++ b/LinkWatch/requirements-dev.txt\n@@ -1,2 +1 @@\n pytest\n-nose==1.3.7\n--- a/LinkWatch/Makefile\n+++ b/LinkWatch/Makefile\n@@ -1,7 +1,7 @@\n IMAGE ?= linkwatch\n PYTHON ?= python3.12\n \n-.PHONY: setup test test-nose docker-build docker-test\n+.PHONY: setup test docker-build docker-test\n \n setup:\n \t$(PYTHON) -m venv .venv\n@@ -10,9 +10,6 @@\n test:\n \tpython -m pytest\n \n-test-nose:\n-\tnosetests tests/\n-\n docker-build:\n \tdocker build -t $(IMAGE) .\n \n",
       "verification_tests": [
         "def test_pytest_runs_cleanly():\n    import pytest\n    ret = pytest.main(['-q', 'tests/test_cli.py'])\n    assert ret == 0"
       ],
@@ -125,7 +125,7 @@
         "Harmonize manifests by standardizing on pydantic>=2 in both requirements.txt and pyproject.toml",
         "Update linkwatch/config.py to use pydantic v2 @field_validator and ConfigDict (or pydantic.v1 import shim for transitional stability)"
       ],
-      "unified_diff": "--- a/requirements.txt\n+++ b/requirements.txt\n@@ -5,1 +5,1 @@\n-pydantic==1.10.13\n+pydantic>=2.0.0\n--- a/linkwatch/config.py\n+++ b/linkwatch/config.py\n@@ -4,3 +4,11 @@\n-from pydantic import BaseModel, validator\n+try:\n+    from pydantic import BaseModel, field_validator, ConfigDict\n+    V2 = True\n+except ImportError:\n+    from pydantic import BaseModel, validator\n+    V2 = False\n \n class Site(BaseModel):\n     name: str\n     url: str\n+    if V2:\n+        model_config = ConfigDict(str_strip_whitespace=True)\n+    else:\n+        class Config:\n+            anystr_strip_whitespace = True\n@@ -14,2 +22,10 @@\n+    if V2:\n+        @field_validator(\"name\")\n+        @classmethod\n+        def name_not_empty(cls, value):\n+            if not value:\n+                raise ValueError(\"site name can not be empty\")\n+            return value\n+    else:\n         @validator(\"name\")\n         def name_not_empty(cls, value):\n",
+      "unified_diff": "--- a/LinkWatch/requirements.txt\n+++ b/LinkWatch/requirements.txt\n@@ -2,7 +2,7 @@\n appdirs==1.4.4\n requests==2.31.0\n Jinja2==2.11.3\n-pydantic==1.10.13\n+pydantic>=2.0.0\n click>=7\n six\n chardet==5.2.0\n--- a/LinkWatch/linkwatch/config.py\n+++ b/LinkWatch/linkwatch/config.py\n@@ -1,7 +1,12 @@\n from typing import List\n \n import toml\n-from pydantic import BaseModel, validator\n+try:\n+    from pydantic import BaseModel, field_validator, ConfigDict\n+    V2 = True\n+except ImportError:\n+    from pydantic import BaseModel, validator\n+    V2 = False\n \n \n class Site(BaseModel):\n",
       "verification_tests": [
         "def test_pydantic_site_validation():\n    from linkwatch.config import Site\n    import pytest\n    s = Site(name='Test', url='https://test.com')\n    assert s.name == 'Test'\n    with pytest.raises(ValueError):\n        Site(name='', url='https://test.com')"
       ],
@@ -146,7 +146,7 @@
         "Refactor linkwatch/resources.py to use standard library 'importlib.resources.files'",
         "Remove 'setuptools==75.8.0' from runtime requirements.txt (retain in build-system of pyproject.toml only)"
       ],
-      "unified_diff": "--- a/linkwatch/resources.py\n+++ b/linkwatch/resources.py\n@@ -1,3 +1,3 @@\n-import pkg_resources\n+from importlib.resources import files\n \n TEMPLATE_NAME = \"status.html.j2\"\n@@ -6,3 +6,3 @@\n def template_dir():\n-    return pkg_resources.resource_filename(\"linkwatch\", \"templates\")\n+    return str(files(\"linkwatch\").joinpath(\"templates\"))\n--- a/requirements.txt\n+++ b/requirements.txt\n@@ -9,1 +9,0 @@\n-setuptools==75.8.0\n",
+      "unified_diff": "--- a/LinkWatch/linkwatch/resources.py\n+++ b/LinkWatch/linkwatch/resources.py\n@@ -1,7 +1,7 @@\n-import pkg_resources\n+from importlib.resources import files\n \n TEMPLATE_NAME = \"status.html.j2\"\n \n \n def template_dir():\n-    return pkg_resources.resource_filename(\"linkwatch\", \"templates\")\n+    return str(files(\"linkwatch\").joinpath(\"templates\"))\n--- a/LinkWatch/requirements.txt\n+++ b/LinkWatch/requirements.txt\n@@ -6,7 +6,6 @@\n click>=7\n six\n chardet==5.2.0\n-setuptools==75.8.0\n idna==2.7\n python-dateutil\n rich\n",
       "verification_tests": [
         "def test_template_dir_exists():\n    from linkwatch.resources import template_dir, TEMPLATE_NAME\n    import os\n    td = template_dir()\n    assert os.path.isdir(td)\n    assert os.path.isfile(os.path.join(td, TEMPLATE_NAME))"
       ],
@@ -165,7 +165,7 @@
         "Remove 'six' from requirements.txt",
         "Remove 'six' from pyproject.toml dependencies array"
       ],
-      "unified_diff": "--- a/requirements.txt\n+++ b/requirements.txt\n@@ -7,1 +6,0 @@\n-six\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -19,1 +19,0 @@\n-    \"six\",\n",
+      "unified_diff": "--- a/LinkWatch/requirements.txt\n+++ b/LinkWatch/requirements.txt\n@@ -4,7 +4,6 @@\n Jinja2==2.11.3\n pydantic==1.10.13\n click>=7\n-six\n chardet==5.2.0\n setuptools==75.8.0\n idna==2.7\n--- a/LinkWatch/pyproject.toml\n+++ b/LinkWatch/pyproject.toml\n@@ -16,7 +16,6 @@\n     \"Jinja2==2.11.3\",\n     \"pydantic>=2\",\n     \"click>=7\",\n-    \"six\",\n     \"chardet==5.2.0\",\n     \"setuptools==75.8.0\",\n     \"idna==2.7\",\n",
       "verification_tests": [
         "def test_no_six_import_dependency():\n    import sys\n    sys.modules.pop('six', None)\n    import linkwatch.cli\n    assert 'six' not in sys.modules"
       ],
@@ -185,7 +185,7 @@
         "Update load_settings() in linkwatch/config.py to open files in binary read mode ('rb')",
         "Remove 'toml==0.10.2' from requirements.txt and pyproject.toml dependencies"
       ],
-      "unified_diff": "--- a/linkwatch/config.py\n+++ b/linkwatch/config.py\n@@ -1,5 +1,9 @@\n+import sys\n from typing import List\n \n-import toml\n+if sys.version_info >= (3, 11):\n+    import tomllib\n+else:\n+    import tomli as tomllib\n from pydantic import BaseModel, validator\n \n@@ -36,3 +40,3 @@\n def load_settings(path=\"sites.toml\"):\n-    data = toml.load(path)\n+    with open(path, \"rb\") as f:\n+        data = tomllib.load(f)\n     return Settings(**data)\n",
+      "unified_diff": "--- a/LinkWatch/linkwatch/config.py\n+++ b/LinkWatch/linkwatch/config.py\n@@ -1,6 +1,10 @@\n from typing import List\n \n-import toml\n+import sys\n+if sys.version_info >= (3, 11):\n+    import tomllib\n+else:\n+    import tomli as tomllib\n from pydantic import BaseModel, validator\n \n \n@@ -34,5 +38,6 @@\n \n \n def load_settings(path=\"sites.toml\"):\n-    data = toml.load(path)\n+    with open(path, \"rb\") as f:\n+        data = tomllib.load(f)\n     return Settings(**data)\n",
       "verification_tests": [
         "def test_load_settings_with_tomllib(tmp_path):\n    p = tmp_path / 'sites.toml'\n    p.write_text('title = \"test\"\\n[[sites]]\\nname = \"Example\"\\nurl = \"https://example.com\"\\n')\n    cfg = load_settings(str(p))\n    assert cfg.title == 'test'\n    assert len(cfg.sites) == 1"
       ],
@@ -196,14 +196,14 @@
     }
   ],
   "patch_files": {
+    "toml": "patches\\toml_migration.patch",
     "appdirs": "patches\\appdirs_migration.patch",
-    "idna": "patches\\idna_migration.patch",
     "jinja2": "patches\\jinja2_migration.patch",
     "nose": "patches\\nose_migration.patch",
-    "pydantic": "patches\\pydantic_migration.patch",
     "setuptools": "patches\\setuptools_migration.patch",
     "six": "patches\\six_migration.patch",
-    "toml": "patches\\toml_migration.patch",
+    "idna": "patches\\idna_migration.patch",
+    "pydantic": "patches\\pydantic_migration.patch",
     "_consolidated": "patches\\consolidated_resilify_migrations.patch"
   },
   "verification_test_suite": "LinkWatch\\tests\\test_migration_verification.py"

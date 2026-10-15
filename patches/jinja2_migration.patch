@@ -1,10 +1,22 @@
---- a/requirements.txt
-+++ b/requirements.txt
-@@ -4,1 +4,1 @@
+--- a/LinkWatch/requirements.txt
++++ b/LinkWatch/requirements.txt
+@@ -1,7 +1,7 @@
+ toml==0.10.2
+ appdirs==1.4.4
+ requests==2.31.0
 -Jinja2==2.11.3
 +Jinja2>=3.1.5
---- a/pyproject.toml
-+++ b/pyproject.toml
-@@ -16,1 +16,1 @@
+ pydantic==1.10.13
+ click>=7
+ six
+--- a/LinkWatch/pyproject.toml
++++ b/LinkWatch/pyproject.toml
+@@ -13,7 +13,7 @@
+     "toml==0.10.2",
+     "appdirs==1.4.4",
+     "requests==2.31.0",
 -    "Jinja2==2.11.3",
 +    "Jinja2>=3.1.5",
+     "pydantic>=2",
+     "click>=7",
+     "six",

@@ -1,7 +1,14 @@
 import socket
+import sys
 import threading
 import time
+from pathlib import Path
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+
+# Ensure LinkWatch root is in sys.path
+_repo_dir = str(Path(__file__).resolve().parent.parent)
+if _repo_dir not in sys.path:
+    sys.path.insert(0, _repo_dir)
 
 import pytest
 
