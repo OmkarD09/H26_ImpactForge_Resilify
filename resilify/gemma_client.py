@@ -16,13 +16,17 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional, Any
 
-try:
-    from dotenv import load_dotenv
-    _env_path = Path(__file__).resolve().parent.parent / ".env"
-    if _env_path.exists():
+_env_path = Path(__file__).resolve().parent.parent / ".env"
+if _env_path.exists():
+    try:
+        from dotenv import load_dotenv
         load_dotenv(_env_path)
-except ImportError:
-    pass
+    except ImportError:
+        for _line in _env_path.read_text(encoding="utf-8").splitlines():
+            _line = _line.strip()
+            if _line and not _line.startswith("#") and "=" in _line:
+                _k, _v = _line.split("=", 1)
+                os.environ.setdefault(_k.strip(), _v.strip().strip("'\""))
 
 GEMMA_SYSTEM_PROMPT = """You are Gemma 4, an expert AI Software Engineer specialized in Python Dependency Resilience and Zero-Downtime Migration Synthesis.
 

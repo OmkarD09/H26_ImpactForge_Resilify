@@ -88,8 +88,17 @@ class CandidateEvaluator:
         deps_data = inventory_data.get("dependencies", {})
         candidates: List[CandidateEvaluation] = []
 
-        has_member2 = member2_recommendations is not None and len(member2_recommendations) > 0
-        gemma_status = "AI_RECOMMENDED" if has_member2 else "MISSING_FROM_MEMBER_2"
+        if member2_recommendations:
+            prov = member2_recommendations.get("provenance")
+            if prov:
+                gemma_status = prov.value if hasattr(prov, "value") else str(prov)
+            elif "status" in member2_recommendations:
+                st = member2_recommendations["status"]
+                gemma_status = st.value if hasattr(st, "value") else str(st)
+            else:
+                gemma_status = EvidenceStatus.AI_RECOMMENDATION.value
+        else:
+            gemma_status = EvidenceStatus.MISSING_FROM_MEMBER_2.value
 
         # ---------------------------------------------------------------------
         # 1. Evaluate 'appdirs' (Direct runtime, unmaintained 6+ years)
