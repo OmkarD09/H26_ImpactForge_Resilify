@@ -220,3 +220,87 @@ def test_save_evidence_record(sample_inventory, valid_gemma_json, tmp_path: Path
     assert saved["model_id"] == HOSTED_GEMMA_MODEL_ID
     assert saved["validation_status"] == "VALID"
     assert saved["recommendation"]["target_dependency"] == "appdirs"
+
+
+def test_update_capsule_with_validated_recommendation(sample_inventory, valid_gemma_json, tmp_path: Path):
+    """Verifies that valid Gemma recommendation updates capsule with AI_RECOMMENDATION provenance."""
+    advisor = GemmaAdvisor()
+    mock_client = MagicMock()
+    mock_client.models.generate_content.return_value = MagicMock(text=valid_gemma_json)
+
+    record = advisor.generate_recommendation(sample_inventory, mock_client=mock_client)
+
+    dummy_capsule = {
+        "capsule_id": "test-capsule",
+        "verification": {"verdict": "VERIFIED_SUCCESS"},
+        "migration_proposal": {
+            "proposed_action": "REPLACE",
+            "replacement_package": "old_package",
+            "rationale": "old rationale",
+            "status": "MANUAL_STAND_IN",
+        },
+    }
+    capsule_file = tmp_path / "test_capsule.json"
+    capsule_file.write_text(json.dumps(dummy_capsule, indent=2), encoding="utf-8")
+
+    dummy_md = tmp_path / "TEST_CAPSULE.md"
+    dummy_md.write_text("# Test Capsule\n- **AI Recommendation Provenance:** `MISSING_FROM_MEMBER_2`\n", encoding="utf-8")
+
+    updated = advisor.update_capsule_with_recommendation(record, capsule_file, dummy_md)
+    assert updated is True
+
+    loaded_json = json.loads(capsule_file.read_text(encoding="utf-8"))
+    prop = loaded_json["migration_proposal"]
+    assert prop["status"] == EvidenceStatus.AI_RECOMMENDATION.value
+    assert prop["replacement_package"] == "platformdirs>=3.0.0"
+    assert HOSTED_GEMMA_MODEL_ID in prop["uncertainty_notes"]
+
+    loaded_md = dummy_md.read_text(encoding="utf-8")
+    assert "AI_RECOMMENDATION" in loaded_md
+    assert HOSTED_GEMMA_MODEL_ID in loaded_md
+
+
+def test_update_capsule_rejected_when_validation_fails(sample_inventory, tmp_path: Path):
+    """Verifies that unverified or failed recommendation does NOT overwrite capsule."""
+    advisor = GemmaAdvisor()
+    mock_client = MagicMock()
+    mock_client.models.generate_content.return_value = MagicMock(text="broken json {")
+
+    record = advisor.generate_recommendation(sample_inventory, mock_client=mock_client)
+    assert record.validation_status == "VALIDATION_FAILED"
+
+    capsule_file = tmp_path / "test_capsule.json"
+    dummy_capsule = {"migration_proposal": {"status": "HEURISTIC"}}
+    capsule_file.write_text(json.dumps(dummy_capsule), encoding="utf-8")
+
+    updated = advisor.update_capsule_with_recommendation(record, capsule_file)
+    assert updated is False
+    assert json.loads(capsule_file.read_text(encoding="utf-8"))["migration_proposal"]["status"] == "HEURISTIC"
+
+
+def test_provenance_distinction(sample_inventory):
+    """Verifies that provenance distinguishes AI_RECOMMENDATION, HEURISTIC, MANUAL_STAND_IN, and MISSING_FROM_MEMBER_2."""
+    from exitguard.candidate_evaluator import CandidateEvaluator
+
+    # 1. Missing Member 2
+    cands_missing = CandidateEvaluator.evaluate_candidates(sample_inventory, member2_recommendations=None)
+    assert all(c.gemma_recommendation_status == EvidenceStatus.MISSING_FROM_MEMBER_2.value for c in cands_missing)
+
+    # 2. Heuristic
+    cands_heuristic = CandidateEvaluator.evaluate_candidates(
+        sample_inventory, member2_recommendations={"provenance": EvidenceStatus.HEURISTIC}
+    )
+    assert all(c.gemma_recommendation_status == EvidenceStatus.HEURISTIC.value for c in cands_heuristic)
+
+    # 3. Manual stand-in
+    cands_manual = CandidateEvaluator.evaluate_candidates(
+        sample_inventory, member2_recommendations={"provenance": EvidenceStatus.MANUAL_STAND_IN}
+    )
+    assert all(c.gemma_recommendation_status == EvidenceStatus.MANUAL_STAND_IN.value for c in cands_manual)
+
+    # 4. AI recommendation
+    cands_ai = CandidateEvaluator.evaluate_candidates(
+        sample_inventory, member2_recommendations={"provenance": EvidenceStatus.AI_RECOMMENDATION}
+    )
+    assert all(c.gemma_recommendation_status == EvidenceStatus.AI_RECOMMENDATION.value for c in cands_ai)
+
