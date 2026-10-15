@@ -2,7 +2,7 @@
 
 > **Track:** Track 1: Gemma 4 Dependency Resilience  
 > **Target Repository:** [`https://github.com/rishrek/LinkWatch`](https://github.com/rishrek/LinkWatch)  
-> **Generated:** `2026-10-15T09:46:57.842764+00:00`  
+> **Generated:** `2026-10-15T09:51:54.454811+00:00`  
 > **Sandbox Verdict:** `🟢 VERIFIED_SUCCESS`  
 
 ---
@@ -50,10 +50,10 @@
 
 ### C. Sandboxed Post-Migration Test Outcomes
 
-- **Sandbox Root Directory:** `C:\Users\Rohan\AppData\Local\Temp\resilify_sandbox_uv1hz3yd`
+- **Sandbox Root Directory:** `C:\Users\Rohan\AppData\Local\Temp\resilify_sandbox_q32eo9k3`
 - **Consolidated Patch Applied:** `True` (`F:\H26_ImpactForge_Resilify\patches\consolidated_resilify_migrations.patch`)
-- **Targeted Verification Suite:** `7 passed / 0 failed` in `0.554s`
-- **Full Candidate Project Suite:** `17 passed / 0 failed` in `9.156s`
+- **Targeted Verification Suite:** `7 passed / 0 failed` in `0.558s`
+- **Full Candidate Project Suite:** `17 passed / 0 failed` in `9.14s`
 
 #### Verified Scope:
 - [x] **tomllib binary file-read mode (Python 3.11+ stdlib)**

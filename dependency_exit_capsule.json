@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "capsule_version": "1.0.0",
-  "generated_at_utc": "2026-10-15T09:46:57.842764+00:00",
+  "generated_at_utc": "2026-10-15T09:51:54.454811+00:00",
   "project_name": "Resilify",
   "track": "Track 1: Gemma 4 Dependency Resilience",
   "verdict": "VERIFIED_SUCCESS",
@@ -490,14 +490,14 @@
       "suite": "Baseline Pre-Migration Tests",
       "passed": 17,
       "failed": 0,
-      "duration_seconds": 9.184,
+      "duration_seconds": 9.164,
       "status": "PASSED"
     },
     "sandbox_post_migration_verification_run": {
       "suite": "Targeted Migration Parity Tests",
       "passed": 7,
       "failed": 0,
-      "duration_seconds": 0.554,
+      "duration_seconds": 0.558,
       "status": "PASSED",
       "verified_scope": [
         "tomllib binary file-read mode (Python 3.11+ stdlib)",
@@ -513,7 +513,7 @@
       "suite": "Post-Migration Full Project Test Suite",
       "passed": 17,
       "failed": 0,
-      "duration_seconds": 9.156,
+      "duration_seconds": 9.14,
       "status": "PASSED"
     },
     "verified_compatibility_gaps": [
