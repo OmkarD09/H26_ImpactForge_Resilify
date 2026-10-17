@@ -233,7 +233,7 @@ html, body {
   white-space: nowrap;
 }
 
-/* Sidebar Repository Context Card */
+/* Sidebar Repository Context Card & Project Selector */
 .sidebar-repo-card {
   margin: 14px 14px 8px 14px;
   padding: 10px 12px;
@@ -242,17 +242,63 @@ html, body {
   border-radius: var(--radius-md);
 }
 
+.repo-card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
 .repo-card-label {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
   font-weight: 600;
-  margin-bottom: 4px;
+}
+
+.project-pill-badge {
+  font-size: 9px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: var(--radius-sm);
+  background: var(--semantic-violet-bg);
+  border: 1px solid var(--semantic-violet-border);
+  color: var(--semantic-violet);
+  text-transform: uppercase;
+}
+
+.project-select-wrapper {
+  margin-bottom: 8px;
+}
+
+.project-select-input {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.project-select-input:hover {
+  border-color: var(--semantic-violet);
+}
+
+.project-select-input:focus {
+  border-color: var(--semantic-violet);
+  box-shadow: 0 0 0 2px var(--semantic-violet-bg);
 }
 
 .repo-card-name {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--text-primary);
   display: flex;
@@ -278,6 +324,59 @@ html, body {
   padding: 1px 5px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-subtle);
+}
+
+/* Verification Runs Action Card */
+.runs-action-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.runs-action-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.runs-action-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.runs-action-command {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.runs-action-command code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: var(--bg-surface-elevated);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.runs-action-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* Sidebar Navigation Items */

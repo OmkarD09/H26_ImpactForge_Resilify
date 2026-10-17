@@ -44,7 +44,7 @@ class DynamicInspector:
 
         for py_path in self.repo_dir.rglob("*.py"):
             parts = py_path.parts
-            if any(p.startswith(".") or p in ("build", "dist", "__pycache__") for p in parts):
+            if any(p.startswith(".") or p in ("build", "dist", "__pycache__", "venv", "env", "node_modules", "site-packages") for p in parts):
                 continue
             rel = str(py_path.relative_to(self.repo_dir))
             try:

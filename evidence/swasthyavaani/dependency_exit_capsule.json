@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "capsule_version": "1.0.0",
+  "capsule_id": "capsule-swasthyavaani-clinical-guardrails-20261015",
+  "generated_at_utc": "2026-10-15T12:00:00.000000+00:00",
+  "project_name": "Resilify",
+  "track": "Real-World Multi-Project Adaptability Verification",
+  "repository": {
+    "url": "https://github.com/SwasthyaVaani/backend",
+    "commit_sha": "a849f12d46e108c9038d17f54cba799c90be6e13",
+    "branch": "main",
+    "is_dirty": false
+  },
+  "target_dependency": {
+    "name": "pydantic-settings",
+    "installed_version": "2.4.0",
+    "declared_in": [
+      "requirements.txt:4"
+    ],
+    "is_pinned": false
+  },
+  "migration_proposal": {
+    "proposed_action": "RETAIN_OR_UPDATE",
+    "replacement_package": "pydantic-settings>=2.4.0",
+    "rationale": "Retain compatible constraint with modern FastAPI and Pydantic v2 runtime without breaking configuration schemas.",
+    "migration_patch_sha256": "48b6c82305a4ecb1a8d05e542918bb612e4d06a4b3d75ea9c6a18d128d8b9f02"
+  },
+  "verification": {
+    "verdict": "VERIFIED_SUCCESS",
+    "verdict_scope_explanation": "Verified that SwasthyaVaani clinical safety rules and guardrails pass 100% under Python 3.12 (4/4 test cases passed cleanly with Exit Code 0, zero regressions) across clinical safety rules, triage signals, and contradiction detection.",
+    "supported_python_versions": [
+      "3.12"
+    ],
+    "tested_python_versions": [
+      "3.12"
+    ],
+    "python_version_results": {
+      "3.12": {
+        "python_version": "3.12.10",
+        "tested": true,
+        "baseline_run": {
+          "command_args": [
+            "C:\\Users\\ACER\\Downloads\\SwasthyaVaani\\backend\\venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "tests/test_safety_rules.py",
+            "-v"
+          ],
+          "python_version": "3.12.10",
+          "platform": "Windows-AMD64",
+          "status": "PASSED",
+          "exit_code": 0,
+          "duration_ms": 40,
+          "log_artifact_path": "evidence/swasthyavaani/swasthyavaani_test.log",
+          "test_counts": {
+            "passed": 4,
+            "failed": 0,
+            "skipped": 0,
+            "total": 4
+          },
+          "test_results": [
+            {
+              "node_id": "tests/test_safety_rules.py::test_red_flag_triggers_on_cardiac_signals",
+              "status": "PASSED",
+              "duration_s": 0.01,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_safety_rules.py::test_red_flag_triggers_on_high_severity",
+              "status": "PASSED",
+              "duration_s": 0.01,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_safety_rules.py::test_red_flag_not_triggered_on_mild_symptom",
+              "status": "PASSED",
+              "duration_s": 0.01,
+              "failure_message": null,
+              "failure_signature": null
+            },
+            {
+              "node_id": "tests/test_safety_rules.py::test_contradiction_detection_preserves_both_sources",
+              "status": "PASSED",
+              "duration_s": 0.01,
+              "failure_message": null,
+              "failure_signature": null
+            }
+          ]
+        }
+      }
+    }
+  },
+  "risk_evidence": [
+    {
+      "source": "AST_ANALYSIS",
+      "evidence": "Scanned 51 backend modules; identified 10 actively used runtime packages and 8 tooling/ghost dependencies."
+    },
+    {
+      "source": "PYPI_METADATA",
+      "evidence": "Fetched latest package releases and python requirements for all 18 dependencies from PyPI registry."
+    }
+  ],
+  "usage_locations": [
+    {
+      "file_path": "app/core/config.py",
+      "line_numbers": [
+        1,
+        14
+      ],
+      "ast_symbol": "BaseSettings"
+    }
+  ]
+}
